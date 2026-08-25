@@ -1,0 +1,50 @@
+{
+  "layout": "image-top",
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "homecharge",
+      "fit": "cover",
+      "caption": "有家充，是买电车的最大底气"
+    },
+    {
+      "type": "paragraph",
+      "text": "有固定车位和家充，电车的日常体验会好很多——晚上插上，第二天满电出发，成本最低。没有家充，就要依赖公共快充桩。"
+    },
+    {
+      "type": "comparison",
+      "columns": [
+        "家充",
+        "公共快充"
+      ],
+      "rows": [
+        {
+          "label": "速度",
+          "cells": [
+            "慢，一夜充满",
+            "快，30分钟"
+          ]
+        },
+        {
+          "label": "成本",
+          "cells": [
+            "约 0.3 元/度",
+            "1–1.8 元/度"
+          ]
+        },
+        {
+          "label": "适合",
+          "cells": [
+            "有固定车位",
+            "赶时间"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "能装家充优先装，它是电车体验的关键前提。",
+      "tone": "positive"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "layout": "image-split",
+  "image_side": "left",
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "roses",
+      "fit": "cover",
+      "caption": "你温柔的样子，是我眼里最美的风景"
+    },
+    {
+      "type": "paragraph",
+      "text": "温柔是一种气质，比外表更长久，让人如沐春风，想靠近、想珍惜。我记忆里最珍贵的画面，是你轻声说话时眼里的光，是你耐心听我说话的样子——都让我越看越喜欢。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "它比外表更长久",
+        "让人如沐春风、想靠近",
+        "你眼里的光，我都记着"
+      ],
+      "style": "default"
+    }
+  ]
+}

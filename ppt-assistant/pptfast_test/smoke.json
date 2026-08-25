@@ -1,0 +1,11 @@
+{
+  "filename": "smoke.pptx",
+  "theme": { "id": "bloom" },
+  "narrative": "pitch",
+  "slides": [
+    { "type": "cover", "heading": "温柔一点，好不好？", "subheading": "写给我最爱的你 · 一些藏在心里很久的话" },
+    { "type": "content", "heading": "这不是一份控诉书", "components": [
+      { "type": "bullets", "items": ["做这几十页，不是要责怪你", "更不是想和你翻旧账", "只是有些话，当面总怕说不好"] } ] },
+    { "type": "ending", "heading": "谢谢你，亲爱的" }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "layout": "image-split",
+  "image_side": "right",
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "dashboard",
+      "fit": "cover",
+      "caption": "屏幕再炫，不如坐进去开一圈"
+    },
+    {
+      "type": "paragraph",
+      "text": "别只坐展厅看参数，一定要开出去试。重点感受：低速走走停停的平顺度、动能回收的拖拽感、车内静音，以及车机是否顺手。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "低速走走停停是否平顺",
+        "动能回收拖拽感能不能适应",
+        "静音与底盘舒适度",
+        "车机卡不卡、导航好不好用"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "试驾就一句话：当自己每天上下班那样开。",
+      "tone": "positive"
+    }
+  ]
+}

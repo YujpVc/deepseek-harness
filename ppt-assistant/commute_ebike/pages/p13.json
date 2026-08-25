@@ -1,0 +1,58 @@
+{
+  "background": {
+    "kind": "gradient",
+    "from": "#F7F4EE",
+    "to": "#F3F0E6"
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "12"
+  },
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "除上面三款，这几家国产老牌也各有侧重：网点覆盖、续航、耐用、舒适。选品牌，更要看门店近、售后方便。"
+    },
+    {
+      "type": "icon_cards",
+      "items": [
+        {
+          "icon": "battery-charging",
+          "title": "台铃",
+          "text": "主打长续航、性价比，预算有限可看"
+        },
+        {
+          "icon": "wind",
+          "title": "绿源",
+          "text": "液冷电机、续航领跑，耐用派"
+        },
+        {
+          "icon": "heart",
+          "title": "爱玛",
+          "text": "舒适时尚，家用与通勤两相宜"
+        },
+        {
+          "icon": "store",
+          "title": "新日",
+          "text": "老牌厂商，网点广、售后稳"
+        },
+        {
+          "icon": "zap",
+          "title": "小牛",
+          "text": "智能化、颜值高，年轻通勤用户"
+        },
+        {
+          "icon": "gauge",
+          "title": "小刀",
+          "text": "动力足、价格亲民，性价比之选"
+        }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "参数好看，不如门店近、修车方便。",
+      "tone": "positive"
+    }
+  ],
+  "notes": "补充四家国产老牌：台铃重续航性价比、绿源液冷耐用、爱玛舒适、新日网点广；选品牌也要看售后覆盖。"
+}

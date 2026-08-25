@@ -1,0 +1,30 @@
+{
+  "layout": "image-split",
+  "image_side": "left",
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "heart",
+      "fit": "cover",
+      "caption": "我不是要一个完美的你，只要真实的你"
+    },
+    {
+      "type": "paragraph",
+      "text": "谢谢你，在我最难的时候都在；谢谢你，包容我的粗心和小毛病；谢谢你，让我知道自己被好好爱着，也让我更想好好爱你。我不是要一个完美的你，我只要眼前真实的你。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "谢谢你的陪伴：我最难的时候，你都在",
+        "谢谢你的包容：包容我的小毛病",
+        "谢谢你的爱：让我更想好好爱你"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "我不是要一个完美的你，我只要眼前真实的你。",
+      "tone": "positive"
+    }
+  ]
+}

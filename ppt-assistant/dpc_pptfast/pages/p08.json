@@ -1,0 +1,35 @@
+{
+  "background": {
+    "kind": "asset",
+    "asset_id": "helmet",
+    "overlay": {
+      "color": "#FFFFFF",
+      "opacity": 0.88
+    }
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "07"
+  },
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "电瓶车是「肉包铁」，安全配置比颜值重要。头盔必须买、刹车要试、灯光要亮、防盗要装，这四样一个都不能省。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "头盔：买合格 3C 认证，别用工地帽糊弄",
+        "刹车：优先前后双碟刹或碟刹+鼓刹",
+        "灯光：夜骑多就选透镜大灯",
+        "防盗：U 型锁 + GPS 定位最实在"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "安全配置，是给自己和家人的兜底。",
+      "tone": "positive"
+    }
+  ]
+}

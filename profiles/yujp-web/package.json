@@ -1,0 +1,22 @@
+{
+  "name": "dsh-profile-web",
+  "private": true,
+  "dependencies": {
+    "@deepseek-ai/dsh-mindmap": "workspace:*",
+    "@huiliyi37/dsh-office": "^0.2.1",
+    "dsh-find-plugin": "^0.3.7",
+    "dshmarket": "^1.17.1"
+  },
+  "dsh": {
+    "profile": {
+      "bundles": [
+        "@deepseek-ai/dsh-base",
+        "@deepseek-ai/dsh-web-app",
+        "dshmarket",
+        "dsh-find-plugin",
+        "@huiliyi37/dsh-office",
+        "@deepseek-ai/dsh-mindmap"
+      ]
+    }
+  }
+}

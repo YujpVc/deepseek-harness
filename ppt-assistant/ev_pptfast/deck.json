@@ -1,0 +1,491 @@
+{
+  "version": "4",
+  "filename": "ev.pptx",
+  "narrative": {
+    "strategy": "instructional",
+    "pacing": "dense",
+    "audience": "public"
+  },
+  "theme": {
+    "id": "consulting"
+  },
+  "meta": {},
+  "assets": {
+    "images": {
+      "battery": {
+        "src": "assets/battery.jpg"
+      },
+      "charging": {
+        "src": "assets/charging.jpg"
+      },
+      "dashboard": {
+        "src": "assets/dashboard.jpg"
+      },
+      "homecharge": {
+        "src": "assets/homecharge.jpg"
+      },
+      "roadtrip": {
+        "src": "assets/roadtrip.jpg"
+      },
+      "scooter": {
+        "src": "assets/scooter.jpg"
+      },
+      "station": {
+        "src": "assets/station.jpg"
+      },
+      "tesla": {
+        "src": "assets/tesla.jpg"
+      }
+    }
+  },
+  "seed": 20260821,
+  "slides": [
+    {
+      "type": "cover",
+      "id": "p01",
+      "heading": "电动车选购指南",
+      "components": [],
+      "layout": "fashion-masthead"
+    },
+    {
+      "type": "content",
+      "id": "p02",
+      "heading": "这份指南会讲什么",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "买电动车和买油车逻辑不同：续航、充电、电池质保、保值率，都是新的决策变量。这份指南按「先想清楚 → 再比参数 → 最后试驾下单」的顺序，把关键点一次讲清。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "为什么现在买电动车",
+            "续航、电池与充电怎么选",
+            "预算、车型与品牌怎么比",
+            "试驾、保值与避坑清单"
+          ],
+          "style": "numbered"
+        }
+      ],
+      "layout": "two-column"
+    },
+    {
+      "type": "content",
+      "id": "p03",
+      "layout": "image-split",
+      "heading": "为什么现在买电动车",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "roadtrip",
+          "caption": "电车的用车成本，远低于油车",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "如果你一年开 1.5 万公里，电车每公里电费约 0.1 元，油车约 0.6 元——一年能省下七八千。加上免购置税、不限行（多数城市）和更平顺的驾驶体验，对家用代步来说优势明显。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "用车成本低：每公里约 0.1 元",
+            "免购置税、多数城市不限行",
+            "驾驶平顺安静，智能化程度高"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "家用代步、通勤为主，现在买电车很划算。",
+          "tone": "positive"
+        }
+      ],
+      "image_side": "left"
+    },
+    {
+      "type": "content",
+      "id": "p04",
+      "heading": "续航与电池，重点看这四点",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "不要只看官方续航，真实续航通常打 7–8 折。重点看电池类型、快充速度和是否支持对外放电，这些才决定你日常用起来方不方便。"
+        },
+        {
+          "type": "kpi_cards",
+          "items": [
+            {
+              "value": "500",
+              "unit": "km",
+              "label": "日常够用续航",
+              "icon": "battery-charging"
+            },
+            {
+              "value": "30",
+              "unit": "分",
+              "label": "快充到 80%",
+              "icon": "zap"
+            },
+            {
+              "value": "7.5",
+              "unit": "折",
+              "label": "冬季续航",
+              "icon": "snowflake"
+            }
+          ]
+        },
+        {
+          "type": "verdict_banner",
+          "text": "按「实际续航 = 标称 × 0.75」来预估，别被宣传数字误导。",
+          "tone": "positive"
+        }
+      ],
+      "layout": "two-column"
+    },
+    {
+      "type": "content",
+      "id": "p05",
+      "layout": "image-top",
+      "heading": "三种充电方式，怎么选",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "homecharge",
+          "caption": "有家充，是买电车的最大底气",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "有固定车位和家充，电车的日常体验会好很多——晚上插上，第二天满电出发，成本最低。没有家充，就要依赖公共快充桩。"
+        },
+        {
+          "type": "comparison",
+          "columns": [
+            "家充",
+            "公共快充"
+          ],
+          "rows": [
+            {
+              "label": "速度",
+              "cells": [
+                "慢，一夜充满",
+                "快，30分钟"
+              ]
+            },
+            {
+              "label": "成本",
+              "cells": [
+                "约 0.3 元/度",
+                "1–1.8 元/度"
+              ]
+            },
+            {
+              "label": "适合",
+              "cells": [
+                "有固定车位",
+                "赶时间"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "verdict_banner",
+          "text": "能装家充优先装，它是电车体验的关键前提。",
+          "tone": "positive"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "id": "p06",
+      "heading": "预算：别只看车价",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "裸车价之外，还有保险、充电桩安装、停车和电池租赁（部分品牌）等费用。用「全生命周期成本」来算，才是真实预算。"
+        },
+        {
+          "type": "kpi_cards",
+          "items": [
+            {
+              "value": "10–15",
+              "unit": "万",
+              "label": "主流价位",
+              "icon": "wallet"
+            },
+            {
+              "value": "5000+",
+              "unit": "元",
+              "label": "首年保险",
+              "icon": "shield"
+            },
+            {
+              "value": "0",
+              "unit": "元",
+              "label": "购置税",
+              "icon": "badge-check"
+            },
+            {
+              "value": "3–8",
+              "unit": "千元",
+              "label": "家充桩安装",
+              "icon": "plug"
+            }
+          ]
+        },
+        {
+          "type": "verdict_banner",
+          "text": "把保险、充电桩、停车都算进去，才不会被「低车价」误导。",
+          "tone": "positive"
+        }
+      ],
+      "layout": "image-lead-split"
+    },
+    {
+      "type": "content",
+      "id": "p07",
+      "layout": "image-split",
+      "heading": "车型：按你的场景选",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "tesla",
+          "caption": "轿车/SUV/微型车，各有各的合适场景",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "城市通勤、家里第二辆车，微型或紧凑轿车够用又便宜；经常全家出行、要装大件，选 SUV；纯粹一个人上下班，微型车停车方便、成本最低。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "城市通勤/第二辆车 → 紧凑轿车",
+            "全家出行/装大件 → SUV",
+            "一个人代步 → 微型车"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "先想清楚「平时几个人坐、跑多远」，再决定车型。",
+          "tone": "positive"
+        }
+      ],
+      "image_side": "left"
+    },
+    {
+      "type": "content",
+      "id": "p08",
+      "heading": "主流品牌，各有什么特点",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "不推荐具体品牌，只讲各家的鲜明特点，方便你按需求对号入座："
+        },
+        {
+          "type": "comparison",
+          "columns": [
+            "类型",
+            "特点",
+            "适合谁"
+          ],
+          "rows": [
+            {
+              "label": "新势力",
+              "cells": [
+                "智能化/服务好",
+                "看重智驾与体验"
+              ]
+            },
+            {
+              "label": "传统大厂",
+              "cells": [
+                "渠道广/保值稳",
+                "求稳、图省心"
+              ]
+            },
+            {
+              "label": "性价比",
+              "cells": [
+                "配置高/价格低",
+                "预算有限"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "verdict_banner",
+          "text": "没有最好的品牌，只有最匹配你需求的选择。",
+          "tone": "positive"
+        }
+      ],
+      "layout": "side-highlight"
+    },
+    {
+      "type": "content",
+      "id": "p09",
+      "layout": "image-split",
+      "heading": "试驾，重点试这几样",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "dashboard",
+          "caption": "屏幕再炫，不如坐进去开一圈",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "别只坐展厅看参数，一定要开出去试。重点感受：低速走走停停的平顺度、动能回收的拖拽感、车内静音，以及车机是否顺手。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "低速走走停停是否平顺",
+            "动能回收拖拽感能不能适应",
+            "静音与底盘舒适度",
+            "车机卡不卡、导航好不好用"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "试驾就一句话：当自己每天上下班那样开。",
+          "tone": "positive"
+        }
+      ],
+      "image_side": "right"
+    },
+    {
+      "type": "content",
+      "id": "p10",
+      "heading": "保值率与电池质保，别忽略",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "电车保值率整体低于油车，但电池质保是更关键的长期保障。购车前问清三电质保的具体条款：年限、里程、是否限制首任车主、衰减到多少算免费更换。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "三电质保：主流 8 年或 15 万公里",
+            "问清是否限首任车主（过户会失效）",
+            "衰减到 70% 以下是否免费换电",
+            "电池租赁方案（如换电）要算总账"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "质保条款写进合同，口头承诺不算数。",
+          "tone": "positive"
+        }
+      ],
+      "layout": "two-column"
+    },
+    {
+      "type": "content",
+      "id": "p11",
+      "heading": "这些误区，新手最容易踩",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "买电车前，先避开这五个坑："
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "只看标称续航，不看真实打折",
+            "以为快充免费又随时有（公共桩要排队、收费）",
+            "忽略电池衰减和质保条款",
+            "跟风买顶配，用不上的配置白花钱",
+            "没提前确认小区能不能装家充"
+          ],
+          "style": "checklist"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "多问一句、多查一步，能省下不少冤枉钱。",
+          "tone": "positive"
+        }
+      ],
+      "layout": "image-lead-split"
+    },
+    {
+      "type": "content",
+      "id": "p12",
+      "heading": "从决定到提车，五步走",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "把流程理清，买电车不复杂："
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "title": "定预算",
+              "text": "算清全生命周期成本"
+            },
+            {
+              "title": "定场景",
+              "text": "几个人坐、跑多远、装不装家充"
+            },
+            {
+              "title": "圈车型",
+              "text": "按场景筛 2–3 款"
+            },
+            {
+              "title": "去试驾",
+              "text": "当日常开，感受平顺与静音"
+            },
+            {
+              "title": "比权益",
+              "text": "质保、补贴、交付周期再下单"
+            }
+          ]
+        },
+        {
+          "type": "verdict_banner",
+          "text": "一步一步来，别被销售节奏带着走。",
+          "tone": "positive"
+        }
+      ],
+      "layout": "two-column"
+    },
+    {
+      "type": "content",
+      "id": "p13",
+      "heading": "一句话总结",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "买电动车的核心逻辑：先确认能不能装家充，再按真实续航和用车场景选车型，最后把质保和保险算进总价。适合自己，比参数好看更重要。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "家充是前提，能装优先装",
+            "续航按 7.5 折估，别信宣传",
+            "预算算全生命周期，不只车价",
+            "质保写进合同，试驾当日常开"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "适合自己的车，就是最好的车。",
+          "tone": "positive"
+        }
+      ],
+      "layout": "narrow-column"
+    },
+    {
+      "type": "ending",
+      "id": "p14",
+      "heading": "选到心仪的车",
+      "components": [],
+      "layout": "tone-adaptive-ending"
+    }
+  ]
+}

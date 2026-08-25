@@ -1,0 +1,32 @@
+{
+  "background": {
+    "kind": "asset",
+    "asset_id": "commute",
+    "overlay": {
+      "color": "#FFFFFF",
+      "opacity": 0.88
+    }
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "01"
+  },
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "买电瓶车，最重要的是先分清「电动自行车」和「电动摩托车」——上不上牌、要不要驾照、能跑多快，全在这里。下面按「分类 → 电池 → 动力 → 上牌 → 品牌 → 避坑」一路讲下来。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "分类：电动自行车 vs 电动摩托车",
+        "电池：铅酸 vs 锂电，续航怎么估",
+        "动力：电机瓦数与爬坡",
+        "上牌：新国标、驾照、保险",
+        "品牌：五大国产怎么选",
+        "避坑：试骑、充电、防盗"
+      ],
+      "style": "numbered"
+    }
+  ]
+}

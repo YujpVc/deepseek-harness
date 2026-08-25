@@ -1,0 +1,29 @@
+{
+  "background": {
+    "kind": "asset",
+    "asset_id": "charging",
+    "overlay": { "color": "#FFFFFF", "opacity": 0.88 }
+  },
+  "decor": { "kind": "big_number", "text": "16" },
+  "components": [
+    {
+      "type": "kpi_cards",
+      "items": [
+        { "value": "0–100", "unit": "元", "label": "上牌费（多免费）" },
+        { "value": "100–300", "unit": "元", "label": "合格 3C 头盔" },
+        { "value": "200–500", "unit": "元", "label": "锁、雨衣等配件" }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "电摩另需交强险约 80–200 元/年；单次充电约 1–2 元，月电费通常不超 50 元。"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "落地预算 = 裸车 + 上牌 + 头盔 + 配件，留出 500–800 元余量。",
+      "tone": "positive"
+    }
+  ],
+  "notes": "落地成本不止裸车：上牌、头盔、保险、配件都要计入，预算预留 500–800 元余量。"
+}

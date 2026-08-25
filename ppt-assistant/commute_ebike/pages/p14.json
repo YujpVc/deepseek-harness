@@ -1,0 +1,52 @@
+{
+  "layout": "quiet-frame",
+  "background": {
+    "kind": "gradient",
+    "from": "#F7F4EE",
+    "to": "#F3F0E6"
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "13"
+  },
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "把「通勤距离」和「路况」两件事交叉对照，车型基本就定了。"
+    },
+    {
+      "type": "matrix",
+      "x_title": "通勤距离",
+      "y_title": "路况",
+      "cols": 2,
+      "items": [
+        {
+          "title": "平路·短途",
+          "tag": "国标电动自行车",
+          "tone": "accent"
+        },
+        {
+          "title": "平路·长途",
+          "tag": "电摩·大容量电池",
+          "tone": "accent"
+        },
+        {
+          "title": "爬坡·短途",
+          "tag": "电摩·大功率电机",
+          "tone": "accent"
+        },
+        {
+          "title": "爬坡·长途带人",
+          "tag": "性能电摩·1200W+",
+          "tone": "accent"
+        }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "短途平路图省心，长途爬坡上电摩。",
+      "tone": "positive"
+    }
+  ],
+  "notes": "用「距离 × 路况」的二维矩阵做决策：平路短途选国标车，其余偏电摩，爬坡长途带人上性能电摩。"
+}

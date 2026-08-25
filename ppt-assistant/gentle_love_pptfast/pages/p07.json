@@ -1,0 +1,30 @@
+{
+  "layout": "image-split",
+  "image_side": "right",
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "hands2",
+      "fit": "cover",
+      "caption": "爱，都在行动里"
+    },
+    {
+      "type": "paragraph",
+      "text": "他不声张，却记得你随口提过的小事；加班路上给你带一杯热饮，下雨天把伞悄悄倾向你。他很少把「我爱你」挂在嘴边，却会在你冷时把外套披给你，在你累时默默接过家务。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "记得你随口提过的小事",
+        "下雨天把伞悄悄倾向你",
+        "把外套披给你、默默接过家务"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "他的爱不常挂在嘴边，却都落在行动里。",
+      "tone": "positive"
+    }
+  ]
+}

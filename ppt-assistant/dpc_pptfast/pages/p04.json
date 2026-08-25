@@ -1,0 +1,53 @@
+{
+  "layout": "image-split",
+  "image_side": "right",
+  "background": {
+    "kind": "asset",
+    "asset_id": "battery",
+    "overlay": {
+      "color": "#FFFFFF",
+      "opacity": 0.88
+    }
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "03"
+  },
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "battery",
+      "fit": "cover",
+      "caption": "电池是电瓶车最贵、最关键的部件"
+    },
+    {
+      "type": "paragraph",
+      "text": "铅酸电池便宜、安全、可回收，但重、冬天掉电多；锂电池轻、续航长、循环次数多，但贵、对充电要求高。续航要看「电压 × 容量」，别只信商家标称的「能跑 100 公里」。"
+    },
+    {
+      "type": "kpi_cards",
+      "items": [
+        {
+          "value": "48",
+          "unit": "V",
+          "label": "电动自行车标准电压"
+        },
+        {
+          "value": "40–80",
+          "unit": "km",
+          "label": "常见真实续航"
+        },
+        {
+          "value": "2–4",
+          "unit": "年",
+          "label": "电池寿命"
+        }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "续航按商家标称打 6–7 折，才是真实里程。",
+      "tone": "positive"
+    }
+  ]
+}

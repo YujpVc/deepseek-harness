@@ -1,0 +1,46 @@
+{
+  "background": {
+    "kind": "asset",
+    "asset_id": "rider",
+    "overlay": {
+      "color": "#FFFFFF",
+      "opacity": 0.88
+    }
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "01"
+  },
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "预算 2500–4000 元、男用通勤，先给结论：图省心免驾照，选新国标电动自行车（绿牌，最高 25km/h）；要速度动力、常爬坡带人，选电动摩托车（黄牌，需考驾照）。后面每一页，都在为这个选择补齐判断依据。"
+    },
+    {
+      "type": "kpi_cards",
+      "items": [
+        {
+          "value": "25",
+          "unit": "km/h",
+          "label": "电动自行车限速，免驾照"
+        },
+        {
+          "value": "50+",
+          "unit": "km/h",
+          "label": "电摩可上，需 D/E/F 驾照"
+        },
+        {
+          "value": "60–80",
+          "unit": "km",
+          "label": "本价位真实通勤续航区间"
+        }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "先定「要不要驾照」，车型自然水落石出。",
+      "tone": "positive"
+    }
+  ],
+  "notes": "结论先行：把整个选车问题收敛成一个关键分叉——要不要驾照。免驾照走新国标电动自行车，要动力走电摩。"
+}

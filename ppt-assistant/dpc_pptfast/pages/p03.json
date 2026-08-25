@@ -1,0 +1,42 @@
+{
+  "layout": "image-split",
+  "image_side": "left",
+  "background": {
+    "kind": "asset",
+    "asset_id": "ebike",
+    "overlay": {
+      "color": "#FFFFFF",
+      "opacity": 0.88
+    }
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "02"
+  },
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "ebike",
+      "fit": "cover",
+      "caption": "电动自行车：有脚踏、限速 25km/h、免驾照"
+    },
+    {
+      "type": "paragraph",
+      "text": "新国标把两轮电动车分成两类：电动自行车（有脚踏、时速≤25km/h、电压≤48V、电机≤400W，上绿牌、免驾照）和电动摩托车（没脚踏、可上 50km/h，要驾照、上黄/蓝牌、买交强险）。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "电动自行车：免驾照、绿牌、25km/h 封顶",
+        "电动摩托车：要驾照、上牌、能跑更快",
+        "日常通勤代步，电动自行车最省心"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "先想清楚要不要驾照，再决定买哪一类。",
+      "tone": "positive"
+    }
+  ]
+}

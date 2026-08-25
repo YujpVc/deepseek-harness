@@ -1,0 +1,30 @@
+{
+  "layout": "image-split",
+  "image_side": "right",
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "sunset",
+      "fit": "cover",
+      "caption": "你多温柔一分，我就多爱你十分"
+    },
+    {
+      "type": "paragraph",
+      "text": "在我累的时候，少一点指责，多一点抱抱，不问「怎么又这样」，问一句「你还好吗」；在我失落的时候，少一点比较，多一点鼓励，不和别人比，只和我一起往前走。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "累的时候：多一点抱抱，问「你还好吗」",
+        "失落的时候：多一点鼓励",
+        "不和别人比，只和我一起走"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "你多温柔一分，我就多爱你十分。",
+      "tone": "positive"
+    }
+  ]
+}

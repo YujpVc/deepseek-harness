@@ -1,0 +1,42 @@
+{
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "裸车价之外，还有保险、充电桩安装、停车和电池租赁（部分品牌）等费用。用「全生命周期成本」来算，才是真实预算。"
+    },
+    {
+      "type": "kpi_cards",
+      "items": [
+        {
+          "value": "10–15",
+          "unit": "万",
+          "label": "主流价位",
+          "icon": "wallet"
+        },
+        {
+          "value": "5000+",
+          "unit": "元",
+          "label": "首年保险",
+          "icon": "shield"
+        },
+        {
+          "value": "0",
+          "unit": "元",
+          "label": "购置税",
+          "icon": "badge-check"
+        },
+        {
+          "value": "3–8",
+          "unit": "千元",
+          "label": "家充桩安装",
+          "icon": "plug"
+        }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "把保险、充电桩、停车都算进去，才不会被「低车价」误导。",
+      "tone": "positive"
+    }
+  ]
+}

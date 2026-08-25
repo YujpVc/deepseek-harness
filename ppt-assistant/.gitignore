@@ -1,0 +1,7 @@
+__pycache__/
+node_modules/
+output/
+render*/
+*.pptx
+!assets/base_template.pptx
+vision_results.json

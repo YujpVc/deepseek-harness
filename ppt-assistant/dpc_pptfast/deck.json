@@ -1,0 +1,577 @@
+{
+  "version": "4",
+  "filename": "dpc.pptx",
+  "narrative": {
+    "strategy": "instructional",
+    "pacing": "dense",
+    "audience": "public"
+  },
+  "theme": {
+    "id": "consulting"
+  },
+  "meta": {
+    "organization": "两轮电瓶车选购指南",
+    "date": "2026"
+  },
+  "assets": {
+    "images": {
+      "battery": {
+        "src": "assets/battery.jpg"
+      },
+      "commute": {
+        "src": "assets/commute.jpg"
+      },
+      "delivery": {
+        "src": "assets/delivery.jpg"
+      },
+      "ebike": {
+        "src": "assets/ebike.jpg"
+      },
+      "helmet": {
+        "src": "assets/helmet.jpg"
+      },
+      "moped": {
+        "src": "assets/moped.jpg"
+      },
+      "parked": {
+        "src": "assets/parked.jpg"
+      },
+      "rider": {
+        "src": "assets/rider.jpg"
+      }
+    }
+  },
+  "seed": 20260821,
+  "slides": [
+    {
+      "type": "cover",
+      "id": "p01",
+      "heading": "两轮电瓶车选购指南",
+      "components": [],
+      "background": {
+        "kind": "asset",
+        "asset_id": "rider",
+        "overlay": {
+          "color": "#0B1220",
+          "opacity": 0.55
+        }
+      }
+    },
+    {
+      "type": "content",
+      "id": "p02",
+      "heading": "这份指南，讲清六件事",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "买电瓶车，最重要的是先分清「电动自行车」和「电动摩托车」——上不上牌、要不要驾照、能跑多快，全在这里。下面按「分类 → 电池 → 动力 → 上牌 → 品牌 → 避坑」一路讲下来。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "分类：电动自行车 vs 电动摩托车",
+            "电池：铅酸 vs 锂电，续航怎么估",
+            "动力：电机瓦数与爬坡",
+            "上牌：新国标、驾照、保险",
+            "品牌：五大国产怎么选",
+            "避坑：试骑、充电、防盗"
+          ],
+          "style": "numbered"
+        }
+      ],
+      "background": {
+        "kind": "asset",
+        "asset_id": "commute",
+        "overlay": {
+          "color": "#FFFFFF",
+          "opacity": 0.88
+        }
+      },
+      "layout": "two-column"
+    },
+    {
+      "type": "content",
+      "id": "p03",
+      "layout": "image-split",
+      "heading": "先分清：你要买的是哪一种",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "ebike",
+          "caption": "电动自行车：有脚踏、限速 25km/h、免驾照",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "新国标把两轮电动车分成两类：电动自行车（有脚踏、时速≤25km/h、电压≤48V、电机≤400W，上绿牌、免驾照）和电动摩托车（没脚踏、可上 50km/h，要驾照、上黄/蓝牌、买交强险）。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "电动自行车：免驾照、绿牌、25km/h 封顶",
+            "电动摩托车：要驾照、上牌、能跑更快",
+            "日常通勤代步，电动自行车最省心"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "先想清楚要不要驾照，再决定买哪一类。",
+          "tone": "positive"
+        }
+      ],
+      "background": {
+        "kind": "asset",
+        "asset_id": "ebike",
+        "overlay": {
+          "color": "#FFFFFF",
+          "opacity": 0.88
+        }
+      },
+      "image_side": "left"
+    },
+    {
+      "type": "content",
+      "id": "p04",
+      "layout": "image-split",
+      "heading": "电池：铅酸还是锂电",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "battery",
+          "caption": "电池是电瓶车最贵、最关键的部件",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "铅酸电池便宜、安全、可回收，但重、冬天掉电多；锂电池轻、续航长、循环次数多，但贵、对充电要求高。续航要看「电压 × 容量」，别只信商家标称的「能跑 100 公里」。"
+        },
+        {
+          "type": "kpi_cards",
+          "items": [
+            {
+              "value": "48",
+              "unit": "V",
+              "label": "电动自行车标准电压"
+            },
+            {
+              "value": "40–80",
+              "unit": "km",
+              "label": "常见真实续航"
+            },
+            {
+              "value": "2–4",
+              "unit": "年",
+              "label": "电池寿命"
+            }
+          ]
+        },
+        {
+          "type": "verdict_banner",
+          "text": "续航按商家标称打 6–7 折，才是真实里程。",
+          "tone": "positive"
+        }
+      ],
+      "background": {
+        "kind": "asset",
+        "asset_id": "battery",
+        "overlay": {
+          "color": "#FFFFFF",
+          "opacity": 0.88
+        }
+      },
+      "image_side": "right"
+    },
+    {
+      "type": "content",
+      "id": "p05",
+      "heading": "动力：电机瓦数怎么选",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "电机瓦数决定加速和爬坡。城市平路通勤，400W 以内（新国标上限）完全够用；常爬坡、带人、送外卖，选电动摩托车或大功率电机（800W–1500W）。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "400W 以内：平路通勤够用，免驾照",
+            "800–1200W：爬坡、带人有劲，多为电摩",
+            "看扭矩比看瓦数更实在，试骑爬个坡就知道",
+            "平时带人/拉货，动力宁大勿小"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "有坡、带人、拉货，动力一定要够，否则会后悔。",
+          "tone": "positive"
+        }
+      ],
+      "background": {
+        "kind": "asset",
+        "asset_id": "rider",
+        "overlay": {
+          "color": "#FFFFFF",
+          "opacity": 0.88
+        }
+      },
+      "layout": "banner-heading"
+    },
+    {
+      "type": "content",
+      "id": "p06",
+      "layout": "quiet-frame",
+      "heading": "上牌、驾照、保险，一样不能少",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "电动自行车上绿牌（多数免费、可线上办）；电动摩托车必须上黄牌/蓝牌，考 D/E/F 驾照，买交强险。无牌无证上路，会被扣车罚款。"
+        },
+        {
+          "type": "comparison",
+          "columns": [
+            "电动自行车",
+            "电动摩托车"
+          ],
+          "rows": [
+            {
+              "label": "牌照",
+              "cells": [
+                "绿牌",
+                "黄牌/蓝牌"
+              ]
+            },
+            {
+              "label": "驾照",
+              "cells": [
+                "不需要",
+                "D/E/F 照"
+              ]
+            },
+            {
+              "label": "保险",
+              "cells": [
+                "自愿",
+                "交强险必买"
+              ]
+            },
+            {
+              "label": "限速",
+              "cells": [
+                "25km/h",
+                "50km/h 起"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "verdict_banner",
+          "text": "买车前先问清楚：能不能上牌、要不要驾照。",
+          "tone": "positive"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "id": "p07",
+      "heading": "国产主流品牌，各有什么特点",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "不吹不黑，只讲各家的鲜明特点，方便你对号入座。除了品牌，更要看你家附近的线下门店和售后网点——电瓶车出问题，能就近修、配件好找，比参数好看重要得多。"
+        },
+        {
+          "type": "comparison",
+          "columns": [
+            "品牌",
+            "特点",
+            "适合"
+          ],
+          "rows": [
+            {
+              "label": "雅迪",
+              "cells": [
+                "销量领先、网点多",
+                "求稳、图省心"
+              ]
+            },
+            {
+              "label": "爱玛",
+              "cells": [
+                "时尚、性价比",
+                "家庭代步"
+              ]
+            },
+            {
+              "label": "台铃",
+              "cells": [
+                "续航卖点",
+                "预算有限"
+              ]
+            },
+            {
+              "label": "小牛",
+              "cells": [
+                "智能化、颜值高",
+                "年轻用户"
+              ]
+            },
+            {
+              "label": "九号",
+              "cells": [
+                "智能性能强",
+                "看重体验"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "verdict_banner",
+          "text": "没有最好的品牌，只有最匹配你需求的。",
+          "tone": "positive"
+        }
+      ],
+      "layout": "two-column"
+    },
+    {
+      "type": "content",
+      "id": "p08",
+      "heading": "安全：这几样别省",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "电瓶车是「肉包铁」，安全配置比颜值重要。头盔必须买、刹车要试、灯光要亮、防盗要装，这四样一个都不能省。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "头盔：买合格 3C 认证，别用工地帽糊弄",
+            "刹车：优先前后双碟刹或碟刹+鼓刹",
+            "灯光：夜骑多就选透镜大灯",
+            "防盗：U 型锁 + GPS 定位最实在"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "安全配置，是给自己和家人的兜底。",
+          "tone": "positive"
+        }
+      ],
+      "background": {
+        "kind": "asset",
+        "asset_id": "helmet",
+        "overlay": {
+          "color": "#FFFFFF",
+          "opacity": 0.88
+        }
+      },
+      "layout": "side-highlight"
+    },
+    {
+      "type": "content",
+      "id": "p09",
+      "heading": "充电与电池保养，延长寿命",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "电池最怕「过充、过放、高温」。正确充电习惯能让电池多用一两年：不把电跑干再充、不用杂牌充电器、夏天不暴晒充电、冬天在室内充电。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "浅充浅放：剩 20–30% 就充，别跑干",
+            "用原装/匹配充电器，别混用",
+            "夏天别暴晒、别刚骑完就充",
+            "冬天续航打折正常，别误判电池坏"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "电池是消耗品，但保养好能多陪你一两年。",
+          "tone": "positive"
+        }
+      ],
+      "background": {
+        "kind": "asset",
+        "asset_id": "delivery",
+        "overlay": {
+          "color": "#FFFFFF",
+          "opacity": 0.88
+        }
+      },
+      "layout": "rail-numbered"
+    },
+    {
+      "type": "content",
+      "id": "p10",
+      "heading": "试骑，重点试这四样",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "别只看图片和参数，一定要骑上去。重点感受：起步顺不顺、刹车灵不灵、坐垫舒不舒服、车把高矮合不合适。"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "title": "起步",
+              "text": "电机起步顺不顺、有没有顿挫"
+            },
+            {
+              "title": "刹车",
+              "text": "捏下去灵不灵、会不会侧滑"
+            },
+            {
+              "title": "坐姿",
+              "text": "坐垫高度、车把角度合不合适"
+            },
+            {
+              "title": "颠簸",
+              "text": "过减速带颠不颠、减震好不好"
+            },
+            {
+              "title": "灯光",
+              "text": "夜骑多不多，大灯亮不亮"
+            }
+          ]
+        },
+        {
+          "type": "verdict_banner",
+          "text": "骑一圈，比看十页参数都有用。",
+          "tone": "positive"
+        }
+      ],
+      "background": {
+        "kind": "asset",
+        "asset_id": "moped",
+        "overlay": {
+          "color": "#FFFFFF",
+          "opacity": 0.88
+        }
+      },
+      "layout": "two-column"
+    },
+    {
+      "type": "content",
+      "id": "p11",
+      "layout": "narrow-column",
+      "heading": "这些坑，新手最容易踩",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "买电瓶车前，先避开这几个常见误区："
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "只看标称续航，不看真实打折",
+            "贪便宜买无牌车/翻新车",
+            "忽略上牌和驾照要求",
+            "跟风买顶配，用不上的功能白花钱",
+            "没问清售后网点和电池质保"
+          ],
+          "style": "checklist"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "多问一句、多查一步，能少花不少冤枉钱。",
+          "tone": "positive"
+        }
+      ],
+      "background": {
+        "kind": "asset",
+        "asset_id": "commute",
+        "overlay": {
+          "color": "#FFFFFF",
+          "opacity": 0.88
+        }
+      }
+    },
+    {
+      "type": "content",
+      "id": "p12",
+      "heading": "从决定到提车，五步走",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "把流程理清，买电瓶车不复杂："
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "title": "定预算",
+              "text": "车价 + 上牌 + 头盔锁具"
+            },
+            {
+              "title": "定类别",
+              "text": "电动自行车还是电摩"
+            },
+            {
+              "title": "圈车型",
+              "text": "按品牌、续航筛 2–3 款"
+            },
+            {
+              "title": "去试骑",
+              "text": "起步、刹车、坐姿都试"
+            },
+            {
+              "title": "比权益",
+              "text": "质保、上牌、售后再下单"
+            }
+          ]
+        },
+        {
+          "type": "verdict_banner",
+          "text": "一步一步来，别被销售节奏带着走。",
+          "tone": "positive"
+        }
+      ],
+      "layout": "two-column"
+    },
+    {
+      "type": "content",
+      "id": "p13",
+      "heading": "一句话总结",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "买电瓶车的核心逻辑：先分清电动自行车还是电摩（决定上牌和驾照），再按真实续航和场景选电池动力，最后把安全、质保、售后算进总价。适合自己，比参数好看更重要。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "先定类别：要不要驾照、上不上牌",
+            "续航按 6–7 折估，别信宣传",
+            "安全配置别省，头盔刹车灯光防盗",
+            "质保写进合同，试骑当日常骑"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "适合自己的车，就是最好的车。",
+          "tone": "positive"
+        }
+      ],
+      "background": {
+        "kind": "asset",
+        "asset_id": "rider",
+        "overlay": {
+          "color": "#FFFFFF",
+          "opacity": 0.88
+        }
+      },
+      "layout": "narrow-column"
+    },
+    {
+      "type": "ending",
+      "id": "p14",
+      "heading": "选到心仪的车",
+      "components": [],
+      "layout": "tone-adaptive-ending"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "background": {
+    "kind": "gradient",
+    "from": "#F7F4EE",
+    "to": "#F3F0E6"
+  },
+  "decor": { "kind": "big_number", "text": "17" },
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "电瓶车被盗率高，智能配置不只是「潮」，更是防盗和便利。两千多块的车也可以有这些，不必只盯着贵价旗舰。"
+    },
+    {
+      "type": "icon_cards",
+      "items": [
+        { "icon": "smartphone", "title": "App 互联", "text": "远程看电量、定位、里程" },
+        { "icon": "map-pin", "title": "GPS 定位", "text": "被盗能追踪，报警更有效" },
+        { "icon": "lock", "title": "无钥匙 NFC", "text": "刷卡或手机解锁，忘带钥匙不慌" },
+        { "icon": "battery-warning", "title": "电子围栏", "text": "车被移动自动推送告警" }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "买前现场验 NFC、GPS 是否真的好用，别只信宣传。",
+      "tone": "positive"
+    }
+  ],
+  "notes": "智能配置四大价值：App 互联、GPS 定位、无钥匙 NFC、电子围栏；重在防盗与便利，买前现场验证。"
+}

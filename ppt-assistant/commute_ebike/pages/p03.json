@@ -1,0 +1,61 @@
+{
+  "background": {
+    "kind": "asset",
+    "asset_id": "cover",
+    "overlay": {
+      "color": "#FFFFFF",
+      "opacity": 0.87
+    }
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "02"
+  },
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "男用通勤和女款、家用款的差别，集中在六处。买之前逐项想清楚，到店才有的聊，也不容易被销售带节奏。"
+    },
+    {
+      "type": "icon_cards",
+      "items": [
+        {
+          "icon": "ruler",
+          "title": "车架尺寸",
+          "text": "个子高选大车架，腿长才不憋屈"
+        },
+        {
+          "icon": "mountain",
+          "title": "动力爬坡",
+          "text": "有坡道就上大功率，别被 400W 卡住"
+        },
+        {
+          "icon": "weight",
+          "title": "载重",
+          "text": "通勤包、偶尔带人，看额定载重"
+        },
+        {
+          "icon": "armchair",
+          "title": "骑行姿势",
+          "text": "跨骑式护腰，长途通勤更舒服"
+        },
+        {
+          "icon": "briefcase",
+          "title": "置物空间",
+          "text": "脚踏板加尾箱，雨衣头盔有处放"
+        },
+        {
+          "icon": "map",
+          "title": "续航里程",
+          "text": "往返距离算清，留 6–7 折余量"
+        }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "先定需求，再对车型——这是不被套路的第一步。",
+      "tone": "positive"
+    }
+  ],
+  "notes": "男用通勤的五个硬需求：车架尺寸、动力爬坡、载重、骑行姿势、置物空间。逐项想清楚再去店里，避免被动。"
+}

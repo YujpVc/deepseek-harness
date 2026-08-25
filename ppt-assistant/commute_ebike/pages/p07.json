@@ -1,0 +1,67 @@
+{
+  "layout": "quiet-frame",
+  "background": {
+    "kind": "gradient",
+    "from": "#F7F4EE",
+    "to": "#F3F0E6"
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "06"
+  },
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "铅酸便宜、耐糙、可回收，但重、冬天掉电多、循环短；锂电轻、续航长、寿命长，但贵、怕过充；钠电低温好、性价比渐起，是这两年冒头的新选项。"
+    },
+    {
+      "type": "comparison",
+      "columns": [
+        "对比",
+        "铅酸",
+        "锂电",
+        "钠电"
+      ],
+      "rows": [
+        {
+          "label": "价格",
+          "cells": [
+            "低",
+            "高",
+            "中"
+          ]
+        },
+        {
+          "label": "重量",
+          "cells": [
+            "重",
+            "轻",
+            "中"
+          ]
+        },
+        {
+          "label": "低温表现",
+          "cells": [
+            "掉电明显",
+            "一般",
+            "好"
+          ]
+        },
+        {
+          "label": "循环寿命",
+          "cells": [
+            "短",
+            "长",
+            "较长"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "预算紧选铅酸，要轻要远选锂电，北方冬天多选钠电。",
+      "tone": "positive"
+    }
+  ],
+  "notes": "三种电池的取舍：铅酸便宜耐糙、锂电轻而远、钠电低温好。按预算和所在地区选择。"
+}

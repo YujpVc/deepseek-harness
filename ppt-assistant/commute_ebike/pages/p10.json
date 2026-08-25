@@ -1,0 +1,32 @@
+{
+  "layout": "image-split",
+  "image_side": "left",
+  "background": {
+    "kind": "asset",
+    "asset_id": "ebike",
+    "overlay": { "color": "#FFFFFF", "opacity": 0.87 }
+  },
+  "decor": { "kind": "big_number", "text": "09" },
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "ebike",
+      "fit": "cover",
+      "caption": "国标电动自行车：绿牌、免驾照、25km/h"
+    },
+    {
+      "type": "kpi_cards",
+      "items": [
+        { "value": "74", "unit": "km", "label": "工况续航，一周一充" },
+        { "value": "3999", "unit": "元起", "label": "参考起售价" },
+        { "value": "25", "unit": "km/h", "label": "限速·绿牌免驾照" }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "不想考驾照、图省心，九号 Fz 是城市平路通勤的首选。",
+      "tone": "positive"
+    }
+  ],
+  "notes": "推荐一：九号 Fz 系列，免驾照国标车，适合城市平路、不愿考驾照的男性通勤用户。"
+}

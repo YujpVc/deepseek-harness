@@ -1,0 +1,50 @@
+{
+  "background": {
+    "kind": "asset",
+    "asset_id": "moped",
+    "overlay": {
+      "color": "#FFFFFF",
+      "opacity": 0.88
+    }
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "09"
+  },
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "别只看图片和参数，一定要骑上去。重点感受：起步顺不顺、刹车灵不灵、坐垫舒不舒服、车把高矮合不合适。"
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "title": "起步",
+          "text": "电机起步顺不顺、有没有顿挫"
+        },
+        {
+          "title": "刹车",
+          "text": "捏下去灵不灵、会不会侧滑"
+        },
+        {
+          "title": "坐姿",
+          "text": "坐垫高度、车把角度合不合适"
+        },
+        {
+          "title": "颠簸",
+          "text": "过减速带颠不颠、减震好不好"
+        },
+        {
+          "title": "灯光",
+          "text": "夜骑多不多，大灯亮不亮"
+        }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "骑一圈，比看十页参数都有用。",
+      "tone": "positive"
+    }
+  ]
+}

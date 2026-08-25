@@ -1,0 +1,30 @@
+{
+  "layout": "image-split",
+  "image_side": "left",
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "roadtrip",
+      "fit": "cover",
+      "caption": "电车的用车成本，远低于油车"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果你一年开 1.5 万公里，电车每公里电费约 0.1 元，油车约 0.6 元——一年能省下七八千。加上免购置税、不限行（多数城市）和更平顺的驾驶体验，对家用代步来说优势明显。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "用车成本低：每公里约 0.1 元",
+        "免购置税、多数城市不限行",
+        "驾驶平顺安静，智能化程度高"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "家用代步、通勤为主，现在买电车很划算。",
+      "tone": "positive"
+    }
+  ]
+}

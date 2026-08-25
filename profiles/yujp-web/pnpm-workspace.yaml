@@ -1,0 +1,6 @@
+packages:
+  - .
+  - packages/dsh-mindmap
+
+nodeLinker: hoisted
+autoInstallPeers: false

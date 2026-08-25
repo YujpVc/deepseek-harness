@@ -1,0 +1,35 @@
+{
+  "background": {
+    "kind": "asset",
+    "asset_id": "rider",
+    "overlay": {
+      "color": "#FFFFFF",
+      "opacity": 0.88
+    }
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "12"
+  },
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "买电瓶车的核心逻辑：先分清电动自行车还是电摩（决定上牌和驾照），再按真实续航和场景选电池动力，最后把安全、质保、售后算进总价。适合自己，比参数好看更重要。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "先定类别：要不要驾照、上不上牌",
+        "续航按 6–7 折估，别信宣传",
+        "安全配置别省，头盔刹车灯光防盗",
+        "质保写进合同，试骑当日常骑"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "适合自己的车，就是最好的车。",
+      "tone": "positive"
+    }
+  ]
+}

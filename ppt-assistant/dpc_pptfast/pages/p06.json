@@ -1,0 +1,55 @@
+{
+  "layout": "quiet-frame",
+  "decor": {
+    "kind": "big_number",
+    "text": "05"
+  },
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "电动自行车上绿牌（多数免费、可线上办）；电动摩托车必须上黄牌/蓝牌，考 D/E/F 驾照，买交强险。无牌无证上路，会被扣车罚款。"
+    },
+    {
+      "type": "comparison",
+      "columns": [
+        "电动自行车",
+        "电动摩托车"
+      ],
+      "rows": [
+        {
+          "label": "牌照",
+          "cells": [
+            "绿牌",
+            "黄牌/蓝牌"
+          ]
+        },
+        {
+          "label": "驾照",
+          "cells": [
+            "不需要",
+            "D/E/F 照"
+          ]
+        },
+        {
+          "label": "保险",
+          "cells": [
+            "自愿",
+            "交强险必买"
+          ]
+        },
+        {
+          "label": "限速",
+          "cells": [
+            "25km/h",
+            "50km/h 起"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "买车前先问清楚：能不能上牌、要不要驾照。",
+      "tone": "positive"
+    }
+  ]
+}

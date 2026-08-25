@@ -1,0 +1,55 @@
+{
+  "background": {
+    "kind": "gradient",
+    "from": "#F7F4EE",
+    "to": "#F3F0E6"
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "15"
+  },
+  "footnote": "付款前拍下合格证、发票和电池铭牌，出问题才有据可依。",
+  "components": [
+    {
+      "type": "icon_cards",
+      "items": [
+        {
+          "icon": "battery-warning",
+          "title": "续航虚标",
+          "text": "标称 100km 实际 50km，写进发票"
+        },
+        {
+          "icon": "battery",
+          "title": "翻新电池",
+          "text": "铅酸换壳当新卖，认准出厂日期"
+        },
+        {
+          "icon": "gauge",
+          "title": "功率夸大",
+          "text": "400W 冒充 1000W，看合格证"
+        },
+        {
+          "icon": "banknote",
+          "title": "低价陷阱",
+          "text": "裸车便宜另加价，无牌车别碰"
+        },
+        {
+          "icon": "gift",
+          "title": "赠品充数",
+          "text": "送劣质锁和头盔，不如折现"
+        },
+        {
+          "icon": "smartphone",
+          "title": "假智能",
+          "text": "App 是摆设，NFC 与 GPS 现场验"
+        }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "把续航、功率、上牌写进合同，白纸黑字才靠谱。",
+      "tone": "warning"
+    }
+  ],
+  "notes": "六个常见套路：续航虚标、翻新电池、功率夸大、低价陷阱、赠品充数、假智能；关键信息要写进合同。"
+}

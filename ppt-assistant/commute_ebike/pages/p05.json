@@ -1,0 +1,68 @@
+{
+  "layout": "quiet-frame",
+  "background": {
+    "kind": "gradient",
+    "from": "#F7F4EE",
+    "to": "#F3F0E6"
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "04"
+  },
+  "components": [
+    {
+      "type": "comparison",
+      "columns": [
+        "事项",
+        "电动自行车",
+        "电轻摩",
+        "电摩"
+      ],
+      "rows": [
+        {
+          "label": "牌照",
+          "cells": [
+            "绿牌",
+            "蓝牌",
+            "黄牌"
+          ]
+        },
+        {
+          "label": "驾照",
+          "cells": [
+            "不需要",
+            "F 照",
+            "E 照"
+          ]
+        },
+        {
+          "label": "保险",
+          "cells": [
+            "自愿",
+            "交强险",
+            "交强险"
+          ]
+        },
+        {
+          "label": "限速",
+          "cells": [
+            "25km/h",
+            "≤50km/h",
+            ">50km/h"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warn",
+      "text": "各地对载人、过渡期政策不同，买前先查本地最新规定；无牌无证上路会被扣车罚款。"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "先把「能不能上牌、要不要驾照」问清楚，再付款。",
+      "tone": "positive"
+    }
+  ],
+  "notes": "法规是硬约束：牌照、驾照、保险、限速四件事必须提前确认，避免买完上不了牌。"
+}

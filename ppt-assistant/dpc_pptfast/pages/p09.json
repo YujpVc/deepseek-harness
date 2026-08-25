@@ -1,0 +1,35 @@
+{
+  "background": {
+    "kind": "asset",
+    "asset_id": "delivery",
+    "overlay": {
+      "color": "#FFFFFF",
+      "opacity": 0.88
+    }
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "08"
+  },
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "电池最怕「过充、过放、高温」。正确充电习惯能让电池多用一两年：不把电跑干再充、不用杂牌充电器、夏天不暴晒充电、冬天在室内充电。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "浅充浅放：剩 20–30% 就充，别跑干",
+        "用原装/匹配充电器，别混用",
+        "夏天别暴晒、别刚骑完就充",
+        "冬天续航打折正常，别误判电池坏"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "电池是消耗品，但保养好能多陪你一两年。",
+      "tone": "positive"
+    }
+  ]
+}

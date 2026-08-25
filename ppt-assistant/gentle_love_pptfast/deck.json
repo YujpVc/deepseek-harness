@@ -1,0 +1,669 @@
+{
+  "version": "4",
+  "filename": "gentle_love.pptx",
+  "narrative": {
+    "strategy": "storytelling",
+    "pacing": "dense",
+    "audience": "public"
+  },
+  "theme": {
+    "id": "bloom"
+  },
+  "meta": {},
+  "assets": {
+    "images": {
+      "beach": {
+        "src": "assets/beach.jpg"
+      },
+      "blanket": {
+        "src": "assets/blanket.jpg"
+      },
+      "bouquet": {
+        "src": "assets/bouquet.jpg"
+      },
+      "candle": {
+        "src": "assets/candle.jpg"
+      },
+      "chocolate": {
+        "src": "assets/chocolate.jpg"
+      },
+      "coffee": {
+        "src": "assets/coffee.jpg"
+      },
+      "dinner": {
+        "src": "assets/dinner.jpg"
+      },
+      "envelope": {
+        "src": "assets/envelope.jpg"
+      },
+      "fireplace": {
+        "src": "assets/fireplace.jpg"
+      },
+      "hands": {
+        "src": "assets/hands.jpg"
+      },
+      "hands2": {
+        "src": "assets/hands2.jpg"
+      },
+      "heart": {
+        "src": "assets/heart.jpg"
+      },
+      "lantern": {
+        "src": "assets/lantern.jpg"
+      },
+      "marshmallow": {
+        "src": "assets/marshmallow.jpg"
+      },
+      "morning": {
+        "src": "assets/morning.jpg"
+      },
+      "pen": {
+        "src": "assets/pen.jpg"
+      },
+      "roses": {
+        "src": "assets/roses.jpg"
+      },
+      "silhouette": {
+        "src": "assets/silhouette.jpg"
+      },
+      "sunset": {
+        "src": "assets/sunset.jpg"
+      },
+      "sweater": {
+        "src": "assets/sweater.jpg"
+      }
+    }
+  },
+  "seed": 20260818,
+  "slides": [
+    {
+      "type": "cover",
+      "id": "p01",
+      "heading": "温柔一点，好不好？",
+      "components": [],
+      "layout": "constellation"
+    },
+    {
+      "type": "content",
+      "id": "p02",
+      "heading": "把这些话，慢慢讲给你听",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "这是我憋了很久、一直想对你说的话。不是要讲道理，也不是要争对错——只是有些心里话，当面总怕说不好，所以写成了这几页，想请你安安静静地听完。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "第一章 · 写在前面",
+            "第二章 · 男生也需要温柔",
+            "第三章 · 你可以这样温柔待我",
+            "第四章 · 一起走下去"
+          ],
+          "style": "divided"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "这不是一份控诉书，而是一封情书。",
+          "tone": "positive"
+        }
+      ],
+      "layout": "side-highlight"
+    },
+    {
+      "type": "content",
+      "id": "p03",
+      "layout": "quote-stage",
+      "heading": "这不是一份控诉书，而是一封情书",
+      "components": [
+        {
+          "type": "callout",
+          "variant": "tip",
+          "text": "做这几十页，不是要责怪你，也不是想翻旧账。只是有些话，当面总怕说不好，也怕一激动就变了味。希望你慢慢读，慢慢听。"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "id": "p04",
+      "layout": "image-split",
+      "heading": "为什么选择这种方式",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "pen",
+          "caption": "把心里话，一笔一画写给你",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "有些话，当面说不出口——怕一激动语气就变了味，怕你误会我真正想说的。写下来，我能想清楚了再说，你也能安安静静地读，不用急着反驳，也不用急着打断我。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "写下来，是想让你认真地听一次",
+            "先听完，我们再慢慢聊",
+            "这不是逃避沟通，而是想让沟通更温柔"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "这不是逃避沟通，而是想让沟通更温柔。",
+          "tone": "positive"
+        }
+      ],
+      "image_side": "left"
+    },
+    {
+      "type": "content",
+      "id": "p05",
+      "layout": "image-top",
+      "heading": "男生，不是铁打的",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "blanket",
+          "caption": "我也会累，也会想被抱一抱",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "从小到大，我们被教着要「扛得住」：男儿有泪不轻弹，男子汉要坚强一点。于是我们习惯了自己咽下，很少在你面前喊累。可真相是，我也会累、会委屈、会想哭——只是怕你担心，也怕你觉得我不够好。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "「男儿有泪不轻弹」——所以我很少说",
+            "我也会累、会委屈、会想哭",
+            "只是怕你担心，也怕你觉得我不够好"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "坚强是他的盔甲，温柔才是他的软肋。",
+          "tone": "positive"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "id": "p06",
+      "layout": "image-split",
+      "heading": "他默默扛下的那些事",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "coffee",
+          "caption": "加班的夜里，也会想家",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "工作上的项目催得紧、要求也高，加班的夜里还在想怎么做得更好；生活里房子、车子、未来的规划，他总想给你更好的生活。他很少主动说这些，怕你跟着一起焦虑。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "工作：项目催得紧，加班到深夜",
+            "生活：房子车子，想给你安稳",
+            "偶尔挫败，也会偷偷怀疑自己"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "他的沉默不是冷漠，而是在独自消化。",
+          "tone": "positive"
+        }
+      ],
+      "image_side": "left"
+    },
+    {
+      "type": "content",
+      "id": "p07",
+      "layout": "image-split",
+      "heading": "他的爱，藏在细节里",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "hands2",
+          "caption": "爱，都在行动里",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "他不声张，却记得你随口提过的小事；加班路上给你带一杯热饮，下雨天把伞悄悄倾向你。他很少把「我爱你」挂在嘴边，却会在你冷时把外套披给你，在你累时默默接过家务。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "记得你随口提过的小事",
+            "下雨天把伞悄悄倾向你",
+            "把外套披给你、默默接过家务"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "他的爱不常挂在嘴边，却都落在行动里。",
+          "tone": "positive"
+        }
+      ],
+      "image_side": "right"
+    },
+    {
+      "type": "content",
+      "id": "p08",
+      "heading": "同一句话，两种说法",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "同一件事，换个语气，结果就完全不一样。左边的话会把人推开，右边的话会把人拉近。我知道你没有恶意，只是有时候，话说出口就冷了。"
+        },
+        {
+          "type": "comparison",
+          "columns": [
+            "冷硬的说法",
+            "温柔的说法"
+          ],
+          "rows": [
+            {
+              "label": "问候",
+              "cells": [
+                "「你又怎么了？」",
+                "「今天有点累吧？」"
+              ]
+            },
+            {
+              "label": "争执",
+              "cells": [
+                "「随便你」",
+                "「我在呢」"
+              ]
+            },
+            {
+              "label": "事后",
+              "cells": [
+                "「早说过了」",
+                "「一起想办法」"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "verdict_banner",
+          "text": "同样的事，换一种语气，结果完全不同。",
+          "tone": "positive"
+        }
+      ],
+      "layout": "tone-adaptive-content"
+    },
+    {
+      "type": "content",
+      "id": "p09",
+      "layout": "image-split",
+      "heading": "他真正在意的",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "hands",
+          "caption": "他缺的不是道理，而是被理解",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "他不要你事事完美，不需要你永远不发脾气、每句话都对。他真正要的，从来不多：气头上也给他留一点余地，他的付出能被看见，他难过时，你愿意抱抱他。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "不要你完美，只要被好好对待",
+            "气头上给他留一点余地",
+            "付出能被看见，难过时有个抱抱"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "他缺的不是道理，而是被理解、被在乎。",
+          "tone": "positive"
+        }
+      ],
+      "image_side": "right"
+    },
+    {
+      "type": "content",
+      "id": "p10",
+      "layout": "quote-stage",
+      "heading": "温柔，不是示弱",
+      "components": [
+        {
+          "type": "callout",
+          "variant": "tip",
+          "text": "把爱放在情绪之上——这需要很大的内心力量。能温柔的人，从不软弱；温柔让彼此都舒服，是双向的滋养。"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "id": "p11",
+      "layout": "image-split",
+      "heading": "你温柔的样子，真的很好看",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "roses",
+          "caption": "你温柔的样子，是我眼里最美的风景",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "温柔是一种气质，比外表更长久，让人如沐春风，想靠近、想珍惜。我记忆里最珍贵的画面，是你轻声说话时眼里的光，是你耐心听我说话的样子——都让我越看越喜欢。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "它比外表更长久",
+            "让人如沐春风、想靠近",
+            "你眼里的光，我都记着"
+          ],
+          "style": "default"
+        }
+      ],
+      "image_side": "left"
+    },
+    {
+      "type": "content",
+      "id": "p12",
+      "heading": "当情绪上来的时候",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "情绪一上来，最容易说出伤人的话。下次可以试试这四步：先停三秒、换种说法、不翻旧账、给个台阶。"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "title": "先停三秒",
+              "text": "话到嘴边，先深呼吸"
+            },
+            {
+              "title": "换种说法",
+              "text": "把指责换成「我有点难过」"
+            },
+            {
+              "title": "不翻旧账",
+              "text": "就事论事，只谈眼前"
+            },
+            {
+              "title": "给个台阶",
+              "text": "吵完别冷战，抱一下就好"
+            }
+          ]
+        },
+        {
+          "type": "verdict_banner",
+          "text": "情绪来的那一刻，温柔就是最好的刹车。",
+          "tone": "positive"
+        }
+      ],
+      "layout": "narrow-column"
+    },
+    {
+      "type": "content",
+      "id": "p13",
+      "layout": "image-split",
+      "heading": "他也想被你夸一夸",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "bouquet",
+          "caption": "你的一句夸奖，抵得过千军万马",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "男生，同样需要肯定。一句「你真棒」能让他开心一整天，你的认可，是他最珍贵的勋章。不妨多夸夸他：「谢谢你今天记得帮我带伞」「你今天真帅」「有你在，我安心多了」。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "一句「你真棒」能让他开心一整天",
+            "你的认可，是他最珍贵的勋章",
+            "被在乎的人夸，最有力量"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "你的一句夸奖，抵得过千军万马。",
+          "tone": "positive"
+        }
+      ],
+      "image_side": "left"
+    },
+    {
+      "type": "content",
+      "id": "p14",
+      "layout": "image-split",
+      "heading": "他的「玻璃心」时刻",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "lantern",
+          "caption": "这些时刻，他最需要你的温柔",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "他也有脆弱的时刻：努力了很久，却被一句「就这」否定；加班攒钱规划未来，却没人问一句「你累不累」；累到说不出话时，只想安安静静地靠一靠。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "被否定时，他会怀疑自己",
+            "努力不被看见，其实很累",
+            "累到说不出话，只想靠一靠"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "这些时刻，他比任何时候都更需要你的温柔。",
+          "tone": "positive"
+        }
+      ],
+      "image_side": "right"
+    },
+    {
+      "type": "content",
+      "id": "p15",
+      "layout": "image-split",
+      "heading": "好的关系，是互相滋养",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "hands2",
+          "caption": "温柔是相互的，爱也是",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "你温柔待我，我更想加倍对你好，你对我的好，我会记一辈子；我也会温柔待你，更努力、更体贴，更懂得疼你、护着你。温柔从来不是单方面的。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "你温柔待我，我更想加倍对你好",
+            "你对我的好，我会记一辈子",
+            "我也会更努力、更体贴"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "温柔从来不是单方面的。",
+          "tone": "positive"
+        }
+      ],
+      "image_side": "right"
+    },
+    {
+      "type": "content",
+      "id": "p16",
+      "layout": "image-split",
+      "heading": "你，也是我最想守护的人",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "silhouette",
+          "caption": "想和你，走到最后",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "说这些，不是只要求你付出。我也会改变、会成长，会努力做更好的自己。你永远是我最想守护的人——你的小脾气其实很可爱，我只想和你好好在一起，把日子过成我们想要的样子。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "我也会改变、会成长",
+            "你的小脾气，其实也很可爱",
+            "把日子过成我们想要的样子"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "我要的，是两个人一起变好。",
+          "tone": "positive"
+        }
+      ],
+      "image_side": "left"
+    },
+    {
+      "type": "content",
+      "id": "p17",
+      "layout": "image-split",
+      "heading": "一个很小的心愿",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "sunset",
+          "caption": "你多温柔一分，我就多爱你十分",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "在我累的时候，少一点指责，多一点抱抱，不问「怎么又这样」，问一句「你还好吗」；在我失落的时候，少一点比较，多一点鼓励，不和别人比，只和我一起往前走。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "累的时候：多一点抱抱，问「你还好吗」",
+            "失落的时候：多一点鼓励",
+            "不和别人比，只和我一起走"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "你多温柔一分，我就多爱你十分。",
+          "tone": "positive"
+        }
+      ],
+      "image_side": "right"
+    },
+    {
+      "type": "content",
+      "id": "p18",
+      "heading": "我们的约定",
+      "components": [
+        {
+          "type": "paragraph",
+          "text": "我答应你：我会更懂你、更体贴，多表达、多陪伴，把你放在心尖上。也请你答应我：累的时候多给我一点温柔，难过的时候多给我一点安慰。"
+        },
+        {
+          "type": "comparison",
+          "columns": [
+            "我答应你",
+            "也请你答应我"
+          ],
+          "rows": [
+            {
+              "label": "我会",
+              "cells": [
+                "更懂你",
+                "多一点温柔"
+              ]
+            },
+            {
+              "label": "我会",
+              "cells": [
+                "多陪伴",
+                "多一点安慰"
+              ]
+            },
+            {
+              "label": "一起",
+              "cells": [
+                "放在心上",
+                "好好走下去"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "verdict_banner",
+          "text": "这是我们的约定，拉勾不许变。",
+          "tone": "positive"
+        }
+      ],
+      "layout": "quiet-frame"
+    },
+    {
+      "type": "content",
+      "id": "p19",
+      "layout": "image-split",
+      "heading": "谢谢你一直以来的好",
+      "components": [
+        {
+          "type": "image",
+          "asset_id": "heart",
+          "caption": "我不是要一个完美的你，只要真实的你",
+          "fit": "cover"
+        },
+        {
+          "type": "paragraph",
+          "text": "谢谢你，在我最难的时候都在；谢谢你，包容我的粗心和小毛病；谢谢你，让我知道自己被好好爱着，也让我更想好好爱你。我不是要一个完美的你，我只要眼前真实的你。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "谢谢你的陪伴：我最难的时候，你都在",
+            "谢谢你的包容：包容我的小毛病",
+            "谢谢你的爱：让我更想好好爱你"
+          ],
+          "style": "default"
+        },
+        {
+          "type": "verdict_banner",
+          "text": "我不是要一个完美的你，我只要眼前真实的你。",
+          "tone": "positive"
+        }
+      ],
+      "image_side": "left"
+    },
+    {
+      "type": "ending",
+      "id": "p20",
+      "heading": "谢谢你，亲爱的",
+      "components": [],
+      "layout": "constellation-ending"
+    }
+  ]
+}

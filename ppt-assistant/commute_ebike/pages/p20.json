@@ -1,0 +1,15 @@
+{
+  "subheading": "把预算、续航、法规三件事定下来，剩下的交给到店试骑的感受。",
+  "decor": {
+    "kind": "big_number",
+    "text": "选购"
+  },
+  "background": {
+    "kind": "asset",
+    "asset_id": "rider",
+    "overlay": {
+      "color": "#0B1220",
+      "opacity": 0.55
+    }
+  }
+}

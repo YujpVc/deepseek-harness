@@ -1,0 +1,30 @@
+{
+  "layout": "image-split",
+  "image_side": "right",
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "lantern",
+      "fit": "cover",
+      "caption": "这些时刻，他最需要你的温柔"
+    },
+    {
+      "type": "paragraph",
+      "text": "他也有脆弱的时刻：努力了很久，却被一句「就这」否定；加班攒钱规划未来，却没人问一句「你累不累」；累到说不出话时，只想安安静静地靠一靠。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "被否定时，他会怀疑自己",
+        "努力不被看见，其实很累",
+        "累到说不出话，只想靠一靠"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "这些时刻，他比任何时候都更需要你的温柔。",
+      "tone": "positive"
+    }
+  ]
+}

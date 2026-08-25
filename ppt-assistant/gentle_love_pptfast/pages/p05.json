@@ -1,0 +1,29 @@
+{
+  "layout": "image-top",
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "blanket",
+      "fit": "cover",
+      "caption": "我也会累，也会想被抱一抱"
+    },
+    {
+      "type": "paragraph",
+      "text": "从小到大，我们被教着要「扛得住」：男儿有泪不轻弹，男子汉要坚强一点。于是我们习惯了自己咽下，很少在你面前喊累。可真相是，我也会累、会委屈、会想哭——只是怕你担心，也怕你觉得我不够好。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "「男儿有泪不轻弹」——所以我很少说",
+        "我也会累、会委屈、会想哭",
+        "只是怕你担心，也怕你觉得我不够好"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "坚强是他的盔甲，温柔才是他的软肋。",
+      "tone": "positive"
+    }
+  ]
+}

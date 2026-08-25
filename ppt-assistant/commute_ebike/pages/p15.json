@@ -1,0 +1,44 @@
+{
+  "layout": "image-split",
+  "image_side": "left",
+  "background": {
+    "kind": "gradient",
+    "from": "#F7F4EE",
+    "to": "#F3F0E6"
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "14"
+  },
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "showroom",
+      "fit": "cover",
+      "caption": "到店试骑，感受车架与减震"
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "title": "坐高与动力",
+          "text": "双脚落地稳，找坡试加速"
+        },
+        {
+          "title": "刹车与载重",
+          "text": "刹车线性，尾箱装头盔雨衣"
+        },
+        {
+          "title": "骑行姿态",
+          "text": "跨骑坐姿护腰，长途通勤不累"
+        }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "坐上去骑一圈，比看十页参数都实在。",
+      "tone": "positive"
+    }
+  ],
+  "notes": "到店试车：坐高动力、刹车载重两大项，男款尤其看腿长与车架是否合身。"
+}

@@ -1,0 +1,29 @@
+{
+  "layout": "quiet-frame",
+  "background": {
+    "kind": "gradient",
+    "from": "#F7F4EE",
+    "to": "#F3F0E6"
+  },
+  "decor": { "kind": "big_number", "text": "18" },
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "回到最初的预算 2500–4000 元、男用通勤。按三个最常见场景，直接给结论，照着买就行。"
+    },
+    {
+      "type": "steps",
+      "items": [
+        { "title": "城市平路·免驾照", "text": "选九号 Fz 类国标车，绿牌省心" },
+        { "title": "要动力·预算紧", "text": "选雅迪 T35 类电摩，1200W 够用" },
+        { "title": "要速度·要体验", "text": "选极核 AE3 Pro 类性能电摩" }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "第一优先确认要不要驾照，第二优先续航是否覆盖往返，其余到店试骑决定。",
+      "tone": "positive"
+    }
+  ],
+  "notes": "收口：按三个场景给出最终推荐，并强调决策优先级——驾照、续航、试骑体验。"
+}

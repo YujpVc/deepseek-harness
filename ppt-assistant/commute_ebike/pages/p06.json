@@ -1,0 +1,57 @@
+{
+  "background": {
+    "kind": "asset",
+    "asset_id": "rider",
+    "overlay": {
+      "color": "#FFFFFF",
+      "opacity": 0.88
+    }
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "05"
+  },
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "厂商标称的「100公里续航」多为理想工况；真实通勤要算上体重、速度、红绿灯起停、爬坡和低温，标称打六到七折，才是实际能跑到的里程。"
+    },
+    {
+      "type": "kpi_cards",
+      "items": [
+        {
+          "value": "60–80",
+          "unit": "km",
+          "label": "本价位真实通勤续航"
+        },
+        {
+          "value": "6–7",
+          "unit": "折",
+          "label": "标称续航的保守换算系数"
+        },
+        {
+          "value": "30",
+          "unit": "%",
+          "delta": "down",
+          "label": "冬季低温掉电大致幅度"
+        },
+        {
+          "value": "10",
+          "unit": "km",
+          "label": "单程≤10km，一周一充参考"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "续航 ≈ 电压 × 容量。同样标 100km，72V 大容量通常比 48V 更实，但更重也更贵。"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "按标称打 6–7 折留余量，冬天再减两成。",
+      "tone": "positive"
+    }
+  ],
+  "notes": "续航要看实测而非标称：真实里程 ≈ 标称的 6–7 折，冬天再打八折；续航由电压乘容量决定。"
+}

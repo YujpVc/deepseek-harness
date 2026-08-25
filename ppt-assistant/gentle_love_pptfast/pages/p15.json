@@ -1,0 +1,30 @@
+{
+  "layout": "image-split",
+  "image_side": "right",
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "hands2",
+      "fit": "cover",
+      "caption": "温柔是相互的，爱也是"
+    },
+    {
+      "type": "paragraph",
+      "text": "你温柔待我，我更想加倍对你好，你对我的好，我会记一辈子；我也会温柔待你，更努力、更体贴，更懂得疼你、护着你。温柔从来不是单方面的。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "你温柔待我，我更想加倍对你好",
+        "你对我的好，我会记一辈子",
+        "我也会更努力、更体贴"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "温柔从来不是单方面的。",
+      "tone": "positive"
+    }
+  ]
+}

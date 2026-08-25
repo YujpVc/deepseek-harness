@@ -1,0 +1,43 @@
+{
+  "layout": "image-split",
+  "image_side": "left",
+  "background": {
+    "kind": "asset",
+    "asset_id": "ebike",
+    "overlay": {
+      "color": "#FFFFFF",
+      "opacity": 0.9
+    }
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "03"
+  },
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "ebike",
+      "fit": "cover",
+      "caption": "电动自行车：有脚踏、绿牌、免驾照"
+    },
+    {
+      "type": "paragraph",
+      "text": "新国标把两轮车分三档：电动自行车（≤25km/h、≤48V、电机≤400W、必须有脚踏）最省心；电动轻便摩托车≤50km/h；电动摩托车可超 50km/h。后两者要驾照、上牌、买交强险。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "电动自行车：绿牌、免驾照，25km/h 封顶",
+        "电动轻便摩托车：蓝牌、F 照，≤50km/h",
+        "电动摩托车：黄牌、E 照，可超 50km/h"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "日常通勤图省心先看电动自行车，要速度动力再上电摩。",
+      "tone": "positive"
+    }
+  ],
+  "notes": "先分清三类车型与对应牌照、驾照要求，这是选车的第一道分水岭。"
+}

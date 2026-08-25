@@ -1,0 +1,30 @@
+{
+  "layout": "image-split",
+  "image_side": "right",
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "hands",
+      "fit": "cover",
+      "caption": "他缺的不是道理，而是被理解"
+    },
+    {
+      "type": "paragraph",
+      "text": "他不要你事事完美，不需要你永远不发脾气、每句话都对。他真正要的，从来不多：气头上也给他留一点余地，他的付出能被看见，他难过时，你愿意抱抱他。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "不要你完美，只要被好好对待",
+        "气头上给他留一点余地",
+        "付出能被看见，难过时有个抱抱"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "他缺的不是道理，而是被理解、被在乎。",
+      "tone": "positive"
+    }
+  ]
+}

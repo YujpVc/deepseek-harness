@@ -1,0 +1,50 @@
+{
+  "layout": "image-split",
+  "image_side": "right",
+  "background": {
+    "kind": "asset",
+    "asset_id": "emoto",
+    "overlay": {
+      "color": "#FFFFFF",
+      "opacity": 0.87
+    }
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "10"
+  },
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "emoto",
+      "fit": "cover",
+      "caption": "电摩：黄牌、需驾照、动力足"
+    },
+    {
+      "type": "kpi_cards",
+      "items": [
+        {
+          "value": "1200",
+          "unit": "W",
+          "label": "电机功率，爬坡带人有劲"
+        },
+        {
+          "value": "74",
+          "unit": "km",
+          "label": "工况续航"
+        },
+        {
+          "value": "2500",
+          "unit": "元起",
+          "label": "中配参考价"
+        }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "预算紧、要动力、图网点多，T35 是稳妥之选；记得先考驾照、上黄牌。",
+      "tone": "positive"
+    }
+  ],
+  "notes": "推荐二：雅迪 T35，电摩性价比代表，适合预算有限又要动力、且愿意考 E 照的男性用户。"
+}

@@ -1,0 +1,538 @@
+{
+  "meta": {
+    "title": "温柔一点，好不好？",
+    "subtitle": "写给我最爱的你 · 一些藏在心里很久的话",
+    "palette": "rose",
+    "image": "output/img/rom4_couple_silhouette_sunset.jpg",
+    "cover_overlay": "4E2A33",
+    "notes": "开场先说明：这不是一份控诉书，而是一封情书。语气要柔和、真诚，不要让对方觉得被指责。"
+  },
+  "slides": [
+    {
+      "type": "cover"
+    },
+    {
+      "type": "toc",
+      "title": "目录",
+      "intro": "把这些话分成四章，慢慢讲给你听——",
+      "items": [
+        "第一章 · 写在前面",
+        "第二章 · 男生也需要温柔",
+        "第三章 · 你可以这样温柔待我",
+        "第四章 · 一起走下去"
+      ],
+      "notes": "简要介绍四章结构，让听众心里有底，知道接下来会讲什么。",
+      "image": "output/img/rom4_flowers_bouquet_soft.jpg"
+    },
+    {
+      "type": "section",
+      "layout": "quote",
+      "quote": "这不是一份控诉书，而是一封情书",
+      "sub": "做这几十页，不是要责怪你，也不是想翻旧账；只是有些话，当面总怕说不好。",
+      "image": "output/img/rom3_candle_light.jpg",
+      "notes": "定调：这是爱的表达，不是抱怨。用最温柔的方式让对方放下防备。"
+    },
+    {
+      "type": "section",
+      "layout": "split",
+      "chapter": "第一章 · 写在前面",
+      "title": "为什么选择这种方式",
+      "image": "output/img/rom3_fountain_pen_writing.jpg",
+      "blocks": [
+        {
+          "heading": "有些话，当面说不出口",
+          "points": [
+            "怕一激动，语气就变了味",
+            "怕你误会我真正想说的",
+            "写下来，能让我想清楚再说"
+          ]
+        },
+        {
+          "heading": "想让你认真地听一次",
+          "points": [
+            "不用急着反驳我",
+            "也不用急着打断我",
+            "先听完，我们再慢慢聊"
+          ]
+        }
+      ],
+      "takeaway": "这不是逃避沟通，而是想让沟通更温柔。",
+      "notes": "解释为什么用PPT这种形式，请求对方耐心听完，营造平等的对话氛围。"
+    },
+    {
+      "type": "section",
+      "chapter": "第二章 · 男生也需要温柔",
+      "title": "男生，不是铁打的",
+      "blocks": [
+        {
+          "heading": "我们被教着要「扛得住」",
+          "points": [
+            "「男儿有泪不轻弹」",
+            "「男子汉要坚强一点」",
+            "于是我们习惯了自己咽下"
+          ],
+          "image": "output/img/rom3_rain_on_window.jpg",
+          "note": "可我也有撑不住的时候"
+        },
+        {
+          "heading": "可真相是",
+          "points": [
+            "我也会累、会委屈、会想哭",
+            "只是很少在你面前表现出来",
+            "怕你担心，也怕你觉得我不够好"
+          ],
+          "image": "output/img/rom4_warm_sweater_knit.jpg",
+          "note": "其实，我也需要你的拥抱"
+        }
+      ],
+      "takeaway": "坚强是他的盔甲，温柔才是他的软肋。",
+      "notes": "打破刻板印象，说明男生也有柔软的一面，为后面的诉求做铺垫。"
+    },
+    {
+      "type": "section",
+      "chapter": "第二章 · 男生也需要温柔",
+      "title": "他默默扛下的那些事",
+      "takeaway": "他的沉默不是冷漠，而是在独自消化。",
+      "notes": "列举男生常见的压力来源，唤起理解与共情。",
+      "layout": "banner",
+      "image": "output/img/rom4_sunset_beach_warm.jpg",
+      "blocks": [
+        {
+          "heading": "工作上的压力",
+          "points": [
+            "项目催得紧，要求也高",
+            "加班的夜里还在想怎么做更好",
+            "他很少主动说，怕你跟着焦虑"
+          ],
+          "note": "加班到深夜，也会想家"
+        },
+        {
+          "heading": "生活里的担子",
+          "points": [
+            "房子、车子、未来的规划",
+            "他总想给你更好的生活",
+            "把难处自己扛，把轻松留给你"
+          ],
+          "note": "想给你一个安稳的家"
+        },
+        {
+          "heading": "偶尔的挫败",
+          "points": [
+            "努力不被看见、结果不如意",
+            "他也会偷偷怀疑自己",
+            "这些时候，他最需要你的抱抱"
+          ],
+          "note": "其实，我也会偷偷难过"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "chapter": "第二章 · 男生也需要温柔",
+      "title": "他的爱，藏在细节里",
+      "takeaway": "他的爱不常挂在嘴边，却都落在行动里。",
+      "notes": "强调男生的爱是行动型的，温柔地提醒对方：他的好，请别忽视。",
+      "layout": "split",
+      "reverse": true,
+      "image": "output/img/rom4_holding_hands_together.jpg",
+      "blocks": [
+        {
+          "heading": "不声张的浪漫",
+          "points": [
+            "记得你随口提过的小事",
+            "加班路上给你带一杯热饮",
+            "下雨天把伞悄悄倾向你"
+          ],
+          "note": "爱都藏在这些小事里"
+        },
+        {
+          "heading": "他很少把「我爱你」挂嘴边",
+          "points": [
+            "却会在你冷时把外套披给你",
+            "在你累时默默接过家务",
+            "把你的喜好都记在心里"
+          ],
+          "note": "行动，从不说谎"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "chapter": "第三章 · 你可以这样温柔待我",
+      "title": "同一句话，两种说法",
+      "takeaway": "同样的事，换一种语气，结果完全不同。",
+      "notes": "用正反对比，直观地展示语气的重要性，让对方意识到语言的力量。",
+      "layout": "comparison",
+      "blocks": [
+        {
+          "heading": "冷硬的说法",
+          "points": [
+            "「你又怎么了？」",
+            "「随便你，爱怎样就怎样」",
+            "「我早就说过吧」"
+          ],
+          "note": "这些话，真的很伤人"
+        },
+        {
+          "heading": "温柔的说法",
+          "points": [
+            "「你今天是不是有点累？」",
+            "「我在呢，你慢慢说」",
+            "「没关系，我们一起想办法」"
+          ],
+          "note": "同样一句，能暖到心里"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "chapter": "第三章 · 你可以这样温柔待我",
+      "title": "他真正在意的",
+      "blocks": [
+        {
+          "heading": "他不要你事事完美",
+          "points": [
+            "不需要你永远不发脾气",
+            "不需要你每句话都对",
+            "他真正要的，从来不多"
+          ],
+          "image": "output/img/rom4_flowers_bouquet_soft.jpg",
+          "note": "他只要一个真实的你"
+        },
+        {
+          "heading": "他只要被好好对待",
+          "points": [
+            "气头上也给他留一点余地",
+            "他的付出能被看见",
+            "他难过时，你愿意抱抱他"
+          ],
+          "image": "output/img/rom3_couple_holding_hands.jpg",
+          "note": "被理解，比什么都重要"
+        }
+      ],
+      "takeaway": "他缺的不是道理，而是被理解、被在乎。",
+      "notes": "明确对方真正需要的是什么，降低心理门槛，说明要求并不苛刻。"
+    },
+    {
+      "type": "section",
+      "layout": "big",
+      "chapter": "第三章 · 你可以这样温柔待我",
+      "big": "温柔",
+      "sub": "不是示弱，而是把爱放在情绪之上",
+      "points": [
+        "把情绪先放下，把爱放在前面",
+        "这需要很大的内心力量",
+        "能温柔的人，从不软弱",
+        "温柔是双向的滋养"
+      ],
+      "takeaway": "温柔不是委屈求全，而是把爱放在情绪之上。",
+      "notes": "消除「温柔=低声下气」的误解，让温柔成为一种有力量、有尊严的选择。"
+    },
+    {
+      "type": "section",
+      "layout": "mosaic",
+      "chapter": "第三章 · 你可以这样温柔待我",
+      "title": "你温柔的样子，真的很好看",
+      "blocks": [
+        {
+          "heading": "温柔是一种气质",
+          "image": "output/img/rom3_pink_roses.jpg"
+        },
+        {
+          "heading": "轻声说话时眼里的光",
+          "image": "output/img/rom3_soft_morning_light_window.jpg"
+        },
+        {
+          "heading": "耐心听我说话的样子",
+          "image": "output/img/rom4_warm_sweater_knit.jpg"
+        }
+      ],
+      "takeaway": "你的温柔，是我眼里最美的风景。",
+      "notes": "从欣赏的角度赞美对方，把「温柔」变成一件让她自己受益且愉快的事。"
+    },
+    {
+      "type": "section",
+      "layout": "list",
+      "chapter": "第三章 · 你可以这样温柔待我",
+      "title": "当情绪上来的时候",
+      "blocks": [
+        {
+          "heading": "先停三秒",
+          "points": [
+            "话到嘴边，先深呼吸"
+          ],
+          "image": "output/img/rom4_marshmallow_hot_drink.jpg"
+        },
+        {
+          "heading": "换种说法",
+          "points": [
+            "把指责换成「我有点难过」"
+          ],
+          "image": "output/img/rom3_heart_shape.jpg"
+        },
+        {
+          "heading": "不翻旧账",
+          "points": [
+            "就事论事，只谈眼前"
+          ],
+          "image": "output/img/rom4_lantern_warm_glow.jpg"
+        },
+        {
+          "heading": "给个台阶",
+          "points": [
+            "吵完别冷战，抱一下就好"
+          ],
+          "image": "output/img/rom4_chocolate_hearts.jpg"
+        }
+      ],
+      "takeaway": "情绪来的那一刻，温柔就是最好的刹车。",
+      "notes": "给出具体可操作的四步，把抽象的建议落到具体场景里。"
+    },
+    {
+      "type": "section",
+      "chapter": "第三章 · 你可以这样温柔待我",
+      "title": "他也想被你夸一夸",
+      "blocks": [
+        {
+          "heading": "男生，同样需要肯定",
+          "points": [
+            "一句「你真棒」能让他开心一整天",
+            "你的认可，是他最珍贵的勋章",
+            "被在乎的人夸，最有力量"
+          ],
+          "image": "output/img/rom4_gift_box_ribbon.jpg",
+          "note": "你的认可，胜过一切"
+        },
+        {
+          "heading": "不妨多夸夸这些",
+          "points": [
+            "「谢谢你今天记得帮我带伞」",
+            "「你今天真帅」",
+            "「有你在，我安心多了」"
+          ],
+          "image": "output/img/rom4_flowers_bouquet_soft.jpg",
+          "note": "你的一句话，能甜很久"
+        }
+      ],
+      "takeaway": "你的一句夸奖，抵得过千军万马。",
+      "notes": "提醒对方，肯定与赞美也是温柔的一部分，给出具体例句。"
+    },
+    {
+      "type": "section",
+      "chapter": "第三章 · 你可以这样温柔待我",
+      "title": "他的「玻璃心」时刻",
+      "blocks": [
+        {
+          "heading": "被否定的时候",
+          "points": [
+            "努力了很久，却被一句「就这」",
+            "他会怀疑自己是不是不够好"
+          ],
+          "image": "output/img/rom3_rain_on_window.jpg",
+          "note": "他也会怀疑自己"
+        },
+        {
+          "heading": "努力不被看见的时候",
+          "points": [
+            "加班、攒钱、规划未来",
+            "却没人问一句「你累不累」"
+          ],
+          "image": "output/img/rom4_warm_sweater_knit.jpg",
+          "note": "他其实已经很累"
+        },
+        {
+          "heading": "累到说不出话的时候",
+          "points": [
+            "不想解释、也不想争辩",
+            "只想安安静静地靠一靠"
+          ],
+          "image": "output/img/rom3_candle_light.jpg",
+          "note": "只想要你陪在身边"
+        }
+      ],
+      "takeaway": "这些时刻，他比任何时候都更需要你的温柔。",
+      "notes": "点出男生最脆弱的几个瞬间，让温柔有了明确的时机感。"
+    },
+    {
+      "type": "section",
+      "layout": "split",
+      "chapter": "第四章 · 一起走下去",
+      "title": "好的关系，是互相滋养",
+      "image": "output/img/rom3_couple_holding_hands.jpg",
+      "blocks": [
+        {
+          "heading": "你温柔待我",
+          "points": [
+            "我更想加倍对你好",
+            "爱是循环的，温柔也是",
+            "你对我的好，我会记一辈子"
+          ]
+        },
+        {
+          "heading": "我也会温柔待你",
+          "points": [
+            "我会更努力、更体贴",
+            "更懂得疼你、护着你",
+            "温柔从来不是单方面的"
+          ]
+        }
+      ],
+      "takeaway": "温柔是相互的，爱也是。",
+      "notes": "强调这是双向的，不是单方面索取，让对方感到公平与被尊重。"
+    },
+    {
+      "type": "section",
+      "chapter": "第四章 · 一起走下去",
+      "title": "你，也是我最想守护的人",
+      "takeaway": "我要的，是两个人一起变好。",
+      "notes": "再次平衡立场，表明自己也愿意改变，避免显得单方面要求。",
+      "layout": "banner",
+      "image": "output/img/rom4_couple_silhouette_sunset.jpg",
+      "blocks": [
+        {
+          "heading": "说这些，不是只要求你",
+          "points": [
+            "不是只想让你付出",
+            "我也会改变、会成长",
+            "会努力做更好的自己"
+          ],
+          "note": "我也会努力变好"
+        },
+        {
+          "heading": "你永远是我最想守护的人",
+          "points": [
+            "你的小脾气，其实也很可爱",
+            "我只想和你好好在一起",
+            "把日子过成我们想要的样子"
+          ],
+          "note": "想和你，走到最后"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "layout": "list",
+      "chapter": "第四章 · 一起走下去",
+      "title": "一个很小的心愿",
+      "blocks": [
+        {
+          "heading": "在我累的时候",
+          "points": [
+            "少一点指责，多一点抱抱",
+            "不问「怎么又这样」，问「你还好吗」"
+          ],
+          "image": "output/img/rom3_warm_sunset_sky.jpg"
+        },
+        {
+          "heading": "在我失落的时候",
+          "points": [
+            "少一点比较，多一点鼓励",
+            "不和别人比，只和我一起往前走"
+          ],
+          "image": "output/img/rom4_candle_dinner_table.jpg"
+        }
+      ],
+      "takeaway": "你多温柔一分，我就多爱你十分。",
+      "notes": "把诉求落到两个最具体的场景，真诚而不贪心。"
+    },
+    {
+      "type": "section",
+      "layout": "split",
+      "chapter": "第四章 · 一起走下去",
+      "title": "我们的约定",
+      "image": "output/img/rom4_couple_silhouette_sunset.jpg",
+      "blocks": [
+        {
+          "heading": "我答应你",
+          "points": [
+            "我会更懂你、更体贴",
+            "会多表达、多陪伴",
+            "把你放在心尖上"
+          ]
+        },
+        {
+          "heading": "也请你答应我",
+          "points": [
+            "累的时候，多给我一点温柔",
+            "难过的时候，多给我一点安慰",
+            "我们一起，好好走下去"
+          ]
+        }
+      ],
+      "takeaway": "这是我们的约定，拉勾不许变。",
+      "notes": "用「约定」的形式收束，双向承诺，让结尾更有仪式感。"
+    },
+    {
+      "type": "section",
+      "chapter": "第四章 · 一起走下去",
+      "title": "谢谢你一直以来的好",
+      "blocks": [
+        {
+          "heading": "谢谢你的陪伴",
+          "points": [
+            "在我最难的时候，你都在",
+            "有你在，我什么都不怕"
+          ],
+          "image": "output/img/rom3_warm_sunset_sky.jpg",
+          "note": "有你在，真好"
+        },
+        {
+          "heading": "谢谢你的包容",
+          "points": [
+            "包容我的粗心和小毛病",
+            "包容我的不善言辞"
+          ],
+          "image": "output/img/rom3_heart_shape.jpg",
+          "note": "谢谢你，一直迁就我"
+        },
+        {
+          "heading": "谢谢你的爱",
+          "points": [
+            "让我知道自己被好好爱着",
+            "也让我更想好好爱你"
+          ],
+          "image": "output/img/rom4_couple_silhouette_sunset.jpg",
+          "note": "我也会，加倍爱你"
+        }
+      ],
+      "takeaway": "我不是要一个完美的你，我只要眼前真实的你。",
+      "notes": "以感谢收尾，让对方感受到这份心意是建立在珍惜之上，而非挑剔。"
+    },
+    {
+      "type": "closing",
+      "text": "谢谢你，亲爱的",
+      "subtitle": "我会用一辈子，温柔地爱你 · 也请你，温柔待我",
+      "stats": [
+        {
+          "n": "1",
+          "label": "多一句关心"
+        },
+        {
+          "n": "2",
+          "label": "多一个抱抱"
+        },
+        {
+          "n": "3",
+          "label": "多一句夸奖"
+        }
+      ],
+      "actions": [
+        {
+          "head": "关心",
+          "text": "我累的时候，问一句「你还好吗」"
+        },
+        {
+          "head": "拥抱",
+          "text": "我难过的时候，别说话，抱一抱"
+        },
+        {
+          "head": "夸奖",
+          "text": "我做得好时，夸我一句「真棒」"
+        }
+      ],
+      "note": "这些话，我只想对你一个人说。",
+      "notes": "结尾用三个具体的小心愿收束，语气柔软、真诚，给对方一个温暖的落点。",
+      "image": "output/img/rom4_candle_dinner_table.jpg"
+    }
+  ]
+}

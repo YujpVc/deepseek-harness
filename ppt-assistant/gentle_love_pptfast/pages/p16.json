@@ -1,0 +1,30 @@
+{
+  "layout": "image-split",
+  "image_side": "left",
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "silhouette",
+      "fit": "cover",
+      "caption": "想和你，走到最后"
+    },
+    {
+      "type": "paragraph",
+      "text": "说这些，不是只要求你付出。我也会改变、会成长，会努力做更好的自己。你永远是我最想守护的人——你的小脾气其实很可爱，我只想和你好好在一起，把日子过成我们想要的样子。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "我也会改变、会成长",
+        "你的小脾气，其实也很可爱",
+        "把日子过成我们想要的样子"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "我要的，是两个人一起变好。",
+      "tone": "positive"
+    }
+  ]
+}

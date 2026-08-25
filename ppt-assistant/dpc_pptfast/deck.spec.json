@@ -1,0 +1,87 @@
+{
+  "version": "1",
+  "filename": "dpc.pptx",
+  "theme": "consulting",
+  "narrative": {
+    "strategy": "instructional",
+    "pacing": "dense",
+    "audience": "public"
+  },
+  "meta": {
+    "date": "2026",
+    "organization": "两轮电瓶车选购指南"
+  },
+  "seed": 20260821,
+  "pages": [
+    {
+      "id": "p01",
+      "type": "cover",
+      "heading": "两轮电瓶车选购指南"
+    },
+    {
+      "id": "p02",
+      "type": "content",
+      "heading": "这份指南，讲清六件事"
+    },
+    {
+      "id": "p03",
+      "type": "content",
+      "heading": "先分清：你要买的是哪一种"
+    },
+    {
+      "id": "p04",
+      "type": "content",
+      "heading": "电池：铅酸还是锂电"
+    },
+    {
+      "id": "p05",
+      "type": "content",
+      "heading": "动力：电机瓦数怎么选"
+    },
+    {
+      "id": "p06",
+      "type": "content",
+      "heading": "上牌、驾照、保险，一样不能少"
+    },
+    {
+      "id": "p07",
+      "type": "content",
+      "heading": "国产主流品牌，各有什么特点"
+    },
+    {
+      "id": "p08",
+      "type": "content",
+      "heading": "安全：这几样别省"
+    },
+    {
+      "id": "p09",
+      "type": "content",
+      "heading": "充电与电池保养，延长寿命"
+    },
+    {
+      "id": "p10",
+      "type": "content",
+      "heading": "试骑，重点试这四样"
+    },
+    {
+      "id": "p11",
+      "type": "content",
+      "heading": "这些坑，新手最容易踩"
+    },
+    {
+      "id": "p12",
+      "type": "content",
+      "heading": "从决定到提车，五步走"
+    },
+    {
+      "id": "p13",
+      "type": "content",
+      "heading": "一句话总结"
+    },
+    {
+      "id": "p14",
+      "type": "ending",
+      "heading": "选到心仪的车"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "layout": "image-split",
+  "image_side": "left",
+  "background": {
+    "kind": "asset",
+    "asset_id": "emoto2",
+    "overlay": { "color": "#FFFFFF", "opacity": 0.87 }
+  },
+  "decor": { "kind": "big_number", "text": "11" },
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "emoto2",
+      "fit": "cover",
+      "caption": "性能电摩：极速 55km/h，通勤更有掌控感"
+    },
+    {
+      "type": "kpi_cards",
+      "items": [
+        { "value": "55", "unit": "km/h", "label": "极速，通勤更快" },
+        { "value": "83", "unit": "km", "label": "最高工况续航" },
+        { "value": "3639", "unit": "元起", "label": "首发权益参考价" }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "性能与体验优先、预算偏上限，AE3 Pro 值得看。",
+      "tone": "positive"
+    }
+  ],
+  "notes": "推荐三：极核 AE3 Pro，性能电摩，适合通勤距离较长、看重速度与操控体验的男性用户。"
+}

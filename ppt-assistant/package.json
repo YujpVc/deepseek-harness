@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@liustack/pptfast": "^0.20.0"
+  }
+}

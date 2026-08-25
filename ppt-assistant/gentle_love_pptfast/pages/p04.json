@@ -1,0 +1,30 @@
+{
+  "layout": "image-split",
+  "image_side": "left",
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "pen",
+      "fit": "cover",
+      "caption": "把心里话，一笔一画写给你"
+    },
+    {
+      "type": "paragraph",
+      "text": "有些话，当面说不出口——怕一激动语气就变了味，怕你误会我真正想说的。写下来，我能想清楚了再说，你也能安安静静地读，不用急着反驳，也不用急着打断我。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "写下来，是想让你认真地听一次",
+        "先听完，我们再慢慢聊",
+        "这不是逃避沟通，而是想让沟通更温柔"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "这不是逃避沟通，而是想让沟通更温柔。",
+      "tone": "positive"
+    }
+  ]
+}

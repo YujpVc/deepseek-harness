@@ -1,0 +1,38 @@
+{
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "把流程理清，买电车不复杂："
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "title": "定预算",
+          "text": "算清全生命周期成本"
+        },
+        {
+          "title": "定场景",
+          "text": "几个人坐、跑多远、装不装家充"
+        },
+        {
+          "title": "圈车型",
+          "text": "按场景筛 2–3 款"
+        },
+        {
+          "title": "去试驾",
+          "text": "当日常开，感受平顺与静音"
+        },
+        {
+          "title": "比权益",
+          "text": "质保、补贴、交付周期再下单"
+        }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "一步一步来，别被销售节奏带着走。",
+      "tone": "positive"
+    }
+  ]
+}

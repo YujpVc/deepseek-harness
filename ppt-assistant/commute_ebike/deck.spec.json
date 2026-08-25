@@ -1,0 +1,117 @@
+{
+  "version": "1",
+  "filename": "国产通勤电动车选购指南.pptx",
+  "theme": "consulting",
+  "narrative": {
+    "strategy": "pyramid",
+    "pacing": "dense",
+    "audience": "public"
+  },
+  "meta": {
+    "date": "2026",
+    "organization": "通勤选车决策"
+  },
+  "seed": 20260825,
+  "pages": [
+    {
+      "id": "p01",
+      "type": "cover",
+      "heading": "国产通勤电动车选购指南"
+    },
+    {
+      "id": "p02",
+      "type": "content",
+      "heading": "结论先行：男用通勤，锁定这三类"
+    },
+    {
+      "id": "p03",
+      "type": "content",
+      "heading": "你的通勤画像：先写清 6 个硬需求"
+    },
+    {
+      "id": "p04",
+      "type": "content",
+      "heading": "先分清车型：电动自行车还是电摩"
+    },
+    {
+      "id": "p05",
+      "type": "content",
+      "heading": "上牌、驾照、保险：别踩法规线"
+    },
+    {
+      "id": "p06",
+      "type": "content",
+      "heading": "续航怎么看：标称要打几折"
+    },
+    {
+      "id": "p07",
+      "type": "content",
+      "heading": "电池三选一：铅酸、锂电、钠电"
+    },
+    {
+      "id": "p08",
+      "type": "content",
+      "heading": "动力与刹车：爬坡带人有劲"
+    },
+    {
+      "id": "p09",
+      "type": "content",
+      "heading": "2500–4000 元候选车型横评"
+    },
+    {
+      "id": "p10",
+      "type": "content",
+      "heading": "推荐一：九号 Fz · 免驾照智能派"
+    },
+    {
+      "id": "p11",
+      "type": "content",
+      "heading": "推荐二：雅迪 T35 · 电摩性价比派"
+    },
+    {
+      "id": "p12",
+      "type": "content",
+      "heading": "推荐三：极核 AE3 Pro · 电摩性能派"
+    },
+    {
+      "id": "p13",
+      "type": "content",
+      "heading": "台铃、绿源、爱玛、新日各有所长"
+    },
+    {
+      "id": "p14",
+      "type": "content",
+      "heading": "按通勤距离选：一张决策矩阵"
+    },
+    {
+      "id": "p15",
+      "type": "content",
+      "heading": "男款到店试车：必试三项"
+    },
+    {
+      "id": "p16",
+      "type": "content",
+      "heading": "避坑清单：买前必看的六个套路"
+    },
+    {
+      "id": "p17",
+      "type": "content",
+      "heading": "预算落地：裸车之外还要花多少"
+    },
+    {
+      "id": "p18",
+      "type": "content",
+      "heading": "智能与防盗：NFC、GPS、无钥匙"
+    },
+    {
+      "id": "p19",
+      "type": "content",
+      "heading": "最终推荐：按你的场景落子"
+    },
+    {
+      "id": "p20",
+      "type": "ending",
+      "heading": "选到那台陪你每天通勤的车"
+    }
+  ]
+}

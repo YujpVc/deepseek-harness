@@ -1,0 +1,30 @@
+{
+  "layout": "image-split",
+  "image_side": "left",
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "bouquet",
+      "fit": "cover",
+      "caption": "你的一句夸奖，抵得过千军万马"
+    },
+    {
+      "type": "paragraph",
+      "text": "男生，同样需要肯定。一句「你真棒」能让他开心一整天，你的认可，是他最珍贵的勋章。不妨多夸夸他：「谢谢你今天记得帮我带伞」「你今天真帅」「有你在，我安心多了」。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "一句「你真棒」能让他开心一整天",
+        "你的认可，是他最珍贵的勋章",
+        "被在乎的人夸，最有力量"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "你的一句夸奖，抵得过千军万马。",
+      "tone": "positive"
+    }
+  ]
+}

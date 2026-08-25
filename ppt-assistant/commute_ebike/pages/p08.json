@@ -1,0 +1,33 @@
+{
+  "layout": "image-split",
+  "image_side": "right",
+  "background": {
+    "kind": "asset",
+    "asset_id": "motor",
+    "overlay": { "color": "#FFFFFF", "opacity": 0.87 }
+  },
+  "decor": { "kind": "big_number", "text": "07" },
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "motor",
+      "fit": "cover",
+      "caption": "电机瓦数决定加速和爬坡能力"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "400W 以内：平路通勤够用，免驾照",
+        "800–1500W：爬坡、带人有劲，多为电摩",
+        "刹车优先前后碟刹，试骑爬坡见真章"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "有坡、带人、拉货，动力宁大勿小，否则会后悔。",
+      "tone": "positive"
+    }
+  ],
+  "notes": "动力看电机瓦数和扭矩，刹车看是否前后碟刹；男用通勤若有坡或带人，优先大功率。"
+}

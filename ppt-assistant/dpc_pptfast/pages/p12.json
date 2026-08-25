@@ -1,0 +1,42 @@
+{
+  "decor": {
+    "kind": "big_number",
+    "text": "11"
+  },
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "把流程理清，买电瓶车不复杂："
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "title": "定预算",
+          "text": "车价 + 上牌 + 头盔锁具"
+        },
+        {
+          "title": "定类别",
+          "text": "电动自行车还是电摩"
+        },
+        {
+          "title": "圈车型",
+          "text": "按品牌、续航筛 2–3 款"
+        },
+        {
+          "title": "去试骑",
+          "text": "起步、刹车、坐姿都试"
+        },
+        {
+          "title": "比权益",
+          "text": "质保、上牌、售后再下单"
+        }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "一步一步来，别被销售节奏带着走。",
+      "tone": "positive"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "layout": "narrow-column",
+  "background": {
+    "kind": "asset",
+    "asset_id": "commute",
+    "overlay": {
+      "color": "#FFFFFF",
+      "opacity": 0.88
+    }
+  },
+  "decor": {
+    "kind": "big_number",
+    "text": "10"
+  },
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "买电瓶车前，先避开这几个常见误区："
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "只看标称续航，不看真实打折",
+        "贪便宜买无牌车/翻新车",
+        "忽略上牌和驾照要求",
+        "跟风买顶配，用不上的功能白花钱",
+        "没问清售后网点和电池质保"
+      ],
+      "style": "checklist"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "多问一句、多查一步，能少花不少冤枉钱。",
+      "tone": "positive"
+    }
+  ]
+}

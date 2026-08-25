@@ -1,0 +1,30 @@
+{
+  "layout": "image-split",
+  "image_side": "left",
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "coffee",
+      "fit": "cover",
+      "caption": "加班的夜里，也会想家"
+    },
+    {
+      "type": "paragraph",
+      "text": "工作上的项目催得紧、要求也高，加班的夜里还在想怎么做得更好；生活里房子、车子、未来的规划，他总想给你更好的生活。他很少主动说这些，怕你跟着一起焦虑。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "工作：项目催得紧，加班到深夜",
+        "生活：房子车子，想给你安稳",
+        "偶尔挫败，也会偷偷怀疑自己"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "他的沉默不是冷漠，而是在独自消化。",
+      "tone": "positive"
+    }
+  ]
+}

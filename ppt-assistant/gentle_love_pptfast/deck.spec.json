@@ -1,0 +1,113 @@
+{
+  "version": "1",
+  "filename": "gentle_love.pptx",
+  "theme": "bloom",
+  "narrative": {
+    "strategy": "storytelling",
+    "pacing": "dense",
+    "audience": "public"
+  },
+  "seed": 20260818,
+  "pages": [
+    {
+      "id": "p01",
+      "type": "cover",
+      "heading": "温柔一点，好不好？"
+    },
+    {
+      "id": "p02",
+      "type": "content",
+      "heading": "把这些话，慢慢讲给你听"
+    },
+    {
+      "id": "p03",
+      "type": "content",
+      "heading": "这不是一份控诉书，而是一封情书"
+    },
+    {
+      "id": "p04",
+      "type": "content",
+      "heading": "为什么选择这种方式"
+    },
+    {
+      "id": "p05",
+      "type": "content",
+      "heading": "男生，不是铁打的"
+    },
+    {
+      "id": "p06",
+      "type": "content",
+      "heading": "他默默扛下的那些事"
+    },
+    {
+      "id": "p07",
+      "type": "content",
+      "heading": "他的爱，藏在细节里"
+    },
+    {
+      "id": "p08",
+      "type": "content",
+      "heading": "同一句话，两种说法"
+    },
+    {
+      "id": "p09",
+      "type": "content",
+      "heading": "他真正在意的"
+    },
+    {
+      "id": "p10",
+      "type": "content",
+      "heading": "温柔，不是示弱"
+    },
+    {
+      "id": "p11",
+      "type": "content",
+      "heading": "你温柔的样子，真的很好看"
+    },
+    {
+      "id": "p12",
+      "type": "content",
+      "heading": "当情绪上来的时候"
+    },
+    {
+      "id": "p13",
+      "type": "content",
+      "heading": "他也想被你夸一夸"
+    },
+    {
+      "id": "p14",
+      "type": "content",
+      "heading": "他的「玻璃心」时刻"
+    },
+    {
+      "id": "p15",
+      "type": "content",
+      "heading": "好的关系，是互相滋养"
+    },
+    {
+      "id": "p16",
+      "type": "content",
+      "heading": "你，也是我最想守护的人"
+    },
+    {
+      "id": "p17",
+      "type": "content",
+      "heading": "一个很小的心愿"
+    },
+    {
+      "id": "p18",
+      "type": "content",
+      "heading": "我们的约定"
+    },
+    {
+      "id": "p19",
+      "type": "content",
+      "heading": "谢谢你一直以来的好"
+    },
+    {
+      "id": "p20",
+      "type": "ending",
+      "heading": "谢谢你，亲爱的"
+    }
+  ]
+}

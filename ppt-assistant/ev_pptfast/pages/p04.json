@@ -1,0 +1,36 @@
+{
+  "components": [
+    {
+      "type": "paragraph",
+      "text": "不要只看官方续航，真实续航通常打 7–8 折。重点看电池类型、快充速度和是否支持对外放电，这些才决定你日常用起来方不方便。"
+    },
+    {
+      "type": "kpi_cards",
+      "items": [
+        {
+          "value": "500",
+          "unit": "km",
+          "label": "日常够用续航",
+          "icon": "battery-charging"
+        },
+        {
+          "value": "30",
+          "unit": "分",
+          "label": "快充到 80%",
+          "icon": "zap"
+        },
+        {
+          "value": "7.5",
+          "unit": "折",
+          "label": "冬季续航",
+          "icon": "snowflake"
+        }
+      ]
+    },
+    {
+      "type": "verdict_banner",
+      "text": "按「实际续航 = 标称 × 0.75」来预估，别被宣传数字误导。",
+      "tone": "positive"
+    }
+  ]
+}

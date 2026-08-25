@@ -1,0 +1,30 @@
+{
+  "layout": "image-split",
+  "image_side": "left",
+  "components": [
+    {
+      "type": "image",
+      "asset_id": "tesla",
+      "fit": "cover",
+      "caption": "轿车/SUV/微型车，各有各的合适场景"
+    },
+    {
+      "type": "paragraph",
+      "text": "城市通勤、家里第二辆车，微型或紧凑轿车够用又便宜；经常全家出行、要装大件，选 SUV；纯粹一个人上下班，微型车停车方便、成本最低。"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "城市通勤/第二辆车 → 紧凑轿车",
+        "全家出行/装大件 → SUV",
+        "一个人代步 → 微型车"
+      ],
+      "style": "default"
+    },
+    {
+      "type": "verdict_banner",
+      "text": "先想清楚「平时几个人坐、跑多远」，再决定车型。",
+      "tone": "positive"
+    }
+  ]
+}
