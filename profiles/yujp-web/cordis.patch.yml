@@ -1,4 +1,30 @@
 # Your patch layer for this dsh profile, applied after every bundle layer:
 # a top-level YAML array of loader patch entries (id-targeted config
 # overrides, disables, and insert lists; `!!js` expressions allowed).
-[]
+- id: agent-default-model
+  config:
+    provider: codex-company
+    model: gpt-6.1-sol
+
+# Use the OpenAI Responses compatible endpoint configured by cc-switch's
+# `公司_个人` Codex profile. The credential is resolved from the local DSH
+# credential store through its environment-name reference.
+- id: llm-pi-ai
+  config:
+    providers:
+      codex-company:
+        displayName: 公司_个人
+        apiKeyEnv: OPENAI_API_KEY
+        api: openai-responses
+        baseURL: https://uuapi.shop
+        reasoning: high
+        models:
+          - id: gpt-6.1-sol
+            name: GPT-6.1 Sol
+            reasoningEfforts:
+              off:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max

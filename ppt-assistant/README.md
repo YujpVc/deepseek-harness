@@ -1,16 +1,25 @@
 # PPT 助手 · 使用说明
 
-一个「一条龙」PPT 生成助手：你说需求 + 给数据 → 我（助手）分析需求、写大纲和文案 → 套用你指定的模板风格 → 生成**可编辑 .pptx** 交付。
+一个「一条龙」PPT 生成助手：你说需求 + 给数据 → 我（助手）分析需求、写大纲和文案 → 生成**可编辑 .pptx** 交付。生成器、版式和验收器全部内置于本目录；用户工作区只提供内容规格和显式素材路径，不执行工作区里的业务脚本。
+
+安装 Python 依赖：
+
+```bash
+python3 -m pip install -r requirements.txt
+```
 
 ## 目录结构
 
 ```
 ppt-assistant/
 ├── generate_ppt.py          # 生成引擎（套模板视觉规范，按 JSON 规格产出 pptx）
+├── build_deck.py            # 默认生成引擎（独立 JSON 规格 → 原生可编辑 PPTX）
 ├── ingest.py                # 文件摄取：读 .pptx / .pdf / 图片（扫描版自动 OCR）
 ├── image_fetch.py           # 联网取图：Pexels 语义搜图 → loremflickr → picsum
 ├── restyle.py               # 原地重排：把已有 PPT 统一为模板字体/配色
 ├── check.py                 # 检查器：排版一致性 + 文字遮挡/溢出
+├── quality_check.py         # 交付门槛：视觉元素、版式变化、16:9 与文字堆砌检测
+├── render_ppt.py            # 用户态渲染：soffice → PDF → PNG
 ├── config.json              # 配置：template + logo + pexels_key(留空,建议用环境变量)
 ├── analyze_template.py      # 模板拆解工具（分析配色/字体/结构，一般不用跑）
 ├── sample_work_report.json  # 示例：工作述职内容规格
@@ -18,6 +27,18 @@ ppt-assistant/
 ├── assets/                  # 从模板提取的装饰素材（备用）
 └── output/                  # 生成的 pptx + 下载的配图
 ```
+
+## 默认生成引擎
+
+复杂 PPT 使用内置 `build_deck.py`，不依赖用户工作区中的 `build_deck.py`、模板脚本或业务目录：
+
+```bash
+python3 build_deck.py 规格.json output/输出名.pptx
+python3 quality_check.py output/输出名.pptx
+python3 render_ppt.py output/输出名.pptx --outdir output/render
+```
+
+规格中的图片路径相对于规格 JSON 文件解析。支持 `cover`、`cards`、`process`、`comparison`、`image_split`、`image_grid`、`table`、`chart` 和 `closing`，图表为 PowerPoint 原生可编辑对象。
 
 ## 快速开始
 
@@ -125,6 +146,15 @@ python3 check.py 输出.pptx
 ```
 
 检查项：字体一致性、配色一致性、标题对齐、**文字遮挡**、文本溢出、出界。生成后交付前建议先跑一遍。
+
+复杂 PPT 还必须通过结构质量门槛，并完成逐页渲染：
+
+```bash
+python3 quality_check.py 输出.pptx
+python3 render_ppt.py 输出.pptx --outdir 工作区/.render
+```
+
+`quality_check.py` 会拒绝 5 页以上的纯文字草稿（图片/图表过少、版式结构不足或页面比例不对）。`render_ppt.py` 优先使用系统 `soffice`，再查找用户目录中的 LibreOffice，不依赖 root 权限。
 
 ## 使用流程（怎么用这个助手）
 

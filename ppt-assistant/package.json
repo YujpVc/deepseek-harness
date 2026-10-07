@@ -1,5 +1,8 @@
 {
-  "dependencies": {
-    "@liustack/pptfast": "^0.20.0"
+  "name": "dsh-ppt-assistant",
+  "private": true,
+  "description": "Local PPT generation tools used by the DeepSeek Harness PPT preset.",
+  "scripts": {
+    "legacy-smoke": "python3 generate_ppt.py sample_work_report.json output/smoke.pptx"
   }
 }
