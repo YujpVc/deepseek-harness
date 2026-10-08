@@ -14,6 +14,7 @@ python3 -m pip install -r requirements.txt
 ppt-assistant/
 ├── generate_ppt.py          # 生成引擎（套模板视觉规范，按 JSON 规格产出 pptx）
 ├── build_deck.py            # 默认生成引擎（独立 JSON 规格 → 原生可编辑 PPTX）
+├── run_pptfast.sh           # 远端 Desktop 同款 pptfast 运行包启动器
 ├── ingest.py                # 文件摄取：读 .pptx / .pdf / 图片（扫描版自动 OCR）
 ├── image_fetch.py           # 联网取图：Pexels 语义搜图 → loremflickr → picsum
 ├── restyle.py               # 原地重排：把已有 PPT 统一为模板字体/配色
@@ -72,6 +73,18 @@ python3 render_ppt.py output/输出名.pptx --outdir output/render
 ```
 
 规格中的图片路径相对于规格 JSON 文件解析。支持 `cover`、`cards`、`process`、`comparison`、`image_split`、`image_grid`、`table`、`chart` 和 `closing`，图表为 PowerPoint 原生可编辑对象。
+
+## Desktop 同款 pptfast 引擎
+
+远端 Desktop 的增强链路使用 `@liustack/pptfast@0.20.0`：语义 IR、`dense` 内容节奏、图片/对比/步骤等组件，以及 `audit` 几何审查。仓库内的 `run_pptfast.sh` 只解析已安装的运行包，不读取或执行用户工作区代码：
+
+```bash
+bash run_pptfast.sh validate deck项目/
+bash run_pptfast.sh render deck项目/ -o output/交付.pptx
+bash run_pptfast.sh audit deck项目/
+```
+
+启动器会先查找当前引擎目录下的 `node_modules/@liustack/pptfast`，再查找 Desktop 部署约定的 `~/ppt-assistant/node_modules/@liustack/pptfast`。找不到运行包时返回 78，并明确提示安装或回退到内置 `build_deck.py`；不会静默生成低质量纯文字稿。
 
 ## 快速开始
 
