@@ -28,6 +28,39 @@ ppt-assistant/
 └── output/                  # 生成的 pptx + 下载的配图
 ```
 
+## 使用用户模板（正式交付首选）
+
+当用户提供现成 PPT 模板时，使用 `build_deck.py --template`。该模式直接打开模板文件，按幻灯片编号复用原页，只替换规格中点名的文本框、图片框和备注；模板母版、主题、背景、Logo、装饰形状、页脚和原有版式都会保留，不会执行模板所在目录的脚本。
+
+模板规格不需要 `meta`，每个 `slides` 项必须覆盖模板的一页，并用 PowerPoint 形状名称作为替换键：
+
+```json
+{
+  "slides": [
+    {
+      "template_slide": 1,
+      "text": {"Title 1": "新的标题", "Subtitle 2": "新的副标题"},
+      "notes": "这一页的讲解备注"
+    },
+    {
+      "template_slide": 2,
+      "text": {"TextBox 3": "新的页标题"},
+      "images": {"Picture 9": "/绝对路径/新的图片.png"}
+    }
+  ]
+}
+```
+
+运行和验收：
+
+```bash
+python3 build_deck.py template-spec.json output/交付.pptx --template /path/to/template.pptx
+python3 quality_check.py output/交付.pptx --template /path/to/template.pptx
+python3 render_ppt.py output/交付.pptx --outdir output/render
+```
+
+`--template` 模式会拒绝重复或缺失的模板页、不存在的目标形状和无效素材；带 `--template` 的质量检查还会逐页比较页数、布局、形状类型和图片数量。模板页内未列入 `text`/`images` 的内容保持不变，适合先继承成熟视觉稿，再逐步替换内容。
+
 ## 默认生成引擎
 
 复杂 PPT 使用内置 `build_deck.py`，不依赖用户工作区中的 `build_deck.py`、模板脚本或业务目录：

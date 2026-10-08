@@ -20,6 +20,7 @@ from pptx.enum.chart import XL_CHART_TYPE
 from pptx.enum.shapes import MSO_SHAPE
 from pptx.oxml.ns import qn
 from pptx.util import Inches, Pt
+from pptx.opc.constants import RELATIONSHIP_TYPE as RT
 
 LAYOUTS = {"cover", "cards", "process", "comparison", "table", "chart",
            "image_split", "image_grid", "closing"}
@@ -260,14 +261,98 @@ def build(spec: dict, base: Path, output: Path) -> None:
     builder.prs.save(str(output))
 
 
+def _template_page_map(spec: dict, base: Path, template: Presentation) -> list[dict]:
+    """Validate a one-to-one page map for template-preserving generation."""
+    pages = spec.get("slides")
+    if not isinstance(pages, list) or len(pages) != len(template.slides):
+        raise ValueError("template mode requires one slide spec for every template slide")
+    seen: set[int] = set()
+    for index, page in enumerate(pages, 1):
+        if not isinstance(page, dict):
+            raise ValueError(f"slide {index}: template page spec must be an object")
+        source_index = page.get("template_slide")
+        if type(source_index) is not int or not 1 <= source_index <= len(template.slides):
+            raise ValueError(f"slide {index}: template_slide must be a valid 1-based slide number")
+        if source_index in seen:
+            raise ValueError(f"slide {index}: template_slide {source_index} is used more than once")
+        seen.add(source_index)
+        for field in ("text", "images"):
+            values = page.get(field, {})
+            if not isinstance(values, dict) or any(not isinstance(k, str) for k in values):
+                raise ValueError(f"slide {index}: {field} must map shape names to values")
+        slide = template.slides[source_index - 1]
+        shapes = {shape.name: shape for shape in slide.shapes}
+        for name, value in page.get("text", {}).items():
+            if name not in shapes or not getattr(shapes[name], "has_text_frame", False):
+                raise ValueError(f"slide {index}: text target is not a text shape: {name}")
+            if not isinstance(value, str):
+                raise ValueError(f"slide {index}: text for {name} must be a string")
+        for name, filename in page.get("images", {}).items():
+            if name not in shapes or shapes[name].shape_type != 13:
+                raise ValueError(f"slide {index}: image target is not a picture shape: {name}")
+            image_path = (Path(filename) if Path(filename).is_absolute() else base / filename).resolve()
+            if not image_path.is_file():
+                raise ValueError(f"slide {index}: image not found: {image_path}")
+            with Image.open(image_path) as picture:
+                picture.verify()
+        notes = page.get("notes", "")
+        if not isinstance(notes, str):
+            raise ValueError(f"slide {index}: notes must be a string")
+    if seen != set(range(1, len(template.slides) + 1)):
+        raise ValueError("template_slide values must cover every template slide exactly once")
+    return pages
+
+
+def _replace_text(shape, value: str) -> None:
+    """Replace text while retaining the first run's font and paragraph styling."""
+    frame = shape.text_frame
+    runs = [run for paragraph in frame.paragraphs for run in paragraph.runs]
+    if runs:
+        runs[0].text = value
+        for run in runs[1:]:
+            run.text = ""
+        for paragraph in frame.paragraphs[1:]:
+            for run in paragraph.runs:
+                run.text = ""
+    else:
+        frame.paragraphs[0].add_run().text = value
+
+
+def build_from_template(spec: dict, base: Path, template_path: Path, output: Path) -> None:
+    """Edit named text and picture shapes without rebuilding template slides."""
+    template = Presentation(str(template_path))
+    pages = _template_page_map(spec, base, template)
+    for page in pages:
+        slide = template.slides[page["template_slide"] - 1]
+        shapes = {shape.name: shape for shape in slide.shapes}
+        for name, value in page.get("text", {}).items():
+            _replace_text(shapes[name], value)
+        for name, filename in page.get("images", {}).items():
+            shape = shapes[name]
+            image_path = (Path(filename) if Path(filename).is_absolute() else base / filename).resolve()
+            image_part, _ = slide.part.get_or_add_image_part(str(image_path))
+            blip = shape._element.blipFill.blip
+            blip.set(qn("r:embed"), slide.part.relate_to(image_part, RT.IMAGE))
+        if "notes" in page:
+            slide.notes_slide.notes_text_frame.text = page["notes"]
+    output.parent.mkdir(parents=True, exist_ok=True)
+    template.save(str(output))
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("spec", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument("--template", type=Path,
+                        help="reuse every slide from this PPTX, replacing named text/image shapes")
     args = parser.parse_args()
     try:
         spec = json.loads(args.spec.read_text(encoding="utf-8"))
-        build(spec, args.spec.resolve().parent, args.output)
+        base = args.spec.resolve().parent
+        if args.template:
+            build_from_template(spec, base, args.template.resolve(), args.output.resolve())
+        else:
+            build(spec, base, args.output.resolve())
     except (ValueError, OSError, KeyError, TypeError) as exc:
         parser.exit(2, f"build_deck: {exc}\n")
     print(f"Generated {len(spec['slides'])} editable slides: {args.output.resolve()}")

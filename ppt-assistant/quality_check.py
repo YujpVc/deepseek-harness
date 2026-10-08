@@ -114,10 +114,37 @@ def failures(report: dict) -> list[str]:
     return problems
 
 
+def compare_template(report: dict, template_path: Path) -> list[str]:
+    """Require each output page to retain its source template's structure."""
+    baseline = inspect(template_path)
+    problems: list[str] = []
+    if report["slides"] != baseline["slides"]:
+        problems.append(
+            f"模板页数为 {baseline['slides']}，输出为 {report['slides']}，模板页未完整继承"
+        )
+        return problems
+    source = Presentation(str(template_path))
+    result = Presentation(report["file"])
+    for index, (before, after, source_slide, result_slide) in enumerate(
+        zip(baseline["slide_stats"], report["slide_stats"], source.slides, result.slides), 1
+    ):
+        source_types = [int(shape.shape_type) for shape in source_slide.shapes]
+        result_types = [int(shape.shape_type) for shape in result_slide.shapes]
+        if source_types != result_types:
+            problems.append(f"第 {index} 页形状结构与模板不一致")
+        if source_slide.slide_layout.name != result_slide.slide_layout.name:
+            problems.append(f"第 {index} 页布局与模板不一致")
+        if before["images"] != after["images"]:
+            problems.append(f"第 {index} 页图片数量与模板不一致")
+    return problems
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("pptx", type=Path)
     parser.add_argument("--json", action="store_true")
+    parser.add_argument("--template", type=Path,
+                        help="compare page count, layout, shapes and image count against a source template")
     args = parser.parse_args()
     try:
         report = inspect(args.pptx)
@@ -125,6 +152,14 @@ def main() -> int:
         print(f"quality_check: 无法读取 {args.pptx}: {exc}", file=sys.stderr)
         return 2
     problems = failures(report)
+    if args.template:
+        if not args.template.is_file():
+            print(f"quality_check: template not found: {args.template}", file=sys.stderr)
+            return 2
+        template_problems = compare_template(report, args.template)
+        report["template"] = str(args.template.resolve())
+        report["template_failures"] = template_problems
+        problems.extend(template_problems)
     if args.json:
         report["failures"] = problems
         print(json.dumps(report, ensure_ascii=False, indent=2))

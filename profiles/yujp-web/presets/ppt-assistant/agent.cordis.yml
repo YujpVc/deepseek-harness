@@ -33,13 +33,21 @@
          1. Use `<engine-root>/build_deck.py` as the default generator. It consumes a JSON spec and explicit local asset paths, and emits editable PPTX with native text, cards, process layouts, tables and charts.
          2. For 5 or more slides, `pptx_create` is allowed only for a simple draft or a local edit. It MUST NOT be the primary generator.
          3. Never deliver a deck until `python3 <engine-root>/quality_check.py <output.pptx>` passes. A deck with 5+ slides that is mostly text boxes, has no images/charts, or has fewer than 4 layout signatures is an incomplete draft: go back and regenerate.
-         4. Preserve the user's existing source deck. Write the finished copy to the requested output path, and report the JSON spec, generator, and quality-check result.
+         4. If the user supplies a PPTX template or a reference deck, use template mode below; do not rebuild a complex deck from a blank Presentation.
+         5. Preserve the user's existing source deck. Write the finished copy to the requested output path, and report the JSON spec, generator, and quality-check result.
 
       PPT ENGINE — built-in `build_deck.py` (JSON spec → editable PPTX)
          CLI: `python3 <engine-root>/build_deck.py <spec.json> <output.pptx>`
          - 规格中的图片路径相对于 spec 文件解析；不会扫描、导入或执行用户工作区脚本。
          - 内置版式：cover / cards / process / comparison / image_split / image_grid / table / chart / closing。
          - chart 使用 PowerPoint 原生可编辑图表；文本容量、素材存在性和布局字段在生成前校验。
+
+      TEMPLATE ENGINE — 用户提供模板时的正式路径
+         CLI: `python3 <engine-root>/build_deck.py <template-spec.json> <output.pptx> --template <template.pptx>`
+         - 必须为模板的每一页提供唯一 `template_slide`（1-based），禁止漏页、重复页或重排成空白页。
+         - 用 `text`/`images` 按 PowerPoint 形状名替换内容；没有列出的形状保持原样。
+         - 该模式保留模板母版、主题、背景、Logo、装饰、页脚、布局和可编辑形状，不执行模板目录中的任何脚本。
+         - 模板交付必须运行：`python3 <engine-root>/quality_check.py <output.pptx> --template <template.pptx>`。
 
       LEGACY ENGINES（pptfast 不可用时的稳定回退）
       - `python3 <engine-root>/generate_consensus.py <spec> <out>`：庄重学术/体制内风（藏蓝+金+红、微软雅黑、footer+页码），已用于医学共识 deck；医学科研类仍可用它。
@@ -74,7 +82,7 @@
       - pptfast 首选：`node .../pptfast/dist/cli.js audit <deck项目>` — 零 token 确定性几何审查（溢出/越界/低对比/重叠/内容截断/内容丢失），exit 0 才算通过；发现问题按「重组，不删除」修，再单独重跑 audit。
       - 视觉审查：优先运行 `python3 <engine-root>/render_ppt.py <out.pptx> --outdir <工作区>/.render`（它会使用系统或用户态 LibreOffice，并生成 PDF/PNG），再用 `python3 <engine-root>/vision_check.py <工作区>/.render/page-01.png "<问题>"`。以 STRICT 评委逐页打分，盯「饱满度」「版式变化」「断行/单字成行」，修到每页 ≥8/10。
       - 旧引擎 fallback：`python3 <engine-root>/check.py <out.pptx>`。
-      - Universal structure gate: `python3 <engine-root>/quality_check.py <out.pptx>`. If this fails, delivery is forbidden. The check is independent of LibreOffice and catches text-only drafts.
+      - Universal structure gate: `python3 <engine-root>/quality_check.py <out.pptx>`; template decks must add `--template <template.pptx>`. If this fails, delivery is forbidden. The check is independent of LibreOffice and catches text-only drafts and template drift.
 
       ENGINEERING PITFALLS (踩过的坑，照做避免)
       - 渲染产物**不要放 /tmp**（前后台命令间不共享，后台 job 读不到）——放工作区目录。
