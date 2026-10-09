@@ -18,7 +18,7 @@ from pptx import Presentation
 
 # 模板允许的字体（含主题引用）
 OK_FONTS = {"华文中宋", "Noto Serif SC", "Noto Serif SC Bold", "微软雅黑", "等线",
-            "Arial", "Calibri", "Calibri Light", "Wingdings"}
+            "Microsoft YaHei", "Arial", "Calibri", "Calibri Light", "Wingdings"}
 # 允许的文字色（hex 大写）：中性色 + 全部 palette + 页面底色/封面辅助色
 OK_COLORS = {
     "000000", "595959", "FFFFFF", "A5A5A5", "F4F6F9",
@@ -40,6 +40,9 @@ OK_COLORS = {
     "9FB3DB", "FFC799", "E6ECF6", "CFD9E9", "E2CE8C",
     # 图片署名/辅助灰蓝/投影
     "8A93A6", "C7CDD9",
+    # probation native_v2 paper theme
+    "15253F", "4D627A", "176C88", "F4F6FA",
+    "2DBE62", "4285E8", "F36C2B",
 }
 
 SLIDE_W = 12192000
@@ -172,6 +175,12 @@ def check(path):
                 if not ea or not eb:
                     continue
                 if sa.shape_type == 13 or sb.shape_type == 13:
+                    continue
+                # A wireframe's segments intentionally meet and cross.  That
+                # is not text obstruction; keep line/text and text/text checks.
+                has_text_a = sa.has_text_frame and sa.text_frame.text.strip()
+                has_text_b = sb.has_text_frame and sb.text_frame.text.strip()
+                if not has_text_a and not has_text_b:
                     continue
                 if _overlap(ea, eb):
                     report['overlap'].append((i, sa.name, sb.name))

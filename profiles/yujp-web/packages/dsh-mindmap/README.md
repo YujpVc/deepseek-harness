@@ -1,45 +1,45 @@
-# dsh-mindmap（思维导图模式）
+# dsh-mindmap (mind-map mode)
 
-把课件（PPT/PDF/Word）与电子书整理成**打印级复习思维导图 HTML** 的 DSH 插件 + Agent 预设。
+English | [中文](README.zh.md)
 
-## 效果预览（一键生成的输出）
+A DSH plugin and agent preset that turn course slides (PPT/PDF/Word) and ebooks into **print-ready review mind-map HTML**.
 
-| 模式选择栏（与创造模式并列） | 封面总览 |
+## Output previews (generated in one step)
+
+| Mode selector (beside creative mode) | Cover overview |
 |---|---|
-| ![模式选择](docs/screenshots/ui_preset_picker.png) | ![封面](docs/screenshots/cover.png) |
+| ![Mode selection](docs/screenshots/ui_preset_picker.png) | ![Cover](docs/screenshots/cover.png) |
 
-| 封面总览 | 交互式测试题（一键批改） |
+| Cover overview | Interactive quiz (one-click grading) |
 |---|---|
-| ![封面](docs/screenshots/cover.png) | ![测试题](docs/screenshots/quiz.png) |
+| ![Cover](docs/screenshots/cover.png) | ![Quiz](docs/screenshots/quiz.png) |
 
-### 四种思维导图风格（新建会话选择「思维导图模式」后，在模式下方选择，选中即默认）
+### Four mind-map styles (choose mind-map mode for a new session, then select its default style below)
 
-| 经典大括号 | 极简商务 |
+| Classic braces | Minimal business |
 |---|---|
-| ![经典](docs/screenshots/style_classic.png) | ![极简](docs/screenshots/style_minimal.png) |
+| ![Classic](docs/screenshots/style_classic.png) | ![Minimal](docs/screenshots/style_minimal.png) |
 
-| 活泼创意 | 学术整理 |
+| Creative | Academic organization |
 |---|---|
-| ![创意](docs/screenshots/style_creative.png) | ![学术](docs/screenshots/style_academic.png) |
+| ![Creative](docs/screenshots/style_creative.png) | ![Academic](docs/screenshots/style_academic.png) |
 
-> 以上为实际渲染输出（Playwright 截图）：模式选择栏与风格子栏目截自运行中的 DSH Web GUI；
-> 思维导图页由 `mm_generate` 依据《证券投资与技术分析·第七讲 技术与趋势》课件真实生成，
-> A3 横向、**黑体**、每主干一页、右侧笔记区留白，打印即分页。
+> These are actual rendered outputs captured with Playwright. The mode and style selectors come from the running DSH Web GUI. `mm_generate` produced the mind-map pages from the “Securities Investment and Technical Analysis · Lecture 7: Techniques and Trends” slides, in A3 landscape with **sans-serif fonts**, one branch per page and a blank notes area on the right. Printing preserves page breaks.
 
-- **前端**：新建会话时选择「**思维导图模式**」→ 模式下方弹出**风格选择**（经典大括号 / 极简商务 / 活泼创意 / 学术整理），选中后作为生成默认风格。新建会话的预设选择器中「思维导图模式」与「标准模式 / 创造模式」并列。
-- **预览**：本插件不内置预览——生成的 HTML 用 **dsh-IDE** 打开预览（建议一并安装 dsh-IDE 插件，见下文）。
-- **Agent 能力**：`mm_generate`（一键生成 HTML，含逐页溢出报告 + 风格参数）、`mm_extract`（提取纯文本课件）；`mindmap-builder` skill 固化「大括号式横向思维导图」的完整构建方法。
-- **产出规格**（与范例 `组胚思维导图_02_人体发育总论.html` 一致）：
-  - A3 横向（420mm×297mm），打印即分页；每页 = 一个主干知识点
-  - 大括号式横向布局：根节点在左（渐变盒 + 高光），SVG 大括号，右侧分组堆叠
-  - **字体黑体**（Microsoft YaHei / 微软雅黑 / 思源黑体），比宋体更清晰现代
-  - **美术美工**：4 种风格 × 每风格多套主题色按页轮换；根节点渐变、分组标题主色胶囊、条目圆点连接线、页眉渐变分隔线、页角装饰；节点圆角、配色克制、布局平衡、留白呼吸感
-  - **字号相对大、占满页面**：条目 17pt 起（密集页自动降至 12.5–15pt 保持不溢出），标题/根节点 21pt、分组 19pt、子条目 15pt；内容纵向 `space-evenly` 均匀铺满页面（填充率 60–96%），不留大片空白
-  - 防溢出：渲染前按字符量预算，超量自动降字号，仍超则报告需拆分主干页
-  - 右侧虚线框笔记区留白，供学生补充
-  - 封面页（大标题 + 依据来源 + 目录索引）；可选交互式测试题页（choice/tf/fill/short + 一键批改，题目多时自动紧凑排版）
+- **Frontend**: choose **mind-map mode** for a new session, then select a default style below it: classic braces, minimal business, creative or academic organization. The new-session preset selector lists mind-map mode alongside standard and creative modes.
+- **Preview**: the plugin does not embed a previewer. Open its generated HTML with **dsh-IDE**, preferably installed alongside this plugin as described below.
+- **Agent capabilities**: `mm_generate` generates HTML with per-page overflow reports and style parameters; `mm_extract` extracts plain-text slide material. The `mindmap-builder` skill defines the complete horizontal brace-based mind-map construction method.
+- **Output specification** (matching `组胚思维导图_02_人体发育总论.html`):
+  - A3 landscape (420mm×297mm), with print page breaks; each page covers one main knowledge branch.
+  - Horizontal braces: root on the left in a gradient/highlight box, SVG braces and stacked groups on the right.
+  - **Sans-serif fonts** (Microsoft YaHei / 微软雅黑 / 思源黑体) for a clearer, more modern appearance than serif text.
+  - **Visual design**: four styles, each with multiple palettes rotating by page; gradient roots, primary-color group-heading capsules, dot connectors, gradient header dividers and corner decoration; rounded nodes, restrained colors, balanced layouts and breathing room.
+  - **Large type filling the page**: items start at 17pt, with dense pages reduced to 12.5–15pt to avoid overflow; titles/roots use 21pt, groups 19pt and subitems 15pt. Vertical `space-evenly` distribution fills 60–96% of the page without large empty regions.
+  - Overflow prevention: estimate character capacity before rendering, reduce type size for excess content, and report branches needing separate pages if still too large.
+  - A blank dashed notes area on the right lets students add their own notes.
+  - Cover page with large title, sources and contents index; optional interactive quiz pages with choice/tf/fill/short questions and one-click grading, using compact layouts for many questions.
 
-## 安装
+## Installation
 
 ```powershell
 # 1. 构建插件（在插件目录）
@@ -59,27 +59,26 @@ Remove-Item cordis,cosmokit,dsh-credentials,dsh-home-paths,dsh-tools,schemastery
 # 4. 重启 dsh web（加载新 bundle 与预设）
 ```
 
-> **建议一并安装 dsh-IDE 插件**（用于预览生成的思维导图 HTML）：
-> 在 DSH 设置 → 插件中安装 `dsh-IDE`，生成后即可直接在 IDE 中打开 `.html` 预览。
-> 本插件专注生成（课件 → 打印级思维导图 HTML），不内置预览。
+> **Install dsh-IDE alongside this plugin** to preview the generated mind-map HTML. Install `dsh-IDE` in DSH Settings → Plugins, then open generated `.html` files in the IDE. This plugin focuses on course-material-to-print-ready-HTML generation and does not embed a previewer.
 
-## 使用
+## Usage
 
-### 方式一：让 Agent 生成（推荐）
+### Method one: ask the agent to generate (recommended)
 
-新建会话时选择「**思维导图模式**」，然后说：
+Choose **mind-map mode** for a new session, then ask:
 
-> 把 `D:\课件\` 下的 PPT 与电子书按 mindmap-builder skill 整理成思维导图，每个主干一页，输出到 `D:\复习\思维导图_01.html`，附带测试题。
+> Organize the PPT files and ebooks under `D:\课件\` into mind maps using the mindmap-builder skill, one main branch per page. Write `D:\复习\思维导图_01.html` and include a quiz.
 
-Agent 会：用 MinerU 解析资料 → 提取课件与电子书共同重点 → 组织 MindmapDoc JSON → 调 `mm_generate` 生成 → 按溢出报告拆分/压缩直到每页放得下。
+The agent parses materials through MinerU, extracts shared slide/ebook priorities, organizes MindmapDoc JSON, invokes `mm_generate`, and splits or compresses branches according to overflow reports until every page fits.
 
-### 预览生成结果（dsh-IDE）
+### Preview the result (dsh-IDE)
 
-生成完成后，让 agent 用 **dsh-IDE** 打开输出的 HTML 即可预览/打印：
-- 在会话中说：`用 dsh-IDE 打开 D:\复习\思维导图_01.html`
-- 或在 dsh-IDE 中直接打开文件浏览预览
+After generation, ask the agent to open the output HTML with **dsh-IDE** for preview or printing:
 
-### MindmapDoc JSON 结构
+- Ask in the session: `Open D:\复习\思维导图_01.html with dsh-IDE`
+- Or open the file directly in dsh-IDE.
+
+### MindmapDoc JSON structure
 
 ```json
 {
@@ -110,7 +109,7 @@ Agent 会：用 MinerU 解析资料 → 提取课件与电子书共同重点 →
 }
 ```
 
-## 目录结构
+## Directory structure
 
 ```
 dsh-mindmap/
@@ -133,10 +132,10 @@ dsh-mindmap/
 └── tests/smoke.mjs          # 渲染器冒烟测试
 ```
 
-思维导图模式的 Agent 预设位于 `~/.dsh/.agent-presets/mindmap/`（`agent.cordis.yml` + `preset.yml` + skill 副本），由 dsh-agent-presets roster 自动发现，无需额外注册。
+The mind-map agent preset lives at `~/.dsh/.agent-presets/mindmap/`, containing `agent.cordis.yml`, `preset.yml` and a skill copy. The dsh-agent-presets roster discovers it automatically without additional registration.
 
-## 限制
+## Limitations
 
-- PPT/PDF/DOCX 的内容解析依赖本机 MinerU（`mineru_parse_document`），插件本身只读取纯文本源。
-- 生成 HTML 是自包含文件，无外部资源依赖，浏览器 Ctrl+P 即可打印 A3 横向 PDF。
-- 溢出报告为估算值（按汉字数/行高预算）；极端字体环境下以实际打印为准，必要时按报告拆分主干页。
+- PPT/PDF/DOCX parsing depends on local MinerU (`mineru_parse_document`); the plugin itself reads only plain-text sources.
+- Generated HTML is self-contained with no external-resource dependencies. Browser Ctrl+P prints A3 landscape PDF.
+- Overflow reports estimate Chinese-character counts and line heights. Actual printing is authoritative in unusual font environments; split branches as required by the report.

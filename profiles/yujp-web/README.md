@@ -1,5 +1,7 @@
 # Yujp Web Profile
 
+English | [中文](README.zh.md)
+
 This directory captures the local DSH Web profile without credentials, sessions, caches, build output, or installed dependencies.
 
 It includes the `dsh-mindmap` plugin source and the `PPT assistant` agent preset.

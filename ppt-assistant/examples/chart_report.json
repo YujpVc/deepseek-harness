@@ -1,0 +1,491 @@
+{
+  "meta": {
+    "title": "通用图表能力示例",
+    "theme": "paper",
+    "font": "Microsoft YaHei"
+  },
+  "slides": [
+    {
+      "layout": "cover",
+      "title": "图表表达与数据对比",
+      "body": "让数据关系清晰可读\n保留图表与数据的编辑能力",
+      "notes": "独立的通用图表能力示例。"
+    },
+    {
+      "layout": "chart",
+      "title": "排序与重点突出",
+      "subtitle": "横向条形图适合排名和较长的项目名称",
+      "chart": {
+        "kind": "bar",
+        "title": "项目耗时排序",
+        "unit": "秒",
+        "data_file": "chart_metrics.csv",
+        "category_column": "项目",
+        "series": [
+          {
+            "name": "耗时",
+            "column": "耗时"
+          }
+        ],
+        "sort": "descending",
+        "highlight": [
+          "分类B"
+        ],
+        "number_format": "0.0",
+        "y_axis": {
+          "title": "耗时（秒）",
+          "min": 0,
+          "max": 6,
+          "major_unit": 2
+        }
+      },
+      "takeaway": "分类 B 用时最长，可作为下一步分析的重点",
+      "source": "来源：chart_metrics.csv（示例数据）",
+      "notes": "高亮由显式类别配置决定。零基准保留，排序同时移动分类与数据。"
+    },
+    {
+      "layout": "chart_dashboard",
+      "title": "总量对比与耗时组成",
+      "charts": [
+        {
+          "kind": "column",
+          "title": "处理耗时变化",
+          "series": [
+            {
+              "name": "调整前",
+              "values": [
+                8.1,
+                7.7,
+                8.4
+              ]
+            },
+            {
+              "name": "调整后",
+              "values": [
+                5.2,
+                5.1,
+                5.4
+              ]
+            }
+          ],
+          "unit": "秒",
+          "y_axis": {
+            "title": "耗时（秒）"
+          },
+          "number_format": "0.0",
+          "categories": [
+            "阶段一",
+            "阶段二",
+            "阶段三"
+          ]
+        },
+        {
+          "kind": "stacked_column",
+          "title": "各阶段耗时构成",
+          "series": [
+            {
+              "name": "预处理",
+              "values": [
+                1.4,
+                0.8
+              ]
+            },
+            {
+              "name": "模型推理",
+              "values": [
+                5.2,
+                3.5
+              ]
+            },
+            {
+              "name": "结果校验",
+              "values": [
+                1.5,
+                0.9
+              ]
+            }
+          ],
+          "unit": "秒",
+          "number_format": "0.0",
+          "categories": [
+            "调整前",
+            "调整后"
+          ]
+        }
+      ],
+      "takeaway": "总量图回答改善了多少，堆叠图说明耗时集中在哪里",
+      "source": "来源：引擎测试用示例数据，不代表实际项目成果",
+      "notes": "所有数值均为示例。右键图表编辑数据，可修改内嵌工作簿。"
+    },
+    {
+      "layout": "chart_dashboard",
+      "title": "趋势与规模变化",
+      "charts": [
+        {
+          "kind": "line",
+          "title": "分批处理耗时",
+          "series": [
+            {
+              "name": "方案A",
+              "values": [
+                5.1,
+                4.8,
+                null,
+                4.5,
+                4.4
+              ]
+            },
+            {
+              "name": "方案B",
+              "values": [
+                4.7,
+                4.5,
+                4.4,
+                4.2,
+                4.1
+              ]
+            }
+          ],
+          "unit": "秒",
+          "data_labels": false,
+          "y_axis": {
+            "title": "耗时（秒）"
+          },
+          "categories": [
+            "第1批",
+            "第2批",
+            "第3批",
+            "第4批",
+            "第5批"
+          ]
+        },
+        {
+          "kind": "area",
+          "title": "累计处理样本",
+          "series": [
+            {
+              "name": "累计样本",
+              "values": [
+                25,
+                52,
+                85,
+                121,
+                163
+              ]
+            }
+          ],
+          "unit": "个",
+          "y_axis": {
+            "title": "样本数（个）"
+          },
+          "categories": [
+            "周一",
+            "周二",
+            "周三",
+            "周四",
+            "周五"
+          ]
+        }
+      ],
+      "takeaway": "缺失的批次保留为空；折线看变化，面积图看规模",
+      "source": "来源：引擎测试用示例数据，不代表实际项目成果",
+      "notes": "所有数值均为示例。右键图表编辑数据，可修改内嵌工作簿。"
+    },
+    {
+      "layout": "chart_dashboard",
+      "title": "整体构成与结构变化",
+      "charts": [
+        {
+          "kind": "donut",
+          "title": "样本类型占比",
+          "series": [
+            {
+              "name": "样本",
+              "values": [
+                42,
+                28,
+                18,
+                12
+              ]
+            }
+          ],
+          "categories": [
+            "类别A",
+            "类别B",
+            "类别C",
+            "类别D"
+          ]
+        },
+        {
+          "kind": "percent_bar",
+          "title": "不同批次的类型构成",
+          "series": [
+            {
+              "name": "类别A",
+              "values": [
+                42,
+                30,
+                20
+              ]
+            },
+            {
+              "name": "类别B",
+              "values": [
+                28,
+                35,
+                40
+              ]
+            },
+            {
+              "name": "类别C",
+              "values": [
+                30,
+                35,
+                40
+              ]
+            }
+          ],
+          "y_axis": {
+            "title": "占比",
+            "number_format": "0%"
+          },
+          "categories": [
+            "第一批",
+            "第二批",
+            "第三批"
+          ]
+        }
+      ],
+      "takeaway": "环形图展示单个整体；百分比堆叠图比较各批次结构",
+      "source": "来源：引擎测试用示例数据，不代表实际项目成果",
+      "notes": "所有数值均为示例。右键图表编辑数据，可修改内嵌工作簿。"
+    },
+    {
+      "layout": "chart_dashboard",
+      "title": "相关性与多维度比较",
+      "charts": [
+        {
+          "kind": "scatter",
+          "title": "计算量与耗时",
+          "series": [
+            {
+              "name": "配置A",
+              "points": [
+                [
+                  10,
+                  2.1
+                ],
+                [
+                  20,
+                  3.2
+                ],
+                [
+                  30,
+                  4.5
+                ],
+                [
+                  40,
+                  6.1
+                ]
+              ]
+            },
+            {
+              "name": "配置B",
+              "points": [
+                [
+                  10,
+                  1.8
+                ],
+                [
+                  20,
+                  2.7
+                ],
+                [
+                  30,
+                  3.6
+                ],
+                [
+                  40,
+                  4.8
+                ]
+              ]
+            }
+          ],
+          "x_axis": {
+            "title": "计算量（相对单位）"
+          },
+          "y_axis": {
+            "title": "耗时（秒）"
+          }
+        },
+        {
+          "kind": "bubble",
+          "title": "成本、质量与样本规模",
+          "series": [
+            {
+              "name": "配置A",
+              "points": [
+                [
+                  12,
+                  81,
+                  20
+                ],
+                [
+                  18,
+                  85,
+                  45
+                ],
+                [
+                  25,
+                  91,
+                  70
+                ]
+              ]
+            },
+            {
+              "name": "配置B",
+              "points": [
+                [
+                  10,
+                  78,
+                  15
+                ],
+                [
+                  16,
+                  84,
+                  35
+                ],
+                [
+                  23,
+                  89,
+                  60
+                ]
+              ]
+            }
+          ],
+          "x_axis": {
+            "title": "成本（相对单位）"
+          },
+          "y_axis": {
+            "title": "质量评分"
+          },
+          "takeaway": "气泡面积表示样本量"
+        }
+      ],
+      "takeaway": "散点图观察相关性；气泡面积承载第三个变量",
+      "source": "来源：引擎测试用示例数据，不代表实际项目成果",
+      "notes": "所有数值均为示例。右键图表编辑数据，可修改内嵌工作簿。"
+    },
+    {
+      "layout": "chart_dashboard",
+      "title": "四图协调对比",
+      "charts": [
+        {
+          "kind": "stacked_bar",
+          "title": "投入总量",
+          "series": [
+            {
+              "name": "人工",
+              "values": [
+                12,
+                10,
+                8
+              ]
+            },
+            {
+              "name": "设备",
+              "values": [
+                6,
+                9,
+                12
+              ]
+            }
+          ],
+          "data_labels": false,
+          "categories": [
+            "阶段一",
+            "阶段二",
+            "阶段三"
+          ]
+        },
+        {
+          "kind": "percent_column",
+          "title": "投入结构",
+          "series": [
+            {
+              "name": "人工",
+              "values": [
+                12,
+                10,
+                8
+              ]
+            },
+            {
+              "name": "设备",
+              "values": [
+                6,
+                9,
+                12
+              ]
+            }
+          ],
+          "categories": [
+            "阶段一",
+            "阶段二",
+            "阶段三"
+          ]
+        },
+        {
+          "kind": "pie",
+          "title": "任务类型",
+          "series": [
+            {
+              "name": "数量",
+              "values": [
+                45,
+                32,
+                23
+              ]
+            }
+          ],
+          "categories": [
+            "类型A",
+            "类型B",
+            "类型C"
+          ]
+        },
+        {
+          "kind": "column",
+          "title": "阶段产出",
+          "series": [
+            {
+              "name": "完成量",
+              "values": [
+                32,
+                48,
+                61
+              ]
+            }
+          ],
+          "y_axis": {
+            "title": "数量（项）"
+          },
+          "categories": [
+            "阶段一",
+            "阶段二",
+            "阶段三"
+          ]
+        }
+      ],
+      "takeaway": "总量、结构和产出分开表达，避免用同一种图型回答所有问题",
+      "source": "来源：引擎测试用示例数据，不代表实际项目成果",
+      "notes": "所有数值均为示例。右键图表编辑数据，可修改内嵌工作簿。"
+    },
+    {
+      "layout": "closing",
+      "title": "图表表达的检查重点",
+      "body": "图型对应问题\n单位与来源明确\n数据和图形均可编辑",
+      "notes": "图表本体为原生对象，包含工作簿。实际成果需替换示例数据并重新检查。"
+    }
+  ]
+}

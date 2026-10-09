@@ -1,14 +1,16 @@
-# PPT 助手 · 使用说明
+# PPT assistant · Usage guide
 
-一个「一条龙」PPT 生成助手：你说需求 + 给数据 → 我（助手）分析需求、写大纲和文案 → 生成**可编辑 .pptx** 交付。生成器、版式和验收器全部内置于本目录；用户工作区只提供内容规格和显式素材路径，不执行工作区里的业务脚本。
+English | [中文](README.zh.md)
 
-安装 Python 依赖：
+An end-to-end PPT assistant: provide requirements and data, and the assistant analyzes the request, writes an outline and copy, and delivers an **editable .pptx**. Generators, layouts and checks live in this directory. The user workspace supplies content specifications and explicit asset paths; workspace business scripts are not executed.
+
+Install Python dependencies:
 
 ```bash
 python3 -m pip install -r requirements.txt
 ```
 
-## 目录结构
+## Directory structure
 
 ```
 ppt-assistant/
@@ -29,11 +31,11 @@ ppt-assistant/
 └── output/                  # 生成的 pptx + 下载的配图
 ```
 
-## 使用用户模板（正式交付首选）
+## User templates (preferred for formal delivery)
 
-当用户提供现成 PPT 模板时，使用 `build_deck.py --template`。该模式直接打开模板文件，按幻灯片编号复用原页，只替换规格中点名的文本框、图片框和备注；模板母版、主题、背景、Logo、装饰形状、页脚和原有版式都会保留，不会执行模板所在目录的脚本。
+Use `build_deck.py --template` for an existing PPT template. This mode opens the template, reuses its pages by slide number, and replaces only named text shapes, picture shapes and notes. Masters, themes, backgrounds, logos, decorations, footers and existing layouts remain intact. Scripts in the template directory are not executed.
 
-模板规格不需要 `meta`，每个 `slides` 项必须覆盖模板的一页，并用 PowerPoint 形状名称作为替换键：
+Template specifications do not require `meta`. Every `slides` entry must cover a template page and use PowerPoint shape names as replacement keys:
 
 ```json
 {
@@ -52,7 +54,7 @@ ppt-assistant/
 }
 ```
 
-运行和验收：
+Generate and verify:
 
 ```bash
 python3 build_deck.py template-spec.json output/交付.pptx --template /path/to/template.pptx
@@ -60,11 +62,11 @@ python3 quality_check.py output/交付.pptx --template /path/to/template.pptx
 python3 render_ppt.py output/交付.pptx --outdir output/render
 ```
 
-`--template` 模式会拒绝重复或缺失的模板页、不存在的目标形状和无效素材；带 `--template` 的质量检查还会逐页比较页数、布局、形状类型和图片数量。模板页内未列入 `text`/`images` 的内容保持不变，适合先继承成熟视觉稿，再逐步替换内容。
+`--template` rejects duplicate or missing template pages, nonexistent target shapes and invalid assets. The quality check with `--template` also compares page counts, layouts, shape types and picture counts page by page. Content not listed in `text`/`images` remains unchanged, allowing an established visual design to be inherited before replacing its content.
 
-## 默认生成引擎
+## Default generator
 
-复杂 PPT 使用内置 `build_deck.py`，不依赖用户工作区中的 `build_deck.py`、模板脚本或业务目录：
+Complex presentations use the built-in `build_deck.py`, independently of generators, template scripts or business directories in the user workspace:
 
 ```bash
 python3 build_deck.py 规格.json output/输出名.pptx
@@ -72,11 +74,11 @@ python3 quality_check.py output/输出名.pptx
 python3 render_ppt.py output/输出名.pptx --outdir output/render
 ```
 
-规格中的图片路径相对于规格 JSON 文件解析。支持 `cover`、`cards`、`process`、`comparison`、`image_split`、`image_grid`、`table`、`chart` 和 `closing`，图表为 PowerPoint 原生可编辑对象。
+Image paths resolve relative to the specification JSON. Supported layouts are `cover`, `cards`, `process`, `comparison`, `image_split`, `image_grid`, `table`, `chart`, `chart_dashboard` and `closing`. Charts are native editable PowerPoint objects.
 
-## Desktop 同款 pptfast 引擎
+## Desktop-compatible pptfast engine
 
-远端 Desktop 的增强链路使用 `@liustack/pptfast@0.20.0`：语义 IR、`dense` 内容节奏、图片/对比/步骤等组件，以及 `audit` 几何审查。仓库内的 `run_pptfast.sh` 只解析已安装的运行包，不读取或执行用户工作区代码：
+The enhanced Desktop pipeline uses `@liustack/pptfast@0.20.0`: semantic IR, `dense` content pacing, image/comparison/step components and geometric `audit`. The repository's `run_pptfast.sh` resolves only the installed runtime; it does not read or execute workspace code:
 
 ```bash
 bash run_pptfast.sh validate deck项目/
@@ -84,51 +86,51 @@ bash run_pptfast.sh render deck项目/ -o output/交付.pptx
 bash run_pptfast.sh audit deck项目/
 ```
 
-启动器会先查找当前引擎目录下的 `node_modules/@liustack/pptfast`，再查找 Desktop 部署约定的 `~/ppt-assistant/node_modules/@liustack/pptfast`。找不到运行包时返回 78，并明确提示安装或回退到内置 `build_deck.py`；不会静默生成低质量纯文字稿。
+The launcher checks `node_modules/@liustack/pptfast` under the engine directory, then the Desktop convention `~/ppt-assistant/node_modules/@liustack/pptfast`. A missing runtime returns 78 with instructions to install it or fall back to built-in `build_deck.py`; it does not silently produce a poor text-only draft.
 
-## 快速开始
+## Quick start
 
 ```bash
 python3 generate_ppt.py 规格.json output/输出名.pptx
 ```
 
-模板默认使用内置的 `assets/base_template.pptx`；可在 `config.json` 的 `template` 里指定其它模板，或用 `--template` 覆盖。
+The default template is `assets/base_template.pptx`. Set another template through `config.json` or override it with `--template`.
 
-## 配置（config.json）
+## Configuration (config.json)
 
-| 字段 | 说明 |
+| Field | Meaning |
 |------|------|
-| `template` | 基底 `.pptx` 模板（相对脚本目录），默认 `assets/base_template.pptx` |
-| `logo` | 学术风引擎左上角 logo 图片，默认 `assets/logo.png`；删除/清空则不放置 logo |
-| `pexels_key` | 留空；建议改用环境变量 `PEXELS_API_KEY`。无 key 时自动降级 loremflickr/picsum |
+| `template` | Base `.pptx` template, relative to the script directory; defaults to `assets/base_template.pptx` |
+| `logo` | Optional top-left logo for the academic generator; defaults to `assets/logo.png`, remove or clear to omit |
+| `pexels_key` | Leave empty; prefer environment variable `PEXELS_API_KEY`. Without a key, fall back to loremflickr/picsum |
 
-> **背景与图标**：生成时保留模板的**母版浅蓝背景**，并在内容页右上角放置模板的 **logo（图片7）**；版式本身灵活程序化生成（配色/字体与模板一致）。
+> **Background and logo**: generation retains the template's **light-blue master background** and puts its **logo (图片7)** at the upper right of content pages. Layouts remain programmatic and flexible.
 
-## 视觉规范（已锁定的模板 DNA）
+## Visual conventions (template design)
 
-| 项 | 值 |
+| Item | Value |
 |----|----|
-| 标题字体 | 华文中宋（加粗） |
-| 正文字体 | Noto Serif SC |
-| 辅助字体 | 微软雅黑 |
-| 尺寸 | 16:9 宽屏 13.33×7.5 英寸 |
-| 背景 | 母版浅蓝渐变 + 右上角 logo |
-| 嵌入字体 | 已随模板保留（华文中宋 / Noto Serif SC / 等线 / 微软雅黑） |
+| Title font | 华文中宋 (bold) |
+| Body font | Noto Serif SC |
+| Supporting font | 微软雅黑 |
+| Dimensions | 16:9 widescreen, 13.33×7.5 inches |
+| Background | Light-blue master gradient and upper-right logo |
+| Embedded fonts | Retained from the template: 华文中宋 / Noto Serif SC / 等线 / 微软雅黑 |
 
-## 配色方案（meta.palette，参考 Coolors / 2025 趋势色）
+## Palettes (meta.palette, inspired by Coolors and 2025 colors)
 
-| 值 | 名称 | 主色 | 强调 | 章节标 |
+| Value | Name | Primary | Accent | Section marker |
 |----|------|------|------|--------|
-| `coastal` | 海岸蓝调（默认） | `#1B4965` 深青蓝 | `#E07A5F` 珊瑚橙 | `#62B6CB` 浅青 |
-| `ocean` | 深海蓝 | `#1D3557` 深海蓝 | `#E63946` 珊瑚红 | `#457B9D` 钢蓝 |
-| `aurora` | 极光青绿 | `#2A9D8F` 青绿 | `#E76F51` 陶土橙 | `#48CAE4` 浅青 |
-| `indigo` | 靛蓝紫 | `#312E81` 靛蓝 | `#E11D48` 玫瑰红 | `#6366F1` 淡紫 |
+| `coastal` | Coastal blue (default) | `#1B4965` dark teal | `#E07A5F` coral orange | `#62B6CB` light cyan |
+| `ocean` | Deep ocean | `#1D3557` deep blue | `#E63946` coral red | `#457B9D` steel blue |
+| `aurora` | Aurora teal | `#2A9D8F` teal | `#E76F51` terracotta | `#48CAE4` light cyan |
+| `indigo` | Indigo violet | `#312E81` indigo | `#E11D48` rose red | `#6366F1` light violet |
 
-在 `meta` 里指定：`"palette": "aurora"`。
+Specify `"palette": "aurora"` in `meta`.
 
-## 内容规格（JSON）格式
+## Content specification (JSON)
 
-顶层两个字段：
+Two top-level fields:
 
 ```json
 {
@@ -137,88 +139,180 @@ python3 generate_ppt.py 规格.json output/输出名.pptx
 }
 ```
 
-每张幻灯片是一个对象，用 `type` 指定版式：
+Each slide is an object whose `type` selects its layout:
 
-| type | 用途 | 关键字段 |
+| type | Purpose | Key fields |
 |------|------|----------|
-| `cover` | 封面 | 取 `meta` 字段 |
-| `toc` | 目录 | `title`、`items[]` |
-| `section` | 正文（小节+要点，自动双栏） | `chapter`、`title`、`blocks[]`（每块含 `heading` + `points[]`） |
-| `bullets` | 编号条目列表 | `chapter`、`title`、`intro`、`items[]`（每项含 `head` + `text`） |
-| `table` | 表格 | `chapter`、`title`、`headers[]`、`rows[][]` |
-| `process` | 流程/步骤卡片 | `chapter`、`title`、`steps[]`（每步含 `n` + `head` + `text`） |
-| `closing` | 结束页 | `text`、`subtitle` |
+| `cover` | Cover | Uses `meta` fields |
+| `toc` | Table of contents | `title`, `items[]` |
+| `section` | Content sections and points; automatic two columns | `chapter`, `title`, `blocks[]`, each with `heading` + `points[]` |
+| `bullets` | Numbered entries | `chapter`, `title`, `intro`, `items[]`, each with `head` + `text` |
+| `table` | Table | `chapter`, `title`, `headers[]`, `rows[][]` |
+| `process` | Process or step cards | `chapter`, `title`, `steps[]`, each with `n` + `head` + `text` |
+| `closing` | Ending | `text`, `subtitle` |
 
-完整示例见 `sample_work_report.json`。
+See `sample_work_report.json` for a complete example.
 
-## 接受输入文件（PPT / PDF / 图片）
+## Input files (PPT / PDF / images)
 
-助手可以按**文件路径**接受现有 `.pptx` / `.pdf` / 图片：
+The assistant accepts existing `.pptx`, `.pdf` and images by **file path**:
 
 ```bash
 python3 ingest.py /path/to/文件.pptx   # .pptx / .pdf / .png / .jpg
 ```
 
-- **扫描版 PDF / 图片**：自动 OCR（pdftoppm 渲染 + tesseract `chi_sim+eng`）。
-- 用途：①给现有 PPT 重新排版/美化；②把 PDF 转成新 PPT；③提取内容或风格做参考。
+- **Scanned PDFs / images**: automatic OCR through pdftoppm rendering and tesseract `chi_sim+eng`.
+- Uses: restyle existing presentations, convert PDFs into presentations, or extract content and visual references.
 
-**注意**：GUI 的附件上传目前只收图片，通用文件请**给文件路径**（或从工作区文件树选）。
+**Note**: GUI attachments currently accept images only. Supply a **file path** for other files, or select one from the workspace file tree.
 
-## 配图（联网取图 + 填充）
+## Images (online search and filling)
 
-`image` 版式支持两种来源：
-- **本地路径**：`"image": "/path/to/x.jpg"`
-- **关键词联网填充**：`"keyword": "modern office"` → Pexels 语义搜图（自动署名）→ loremflickr → picsum 兜底
+The `image` layout supports two sources:
+
+- **Local path**: `"image": "/path/to/x.jpg"`
+- **Keyword search**: `"keyword": "modern office"` → Pexels semantic search with attribution → loremflickr → picsum fallback
 
 ```bash
 python3 image_fetch.py "办公室 会议" output/img/office.jpg 1600 900
 ```
 
-Pexels key 优先读环境变量 `PEXELS_API_KEY`，其次读 `config.json` 的 `pexels_key`（留空则用 loremflickr/picsum 兜底，无需 key）。
+Pexels credentials resolve first from `PEXELS_API_KEY`, then `config.json`'s `pexels_key`. An empty key uses the keyless loremflickr/picsum fallback.
 
-## 更改已有 PPT
+## Modify an existing PPT
 
 ```bash
 # 原地统一字体/配色为模板风格
 python3 restyle.py 已有.pptx 输出.pptx
 ```
 
-深度改动（改内容/重排）走 `ingest.py` 提取 → 重写规格 → `generate_ppt.py` 重新生成。
+For deeper content or layout changes, extract through `ingest.py`, rewrite the specification, then regenerate with `generate_ppt.py`.
 
-## 检查（排版一致性 + 遮挡）
+## Checks (layout consistency and obstruction)
 
 ```bash
 python3 check.py 输出.pptx
 ```
 
-检查项：字体一致性、配色一致性、标题对齐、**文字遮挡**、文本溢出、出界。生成后交付前建议先跑一遍。
+Checks cover fonts, colors, title alignment, **text obstruction**, overflow and out-of-bounds shapes. Run them after generation and before delivery.
 
-复杂 PPT 还必须通过结构质量门槛，并完成逐页渲染：
+Complex decks also require the structural quality check and page-by-page rendering:
 
 ```bash
 python3 quality_check.py 输出.pptx
 python3 render_ppt.py 输出.pptx --outdir 工作区/.render
 ```
 
-`quality_check.py` 会拒绝 5 页以上的纯文字草稿（图片/图表过少、版式结构不足或页面比例不对）。`render_ppt.py` 优先使用系统 `soffice`，再查找用户目录中的 LibreOffice，不依赖 root 权限。
+`quality_check.py` rejects text-only drafts with five or more pages, too few images/charts, insufficient layout variety or incorrect page proportions. `render_ppt.py` prefers system `soffice`, then user-scoped LibreOffice, without requiring root.
 
-## 使用流程（怎么用这个助手）
+## Workflow (using the assistant)
 
-1. 你在这里直接告诉我：**主题、给谁看、讲多久、页数、有哪些原始数据**（也可以给现有 PPT/PDF 的路径让我摄取）。
-2. 我分析需求，必要时追问补缺口。
-3. 我生成大纲 + 逐页文案，写成规格 JSON。
-4. 运行引擎产出 .pptx，你在 GUI 里直接下载。
+1. Provide **topic, audience, presentation duration, page count and raw data**, or paths to existing PPT/PDF inputs.
+2. The assistant analyzes the request and asks only for missing information.
+3. It drafts an outline and page copy as a JSON specification.
+4. The engine generates a .pptx for download through the GUI.
 
-## 默认约定
+## Complete probation presentations from reference templates
 
-- **页数**：默认 20 页（可指定）。
-- **数据**：优先用你提供的原始数据；没有时我用合理示例数据并标注。
-- **配图**：混合策略（真实图优先 + AI 兜底），当前为后续增强项，暂未接入。
+When a template supplies cover artwork and a visual reference while the body needs expansion, use `build_deck.py <spec.json> <out.pptx> --template <template.pptx> --probation` with `"deck_mode": "native_v2"` and `"theme": "paper"` in `meta`. This mode supports 13.333 × 7.5 inch templates, keeps the first cover unchanged, composes native text, shapes and editable charts, and uses the cover master background for the ending. The first specification entry is `{"type": "cover"}`. Body fields are defined by `DeckBuilder.compose_probation_v2()`; see [test_build_deck.py](test_build_deck.py) for CLI examples. Body photographs outside the template are deduplicated by file content. Pre-rendered full-page charts do not replace native body layouts.
 
-## 路线图
+Layouts include directories, responsibility tables, timelines, algorithm flows, troubleshooting, candidate comparisons, performance results, paired site photographs, WRC photographs and responsibilities, voice flows, operating checklists, personal summaries, improvement tables, growth plans and thanks. Use original photographs or experiment details, with numeric `before` / `after` arrays in `evidence.charts`. Expanded bodies differ in page count from the reference, so run ordinary `quality_check.py`, not its equal-page-count `--template` check. At the repository root, `python3 -m unittest discover -s ppt-assistant -p 'test_build_deck.py'` verifies unchanged covers, chart data, photograph deduplication and invalid specifications.
 
-- ✅ M0/M1：模板拆解 + 生成引擎 + 全版式（封面/目录/正文/表格/流程/结束）
-- ⬜ M2：图表（原生可编辑 chart）、图标、更多版式
-- ⬜ M3：配图（联网真实图 + AI 兜底 + 版权标注）
-- ⬜ M4：迭代能力（单页修改、一键换主题、版本管理）
-- ⬜ M5：多场景扩展 + PDF 导出
+Experiment details reference original images: `evidence.image_crop` and `root_cause.images[].crop` use source-pixel coordinates `[left, top, right, bottom]`. The generator crops and embeds in memory without preview directories or intermediate image files. Crops beyond the source bounds fail.
+
+Paired grasp results use `depth_pair` and `grasp_comparison`. The former reads two equally sized depth `.npy` arrays with a shared `crop` and `limits_m`, producing atomic depth images and a native scale. The latter's three `frames` reference `image`, `calibration`, `before` and `after`, projecting six native gripper wireframes from camera calibration and recorded selected poses. `before_opening_mm` / `after_opening_mm` can validate pose/statistic agreement. One round's source photograph may appear in both comparison panels; unrelated rounds or scenes cannot replace it. Poses and openings come from records; display finger length, width and thickness do not establish collision or gripper-calibration results. Without `image`, `evidence` uses two horizontal editable charts. `research_plan` shows four directions; `application_plan` combines advanced models and local algorithms. Run all related tests with `python3 -m unittest discover -s ppt-assistant -p 'test_*.py'`.
+
+`visual_gallery` takes three `items`, each with source `image`, transparent `layers`, pixel `crop`, `title` and `body`. Images and layers must come from the same saved frame, have identical dimensions, and use RGBA layers. They are embedded separately at matching positions and scales for editing or removal in PowerPoint, rather than flattened into a full-page image. `data_table` embeds editable tables from `headers`, `rows` and `note`. Candidate-filter records, site effects and statistics from separate experiments are explained separately; assessment requirements and completed work are distinguished.
+
+Compact cases use `depth_case`, `pose_case` and `efficiency_case` to show the prior result, solution and updated result on one page. `depth_case` references two same-frame inference responses, source photographs, calibration and depth arrays; response candidate counts must match the specification, with the top three candidates ranked by score. `pose_case` keeps three rounds of paired photographs, real openings and filtering statistics; `native_gallery` draws other scenes from saved poses. All native grippers share geometry, colors and line widths. Body generation clears template placeholders and omits empty text boxes; the original cover remains unchanged.
+
+`pose_case` can read all candidates from each round's execution record, overlaying accepted candidates in blue and rejected candidates in red. Dense candidates are composited in memory with the same geometry to avoid excessive shapes. The `slides` specification controls the order; site projects before algorithm improvements are recommended. Performance pages use `after_detail` for segmentation, depth completion, grasp-candidate generation timings and parallelism. Growth plans use `roadmap`'s near-, mid- and long-term columns.
+
+## Permission instructions
+
+When a session already reports `danger-full-access`, do not pass `sandbox_permissions` again for Bash, Write or rendering commands. Re-requesting maximum permissions, or changing a call to `workspace-write`, is rejected by the tool layer. This is a call-argument error rather than a lack of read/write access to the materials directory.
+
+## Defaults
+
+- **Pages**: 20 by default; configurable.
+- **Data**: prefer user-supplied raw data; otherwise use and label reasonable example data.
+- **Images**: combine real photographs first with AI fallback; this is a planned enhancement and is not connected yet.
+
+## Roadmap
+
+- ✅ M0/M1: Template analysis, generation engine and all layouts (cover/directory/content/table/process/ending)
+- ⬜ M2: Native editable charts, icons and more layouts
+- ⬜ M3: Online photographs, AI fallback and attribution
+- ⬜ M4: Per-page edits, theme switching and versioning
+- ⬜ M5: Multiple scenarios and PDF export
+
+## Native charts and data comparisons
+
+`charts.py` is shared by default generation and `native_v2` reference-template expansion. Charts are native PowerPoint objects with data in embedded workbooks. Their graphics and data are editable in PowerPoint/WPS. Visual review uses LibreOffice; interactive WPS editing has not been verified item by item.
+
+| Relationship | `kind` | Data requirements |
+| --- | --- | --- |
+| Category and before/after comparisons | `column` | Consistent categories and series |
+| Rankings and long category names | `bar` | Single-series sorting and highlighting |
+| Time trends | `line` | Ordered categories; missing measurements are `null` |
+| Scale changes | `area` | Ordered categories and zero baseline |
+| Total composition | `stacked_column` / `stacked_bar` | Components share units |
+| Composition percentages | `percent_column` / `percent_bar` | Complete nonnegative data; positive category totals |
+| One whole's composition | `donut` / `pie` | One series, at most 8 categories, nonnegative with positive total |
+| Two numeric variables | `scatter` | `points: [[x, y], ...]`, unconnected |
+| Three numeric variables | `bubble` | `points: [[x, y, size], ...]`, positive area sizes |
+
+`chart` places one chart on a page. `chart_dashboard` accepts 2–4 charts in `charts`; three charts give the bottom chart a full-width panel. Charts accept `title`, `unit`, `source` and `takeaway`; pages also accept `source`, `takeaway` and `notes`. Keep on-page annotations short and put detailed scope and calculation definitions in notes. Text beyond capacity is rejected.
+
+```json
+{
+  "meta": {"title": "耗时分析", "theme": "paper"},
+  "slides": [{
+    "layout": "chart",
+    "title": "比较各项耗时",
+    "chart": {
+      "kind": "bar",
+      "categories": ["分割", "模型推理", "结果校验"],
+      "series": [{"name": "耗时", "values": [0.8, 3.5, 0.9]}],
+      "sort": "descending",
+      "highlight": ["模型推理"],
+      "number_format": "0.0",
+      "y_axis": {"title": "耗时（秒）", "min": 0, "max": 4, "major_unit": 1}
+    },
+    "source": "示例数据，非项目实测",
+    "takeaway": "模型推理是主要耗时项"
+  }]
+}
+```
+
+For CSV input, replace `categories` and `series[].values` with these fields. Paths are relative to the JSON specification, UTF-8/BOM are supported, and empty cells remain missing measurements:
+
+```json
+{
+  "kind": "column",
+  "data_file": "metrics.csv",
+  "category_column": "项目",
+  "series": [
+    {"name": "调整前", "column": "before"},
+    {"name": "调整后", "column": "after"}
+  ]
+}
+```
+
+Category charts accept 1–40 categories and 1–6 series; XY charts allow at most 500 points per series. Readable capacity depends on panel dimensions; dense bars are rejected and need separate pages. `x_axis.label_interval` sets category-tick spacing; otherwise width determines sparse ticks. `x_axis/y_axis.font_size` accepts 9–18pt. `title` identifies axis units. Value axes support `min/max/major_unit/number_format`. Horizontal bars also configure their value axis through `y_axis`. Column, bar and area axes must include zero and cannot hide measured values or stacked totals.
+
+`number_format` uses Excel formatting; `series[].color` is a six-digit RGB value. `data_labels` controls numeric labels. Percentage stacks retain source counts, use a 0–1 axis displayed as 0–100%, and omit count labels by default. Explicit labels display source counts; percentage formatting belongs only in `y_axis.number_format`. Pie/donut charts show percentages. `sort` accepts `ascending/descending` for single-series `column/bar`; `highlight` identifies existing categories. Cross-page comparisons must explicitly preserve series colors, ranges and units.
+
+Validation rejects mismatched lengths, nonnumeric values, NaN/Infinity, entirely missing series, invalid bubble sizes, malformed CSV, mixed inline/CSV input and axes hiding data. Missing measurements are not filled with zero. Invalid specifications or excess layout density leave existing output untouched.
+
+The independent example covers all 12 chart types, sorting, highlighting, gaps, CSV, and two-/four-chart panels. All values are labeled example data:
+
+```bash
+python3 build_deck.py examples/chart_report.json output/图表能力示例_V0.1.pptx
+python3 quality_check.py output/图表能力示例_V0.1.pptx
+python3 check.py output/图表能力示例_V0.1.pptx
+python3 render_ppt.py output/图表能力示例_V0.1.pptx --outdir output/chart-review
+python3 -m unittest discover -s . -p 'test_*.py' -q
+```
+
+`examples/chart_report.expected.json` is a keyless CLI-output snapshot checking visible text, chart types, series names and values, plus XY coordinates and bubble sizes. Checkers do not parse internal chart-label layouts; rendered pages still need inspection.
