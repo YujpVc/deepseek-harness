@@ -3,8 +3,8 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write profiles/yujp-web/README.md
 /yujp-web-profile:
-  en: d33c7ee64f7abcb2
-  zh: a70663c0ae26f41d
+  en: c9f624fed6c73345
+  zh: 552beb89706815b4
 /yujp-web-profile/install:
   en: fceb4d8f36794208
   zh: ee30cb1ba17b6e7c

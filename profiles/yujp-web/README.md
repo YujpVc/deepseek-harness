@@ -6,7 +6,9 @@ This directory captures the local DSH Web profile without credentials, sessions,
 
 It includes the `dsh-mindmap` plugin source and the `PPT assistant` agent preset.
 
-The profile was captured from a local `@deepseek-ai/dsh` `0.1.0-rc.8` installation. The root harness source may be newer, so update and validate the profile dependencies before using it with a different DSH release.
+The PPT preset is validated on `@deepseek-ai/dsh` `0.2.1-alpha.1`, using the persona `prefix` field and the PTC workflow spawn provider. Its built-in Python PPT engine remains independent of optional profile plugins.
+
+The captured optional dependencies still target older DSH releases. With `0.2.1-alpha.1`, the installed `@huiliyi37/dsh-office@0.2.4` and `dsh-find-plugin@0.3.7` are skipped by the compatibility check; their latest published versions do not declare support for this runtime either. The captured mind-map plugin also retains older peer dependencies. Install compatible plugin releases before relying on those capabilities; the PPT preset mount test does not validate these optional plugins.
 
 ## Install
 

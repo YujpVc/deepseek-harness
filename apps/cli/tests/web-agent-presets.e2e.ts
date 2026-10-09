@@ -207,6 +207,26 @@ beforeAll(async () => {
   ctx = await bootWeb(await mkdtemp(join(tmpdir(), 'dsh-web-presets-')))
 }, 120_000)
 
+it('mounts the fork PPT preset on the updated Web host', async () => {
+  const composition = await readFile(join(REPO_ROOT, 'profiles/yujp-web/presets/ppt-assistant/agent.cordis.yml'), 'utf8')
+  const plugins = load(composition, { schema: entryListSchema }) as import('@deepseek-ai/cordis-plugin-loader').EntryOptions[]
+  const unregister = await ctx.agentPresets.register({ id: 'ppt-assistant', plugins })
+  let handle: Awaited<ReturnType<typeof ctx.agents.create>> | undefined
+  try {
+    handle = await ctx.agents.create({
+      sessionId: SessionId('fork-ppt-smoke'),
+      setup: agentCtx => ctx.agentPresets.mount(agentCtx, 'ppt-assistant').then(() => undefined),
+    })
+    expect(toolNames(ctx, handle.agent)).toEqual(expect.arrayContaining(['bash', 'read', 'write', 'read_image', 'workflow', 'subagent']))
+    const prompt = await ctx.systemPrompt.assemble({ scope: handle.agent })
+    expect(prompt.sections.some(section => section.text.includes('DATA CHARTS'))).toBe(true)
+    expect(prompt.sections.some(section => section.text.includes('VISUAL-REFERENCE EXPANSION'))).toBe(true)
+  } finally {
+    await handle?.dispose()
+    await unregister()
+  }
+})
+
 describe('the shipped Web composition', () => {
   it('leaves the global tool layer empty', () => {
     // Every model-facing tool belongs to a preset, `ask_user_question`

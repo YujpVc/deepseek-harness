@@ -6,7 +6,9 @@
 
 包含 `dsh-mindmap` 插件源码和 `PPT assistant` agent（智能体）预设。
 
-该 profile 来自本地 `@deepseek-ai/dsh` `0.1.0-rc.8` 安装。根目录 harness 源码可能更新，使用其他 DSH 版本前应更新并验证 profile 依赖。
+PPT 预设已在 `@deepseek-ai/dsh` `0.2.1-alpha.1` 上验证，使用人设 `prefix` 字段和 PTC workflow spawn provider。内置 Python PPT 引擎独立于 profile 的可选插件。
+
+收录的可选依赖仍面向较旧的 DSH 版本。在 `0.2.1-alpha.1` 下，已安装的 `@huiliyi37/dsh-office@0.2.4` 和 `dsh-find-plugin@0.3.7` 会被兼容检查跳过，其最新发布版本也未声明支持此运行时。收录的思维导图插件同样保留旧版 peer dependencies。使用这些能力前需安装兼容的插件版本；PPT 预设加载测试不验证这些可选插件。
 
 ## 安装
 
