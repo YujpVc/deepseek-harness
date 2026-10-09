@@ -5,32 +5,36 @@
  * the built frontend dist (workspace knowledge of this bundle, never user
  * config), mounts the `frontend-static` fallback owner over it, registers the
  * harness-source and web-surface prompt sections, the bash-visible web runtime
- * variable, the URL line, and the default-browser handoff. App command-line
- * values arrive through the `webStartup` service expressions in the bundle
- * patch.
+ * variable, the process-token URL line, and the default-browser handoff. An
+ * advertised `publicUrl` replaces the published root — the loopback URL
+ * otherwise. App command-line values arrive through the `webStartup` service
+ * expressions in the bundle patch.
  * @module @deepseek-ai/dsh-web-app
  */
 
 import { spawn, type ChildProcess } from 'node:child_process'
 import { createRequire } from 'node:module'
+import { dirname, join } from 'node:path'
 import { networkInterfaces } from 'node:os'
 import { fileURLToPath } from 'node:url'
 import type { Context } from '@deepseek-ai/cordis'
 import z from '@deepseek-ai/schemastery'
-import { addHarnessSourceSection } from '@deepseek-ai/dsh-app-boot'
+import { addHarnessSourceSection, auditStartupEntries } from '@deepseek-ai/dsh-app-boot'
+import type {} from '@deepseek-ai/dsh-client-connection'
 import * as FrontendStatic from '@deepseek-ai/dsh-host-frontend-static'
-import { launchEnvironmentOf } from '@deepseek-ai/dsh-launch-environment'
+import { launchedThroughSsh, launchEnvironmentOf } from '@deepseek-ai/dsh-launch-environment'
 import { scrubbedParentEnv } from '@deepseek-ai/dsh-subprocess'
 import type {} from '@deepseek-ai/cordis-plugin-loader'
 import type {} from '@deepseek-ai/dsh-host-webserver'
-import type {} from '@deepseek-ai/dsh-system-prompt'
 import type {} from '@deepseek-ai/dsh-shell-env'
+import { parsePublicUrl } from './public-url.ts'
 
 /** Stable Cordis plugin name. */
 export const name = 'web-app'
 
 /** This dsh installation's root, from either this package's source or built entry. */
 const SOURCE_ROOT = fileURLToPath(new URL('../../../..', import.meta.url))
+const ANNOUNCED_ROOTS = new WeakSet<Context>()
 
 /** Runtime service that releases Web rows after bind-dependent values resolve. */
 const WEB_RUNTIME_SERVICE = 'webRuntime'
@@ -51,6 +55,14 @@ export interface Config {
    * orientation text would be false.
    */
   surfaceContext: boolean
+  /**
+   * Canonical HTTP(S) root to advertise in the printed and opened URL,
+   * `DSH_WEB_URL`, and the web-surface orientation, e.g.
+   * `https://app.example/ui/`, normalized to end in `/`. Advertisement only;
+   * see [public deployments](../README.md#public-deployments). Absent or YAML
+   * `null` advertises the loopback URL.
+   */
+  publicUrl?: string
   /** Explicit `--trusted-host` authorities from this invocation. */
   trustedHosts: string[]
 }
@@ -59,6 +71,7 @@ export const Config: z<Config> = z.object({
   openBrowser: z.boolean().default(true),
   printUrl: z.boolean().default(true),
   surfaceContext: z.boolean().default(true),
+  publicUrl: z.transform(z.string(), value => parsePublicUrl(value).href),
   trustedHosts: z.array(String).default([]),
 })
 
@@ -70,7 +83,7 @@ export interface WebRuntimeValues {
   trustedHosts: string[]
 }
 
-/** Environment variable naming the canonical local URL of this Web GUI. */
+/** Environment variable naming the advertised URL of this Web GUI. */
 const DSH_WEB_URL = 'DSH_WEB_URL' as const
 
 // Display-only mirror of the webserver schema's loopback host: the address the
@@ -78,15 +91,6 @@ const DSH_WEB_URL = 'DSH_WEB_URL' as const
 const LOOPBACK_HOST = '127.0.0.1'
 /** The webserver schema's all-interfaces bind literal. */
 const ALL_INTERFACES_HOST = '0.0.0.0'
-
-/** Whether this process was launched through SSH, including a forwarded-port session. */
-function launchedThroughSsh(ctx: Context): boolean {
-  const environment = launchEnvironmentOf(ctx)
-  return ['SSH_CONNECTION', 'SSH_TTY'].some((name) => {
-    const value = environment.getFrom(name, ['process'])?.value
-    return value !== undefined && value !== ''
-  })
-}
 
 const BROWSER_OPENER_MODULE = import.meta.resolve('open')
 
@@ -159,14 +163,25 @@ function localWebUrl(ctx: Context): string {
   return `http://${LOOPBACK_HOST}:${String(port)}`
 }
 
-/** Dist location is workspace knowledge of this bundle: resolved through the frontend package exports, not configured. */
+function appRootUrl(ctx: Context, publicUrl: string | undefined): string {
+  if (publicUrl !== undefined) return publicUrl
+  return localWebUrl(ctx)
+}
+
+/**
+ * Dist location is workspace knowledge of this bundle: anchored on the
+ * frontend package manifest, not configured. Existence is a request-time
+ * concern — the fallback owner reads files per request, so a composition
+ * whose page never reaches the fallback seat (the static worker preview
+ * ships its own page and carries no dist) boots without one.
+ */
 function resolveDistIndex(): string {
   const require = createRequire(import.meta.url)
   try {
-    return require.resolve('@deepseek-ai/dsh-web-frontend/dist/index.html')
+    return join(dirname(require.resolve('@deepseek-ai/dsh-web-frontend/package.json')), 'dist', 'index.html')
   } catch {
-    /* v8 ignore next 2 -- reachable only on a checkout without a built dist; the test tree builds it */
-    throw new Error('web-app: frontend dist not built; run pnpm run build from the repository root first')
+    /* v8 ignore next 2 -- reachable only when the frontend package is absent from the checkout */
+    throw new Error('web-app: @deepseek-ai/dsh-web-frontend is not resolvable from this composition')
   }
 }
 
@@ -225,9 +240,12 @@ export const internals: {
  */
 export function apply(ctx: Context, config: Config): void {
   const runtime = resolveLanTrust(ctx.webServer.host, config.trustedHosts)
+  // The schema validates a present string; an explicit YAML `null` bypasses
+  // the string transform and reaches here, meaning unset.
+  const publicUrl = config.publicUrl ?? undefined
   // The loopback URL belongs to this host. Under SSH, the operator reaches it
   // through a local forwarding address that this process cannot derive.
-  const handoffBrowser = config.openBrowser && !launchedThroughSsh(ctx)
+  const handoffBrowser = config.openBrowser && !launchedThroughSsh(launchEnvironmentOf(ctx))
   // Release dependent rows only after bind-dependent trust has been sampled once.
   ctx.provide(WEB_RUNTIME_SERVICE, runtime)
   ctx.plugin(FrontendStatic, { distIndex: internals.resolveDistIndex() })
@@ -236,56 +254,67 @@ export function apply(ctx: Context, config: Config): void {
       addHarnessSourceSection(promptCtx, SOURCE_ROOT)
       promptCtx.systemPrompt.section({
         name: 'app:web-surface',
-        order: -98,
-        text: () => webSurfacePrompt(localWebUrl(promptCtx)),
+        order: promptCtx.systemPrompt.getSectionOrder('WEB_SURFACE'),
+        text: () => webSurfacePrompt(appRootUrl(promptCtx, publicUrl)),
       })
     })
     ctx.inject(['shellEnv'], (runtimeCtx) => {
       runtimeCtx.shellEnv.register({
         name: 'web-runtime',
         variables: {
-          [DSH_WEB_URL]: { description: 'Canonical local URL of the DeepSeek Harness Web GUI serving this session.' },
+          [DSH_WEB_URL]: { description: 'Advertised URL of the DeepSeek Harness Web GUI serving this session.' },
         },
-        resolve: () => ({ [DSH_WEB_URL]: localWebUrl(runtimeCtx) }),
+        resolve: () => ({ [DSH_WEB_URL]: appRootUrl(runtimeCtx, publicUrl) }),
       })
     })
   }
   if (config.printUrl || handoffBrowser) {
-    // The URL line and browser handoff are readiness signals: supervisors RPC
-    // as soon as they observe the line, while a browser requests the page as
-    // soon as it opens. Neither may run while sibling rows such as the /api
-    // route owner are still mounting. Await Loader settlement first; a
-    // hand-built tree without a Loader is already the complete tree.
-    const announceReady = (): void => {
-      const webUrl = localWebUrl(ctx)
-      // Reuse the exact LAN snapshot provided to the /api trust fence.
-      const lanCandidate = runtime.lanAddresses[0]
-      const port = ctx.webServer.port
-      if (config.printUrl) {
-        console.log(`dsh web: ${webUrl}${lanCandidate === undefined ? '' : ` (LAN: http://${lanCandidate}:${String(port)})`}`)
+    ctx.inject(['connection'], (connectionCtx) => {
+      // The URL line and browser handoff are readiness signals: supervisors RPC
+      // as soon as they observe the line, while a browser requests the page as
+      // soon as it opens. Neither may run while sibling rows such as the /api
+      // route owner are still mounting. Await Loader settlement first; a
+      // hand-built tree without a Loader is already the complete tree.
+      const announceReady = (): void => {
+        if (ANNOUNCED_ROOTS.has(connectionCtx.root)) return
+        const webUrl = appRootUrl(connectionCtx, publicUrl)
+        const authenticatedUrl = connectionCtx.connection.authenticatedUrl(webUrl)
+        // Reuse the exact LAN snapshot provided to the /api trust fence.
+        const lanCandidate = runtime.lanAddresses[0]
+        const port = connectionCtx.webServer.port
+        const lanUrl = lanCandidate === undefined
+          ? undefined
+          : connectionCtx.connection.authenticatedUrl(`http://${lanCandidate}:${String(port)}`)
+        ANNOUNCED_ROOTS.add(connectionCtx.root)
+        if (config.printUrl) {
+          console.log(`dsh web: ${authenticatedUrl}${lanUrl === undefined ? '' : ` (LAN: ${lanUrl})`}`)
+        }
+        if (handoffBrowser) {
+          console.log('dsh web: opening the default browser; pass --no-open to disable')
+          void internals.openBrowser(authenticatedUrl).catch((error: unknown) => {
+            const reason = error instanceof Error ? error.message : String(error)
+            console.error(`web-app: could not open the default browser because ${reason}; use the dsh web URL printed at startup`)
+          })
+        }
       }
-      if (handoffBrowser) {
-        console.log('dsh web: opening the default browser; pass --no-open to disable')
-        void internals.openBrowser(webUrl).catch((error: unknown) => {
-          const reason = error instanceof Error ? error.message : String(error)
-          console.error(`web-app: could not open the default browser because ${reason}; visit ${webUrl} manually`)
+      // This row's own activation can precede a sibling failure. The app owns
+      // readiness by waiting for its Loader tree, or announces at once in a
+      // hand-built tree without Loader.
+      const settled = connectionCtx.get('loader')?.await()
+      if (settled === undefined) announceReady()
+      else {
+        void settled.then(async () => {
+          await auditStartupEntries(connectionCtx.root, 'dsh web', () => {})
+          // The tree can be disposed while the boot was in flight (early
+          // SIGTERM); a URL line or browser tab for a dead server would only
+          // mislead, and reading torn-down services would turn a clean shutdown
+          // into a crash.
+          if (connectionCtx.get('webServer') !== undefined
+            && connectionCtx.get('connection') !== undefined) announceReady()
+        }).catch(() => {
+          // Boot owns the failure diagnostic; readiness remains unpublished.
         })
       }
-    }
-    // This row's own activation can precede a sibling failure. The app owns
-    // readiness by waiting for its Loader tree, or announces at once in a
-    // hand-built context without Loader.
-    const settled = ctx.get('loader')?.await()
-    if (settled === undefined) announceReady()
-    else {
-      void settled.then(() => {
-        // The tree can be disposed while the boot was in flight (early
-        // SIGTERM); a URL line or browser tab for a dead server would only
-        // mislead, and reading the torn-down port would turn a clean shutdown
-        // into a crash.
-        if (ctx.get('webServer') !== undefined) announceReady()
-      // Loader reports a failed boot; this row only stays quiet.
-      }, () => {})
-    }
+    })
   }
 }

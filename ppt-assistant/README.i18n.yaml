@@ -1,6 +1,64 @@
-# Bilingual-pair consistency record (docs/i18n/README.md): the git blob hash of each
-# side as of the last confirmed-consistent state. Both languages carry equal authority;
-# after editing either side, bring the other along and re-record with:
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write ppt-assistant/README.md
-README.md: d0da3685cd645dd26617c306d88c82665cbb1a5c
-README.zh.md: c4ab9d30bde2ff819455d78756a5d950a50066ff
+/ppt-assistant-usage-guide:
+  en: 1c40bc43b3e2310e
+  zh: 266b145a56d053b5
+/ppt-assistant-usage-guide/directory-structure:
+  en: 7643416ab7e7e34f
+  zh: c5295d9510d025f5
+/ppt-assistant-usage-guide/user-templates-preferred-for-formal-delivery:
+  en: 856d091503d0b401
+  zh: d85578310e061f4c
+/ppt-assistant-usage-guide/default-generator:
+  en: 5df84c1539f08dfb
+  zh: 84fe87ef36966b37
+/ppt-assistant-usage-guide/desktop-compatible-pptfast-engine:
+  en: 43f773a4b69b3368
+  zh: 661e69f7b16fd75b
+/ppt-assistant-usage-guide/quick-start:
+  en: 11a2b55973bcb66a
+  zh: 7461ed20e94bca56
+/ppt-assistant-usage-guide/configuration-config-json:
+  en: 70e08942b3da8818
+  zh: 45dc04a50a8b8fe7
+/ppt-assistant-usage-guide/visual-conventions-template-design:
+  en: 7bf27ef2b02abc23
+  zh: 2ba1dcda5b5806f1
+/ppt-assistant-usage-guide/palettes-meta-palette-inspired-by-coolors-and-2025-colors:
+  en: 0814578f4fd0dc6f
+  zh: 99e22d7be10be7ef
+/ppt-assistant-usage-guide/content-specification-json:
+  en: b84fe7b8a7225355
+  zh: cc3f2a8c3da4ddc3
+/ppt-assistant-usage-guide/input-files-ppt-pdf-images:
+  en: 3de460ca9438f7a0
+  zh: 59b97aca5f16df58
+/ppt-assistant-usage-guide/images-online-search-and-filling:
+  en: 3bee75d5f26d413c
+  zh: f50d21cbb38d7a07
+/ppt-assistant-usage-guide/modify-an-existing-ppt:
+  en: 31bc0c9bee9d43a4
+  zh: fcc5931b1b43e4a9
+/ppt-assistant-usage-guide/checks-layout-consistency-and-obstruction:
+  en: 67d8753fd89c6c27
+  zh: 55542a196dcb0783
+/ppt-assistant-usage-guide/workflow-using-the-assistant:
+  en: 9fa90fef623f75db
+  zh: 1550ef0dfdf71157
+/ppt-assistant-usage-guide/complete-probation-presentations-from-reference-templates:
+  en: 62ad022c530d06a9
+  zh: 23476e603faffaa0
+/ppt-assistant-usage-guide/permission-instructions:
+  en: 662f7cb343cea2b1
+  zh: f97ed195dc416352
+/ppt-assistant-usage-guide/defaults:
+  en: b87deedbe1cfa92f
+  zh: 5310fd9a34196101
+/ppt-assistant-usage-guide/roadmap:
+  en: 642550c51a6db589
+  zh: 4cdebdf9c6e4c42d
+/ppt-assistant-usage-guide/native-charts-and-data-comparisons:
+  en: d00bcfc1cd13e36c
+  zh: 30d11e14e574386c

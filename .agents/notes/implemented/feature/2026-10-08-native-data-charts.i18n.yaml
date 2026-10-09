@@ -1,6 +1,22 @@
-# Bilingual-pair consistency record (docs/i18n/README.md): the git blob hash of each
-# side as of the last confirmed-consistent state. Both languages carry equal authority;
-# after editing either side, bring the other along and re-record with:
+# Bilingual-pair consistency record for 2026-10-08-native-data-charts.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/feature/2026-10-08-native-data-charts.md
-2026-10-08-native-data-charts.md: 5b6e6a63b30ad8f4665d8ea23c968cb19d4117a7
-2026-10-08-native-data-charts.zh.md: 878dae80bcf1c65a2bf77723b3e84a40c138c4b3
+/agent-note-editable-data-charts-in-the-ppt-assistant:
+  en: b84a04c610106d16
+  zh: 13c621335465adcc
+/agent-note-editable-data-charts-in-the-ppt-assistant/problem:
+  en: 6219f8b799a34711
+  zh: ef0c2af2c206115a
+/agent-note-editable-data-charts-in-the-ppt-assistant/decision:
+  en: 911601fdca80579c
+  zh: c10acb1d42d67554
+/agent-note-editable-data-charts-in-the-ppt-assistant/alternatives-considered:
+  en: c2212eed524314d5
+  zh: 0d961408e5585440
+/agent-note-editable-data-charts-in-the-ppt-assistant/verification:
+  en: 6fd03f1bc61c68b0
+  zh: 2bedfc50ce318be8
+/agent-note-editable-data-charts-in-the-ppt-assistant/consequences:
+  en: 1ef63654ccc67048
+  zh: 2db2183414c95c22

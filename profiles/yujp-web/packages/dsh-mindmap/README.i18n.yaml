@@ -1,6 +1,34 @@
-# Bilingual-pair consistency record (docs/i18n/README.md): the git blob hash of each
-# side as of the last confirmed-consistent state. Both languages carry equal authority;
-# after editing either side, bring the other along and re-record with:
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write profiles/yujp-web/packages/dsh-mindmap/README.md
-README.md: 1c1d76886eafb2c3facfea46651d9cb565ed5dc4
-README.zh.md: 792b1dbf87a1c8376daabc72b71fd6217d2c398d
+/dsh-mindmap-mind-map-mode:
+  en: a172877d9bafb69a
+  zh: c75e1f5314d8b109
+/dsh-mindmap-mind-map-mode/output-previews-generated-in-one-step:
+  en: 1ef1ece56374840f
+  zh: efda6596f15861b1
+/dsh-mindmap-mind-map-mode/output-previews-generated-in-one-step/four-mind-map-styles-choose-mind-map-mode-for-a-new-session-then-select-its-default-style-below:
+  en: aebee808b3f94bfe
+  zh: 87229be23ab82707
+/dsh-mindmap-mind-map-mode/installation:
+  en: cfed5ab9e06a7c2b
+  zh: 170b89dc4caa8dc5
+/dsh-mindmap-mind-map-mode/usage:
+  en: 63bfd61a0561b255
+  zh: 23816953c89cecf5
+/dsh-mindmap-mind-map-mode/usage/method-one-ask-the-agent-to-generate-recommended:
+  en: 8e1dd2b708646eea
+  zh: 6ce3699b4f23a5bf
+/dsh-mindmap-mind-map-mode/usage/preview-the-result-dsh-ide:
+  en: 4da93ffedb8f3794
+  zh: 81bcadad45b4d389
+/dsh-mindmap-mind-map-mode/usage/mindmapdoc-json-structure:
+  en: 3c4093338fdd8a82
+  zh: 9a77c6236a86f376
+/dsh-mindmap-mind-map-mode/directory-structure:
+  en: 7078b6e6d6cee8b9
+  zh: c3e32d81cc330c39
+/dsh-mindmap-mind-map-mode/limitations:
+  en: 8e2126b8c667fa71
+  zh: 6cc1b37703dc224e

@@ -1,6 +1,22 @@
-# Bilingual-pair consistency record (docs/i18n/README.md): the git blob hash of each
-# side as of the last confirmed-consistent state. Both languages carry equal authority;
-# after editing either side, bring the other along and re-record with:
+# Bilingual-pair consistency record for 2026-10-08-native-probation-reference-decks.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/feature/2026-10-08-native-probation-reference-decks.md
-2026-10-08-native-probation-reference-decks.md: 8b9ffb5ba34f60972786aad3f455f964a256baa6
-2026-10-08-native-probation-reference-decks.zh.md: eac91a057622b470607fd75c5fe2752d6562ce8e
+/agent-note-native-probation-decks-from-visual-references:
+  en: 358781c25fef089c
+  zh: dd5ecfdc9b6e1f1b
+/agent-note-native-probation-decks-from-visual-references/problem:
+  en: 2b5d6fefd881a92b
+  zh: db8b053fa4e01eb0
+/agent-note-native-probation-decks-from-visual-references/decision:
+  en: 4ba5de92ff00c9a7
+  zh: ee9a10e1b22cb96f
+/agent-note-native-probation-decks-from-visual-references/alternatives-considered:
+  en: 6362ff10f1adae2a
+  zh: 5e2fb2efda39ecea
+/agent-note-native-probation-decks-from-visual-references/verification:
+  en: 85e91569d2500a8a
+  zh: 217994c6ee25635c
+/agent-note-native-probation-decks-from-visual-references/consequences:
+  en: 5d353d213d2c7a4e
+  zh: 5823d43ab2ef3306
