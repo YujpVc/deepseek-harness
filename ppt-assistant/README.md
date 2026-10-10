@@ -23,6 +23,9 @@ ppt-assistant/
 ├── check.py                 # 检查器：排版一致性 + 文字遮挡/溢出
 ├── quality_check.py         # 交付门槛：视觉元素、版式变化、16:9 与文字堆砌检测
 ├── render_ppt.py            # 用户态渲染：soffice → PDF → PNG
+├── slide_ops.py             # 跨 PPT 复制/追加可编辑页面，保留媒体与备注
+├── slide_patch.py           # 指定形状的图文对齐修复，仅更新选定页面 XML
+├── asset_catalog.py         # 素材清单、SHA256 校验和来源文件盘点
 ├── config.json              # 配置：template + logo + pexels_key(留空,建议用环境变量)
 ├── analyze_template.py      # 模板拆解工具（分析配色/字体/结构，一般不用跑）
 ├── sample_work_report.json  # 示例：工作述职内容规格
@@ -63,6 +66,88 @@ python3 render_ppt.py output/交付.pptx --outdir output/render
 ```
 
 `--template` rejects duplicate or missing template pages, nonexistent target shapes and invalid assets. The quality check with `--template` also compares page counts, layouts, shape types and picture counts page by page. Content not listed in `text`/`images` remains unchanged, allowing an established visual design to be inherited before replacing its content.
+
+## Existing-deck delivery tools
+
+Submitted decks can receive a Markdown script and identical slide notes while preserving page XML, media, backgrounds, charts and formula vectors. GIF and formula tools handle authorized page changes. Python dependencies are in `requirements.txt`; video conversion also needs `ffmpeg`/`ffprobe`, and sync needs `ssh`, `rsync` and remote `sha256sum`.
+
+```bash
+python3 speaker_notes.py export source.pptx script.md
+# Complete the draft from actual slide evidence before embedding.
+python3 speaker_notes.py embed source.pptx script.md delivery.pptx
+python3 delivery.py audit delivery.pptx --baseline source.pptx --script script.md --gif-pages 8 15 --report acceptance.json
+```
+
+The Markdown requires exactly one nonempty `## Pn｜Title (20 seconds)` section per slide in presentation order; `（20 秒）` also works. Other level-two sections remain Markdown-only, and HTML comments are excluded from notes. Export copies existing notes and marks missing scripts as TODO; the assistant writes final prose from verified evidence. Embed rejects duplicate, missing, empty or unfinished sections before touching the output. It preserves all non-notes ZIP parts, allows required notes declarations, reads each note back and atomically replaces the output. It supports any page count, reordered slides, decks without notes and explicitly authorized in-place updates. Keep the original baseline for preservation checks.
+
+Write formal, conclusion-first prose around problems, personal contributions, results and reusable methods, configurations or data. Retain units, evidence limits and team ownership. Allocate per-page seconds with room for pauses and page changes, and provide a shorter route; the budget is planned time, not measured speech duration.
+
+### Complete video animations
+
+```bash
+python3 video_gif.py convert source.mp4 demo.gif --target-seconds 10
+python3 video_gif.py insert source.pptx demo.gif animated.pptx --page 8 --shape "Picture 9" --speed 10
+python3 delivery.py audit animated.pptx --gif-pages 8 --report animation.json
+```
+
+Conversion decodes the complete first video stream without trimming. Automatic selection minimizes duration error, preferring multiples of five when the ideal speed reaches five; shorter videos use integer speeds including 1X. Explicit `--speed` overrides selection. Output controls are `--fps`, `--size`, `--speed-multiple` and `--timeout`; actual duration stays in JSON. Insert using the reported speed. Insertion replaces one named picture, fits without stretching, adds a native editable top-left `nX` marker and verifies GIF bytes and multiple frames after saving. Marker size and colors are configurable. This python-pptx save is for authorized page changes, not notes-only updates. PDF and editing views show still frames; inspect slideshow playback separately.
+
+### Typeset vector formulas
+
+Supply a JSON list with slide numbers, MathText expressions and inch-based boxes:
+
+```json
+[{"page": 19, "expression": "$T_{\\Delta}=T_t^{-1}T_{t+1}$", "box_inches": [1, 4, 6, 1], "color": "202020", "name": "Relative pose"}]
+```
+
+```bash
+python3 formula.py source.pptx formulas.json formulas.pptx
+```
+
+Glyph curves and fraction rules become native PowerPoint freeform geometry. Supported syntax is Matplotlib MathText, not full LaTeX; unsupported syntax fails before saving. The result is editable vectors, not an equation-editor object. Mathematical definitions, coordinate frames, units and temporal indexing require the specified source reference. Render authorized formula changes for inspection.
+
+### Verified file synchronization
+
+```bash
+python3 delivery.py sync /local/delivery --files delivery.pptx script.md acceptance.json --host desktop --destination /remote/delivery
+python3 -m unittest test_delivery -v
+```
+
+Sync requires the user's request and copies only selected regular files relative to the root. It creates the destination, runs checksum-based rsync without deletion and compares remote SHA256 for every file. Authentication uses the host's SSH configuration, agent or terminal-supported authentication; passwords are not parameters or stored artifacts. A transfer failure or hash mismatch prevents a success report. Outside-root files, duplicate selections, symlinks and newline filenames are rejected. Hosts are SSH aliases or user@host; destinations are absolute POSIX paths. Keep stable current filenames and archive versions or separate reference templates only within the authorized scope.
+
+Audit compares all parts outside notes and their declarations, checks complete script/notes equality and requires animated media on requested pages. It does not assess layout or slideshow playback. After page changes, run `quality_check.py`, `check.py` and `render_ppt.py`, then inspect alignment, stacked text, formula framing and style. Sync tests mock the transport and do not establish connectivity to a user's host.
+
+### Reuse editable slides
+
+```bash
+python3 slide_ops.py reference.pptx target.pptx merged.pptx --pages 3 5 --position 2
+```
+
+`slide_ops.py` copies selected pages into a target deck with matching slide dimensions, using the target theme and layouts. Shape XML, editable charts, external hyperlinks, media and speaker-note text are retained; imported parts receive unique filenames and remapped relationship ids. Internal slide navigation is rejected because it requires a page mapping. Theme inheritance can change the copied page's appearance. The output is atomic and both inputs remain unchanged. Update the directory, chapter navigation, page numbers and script when adding sections, then run structure and render checks.
+
+### Targeted alignment repairs
+
+```bash
+python3 slide_patch.py inspect source.pptx > shapes.json
+python3 slide_patch.py apply source.pptx alignment.json aligned.pptx
+```
+
+Use the inspected top-level shape ids to write a nonempty JSON list:
+
+```json
+[{"page": 3, "shape_id": 12, "box_inches": [1, 2, 5, 1], "text_frame": {"word_wrap": true, "vertical_anchor": "top", "margin_inches": [0, 0, 0, 0], "line_spacing": 1.2, "space_before_pt": 0, "space_after_pt": 0, "alignment": "left"}}]
+```
+
+Every operation specifies geometry, text-frame settings or both. Margins follow left/top/right/bottom order; line spacing is a multiplier. Text-frame patches disable automatic resizing and preserve text, runs and fonts. Only selected slide XML changes; other pages, media, relationships, backgrounds and notes retain identical bytes. Invalid ids, settings, duplicate operations and out-of-bounds boxes fail before replacing the output. This tool applies explicit repairs; it does not infer alignment or edit text inside groups or table cells. Review rendered results for stacking, wrapping and image proportions.
+
+### Asset and evidence inventory
+
+```bash
+python3 asset_catalog.py scan ./project-assets --output ./project-assets/assets.json --markdown ./project-assets/assets.md
+python3 asset_catalog.py verify ./project-assets ./project-assets/assets.json --strict
+```
+
+The catalog records stable relative paths, file kind, MIME type, byte size and SHA256. It skips hidden files and symlinks and supports strict detection of added or missing files. Keep source assets separate from derived previews. Choose an asset-only directory: the catalog does not detect credentials or redact sensitive filenames. Pair claims with source files and state measurement limits; candidate counts, filtered candidates, action responses and successful grasps are different evidence types. Joint configuration changes cannot establish the contribution of one optimization, and geometric previews do not prove safe robot execution.
 
 ## Default generator
 

@@ -23,6 +23,9 @@ ppt-assistant/
 ├── check.py                 # 检查器：排版一致性 + 文字遮挡/溢出
 ├── quality_check.py         # 交付门槛：视觉元素、版式变化、16:9 与文字堆砌检测
 ├── render_ppt.py            # 用户态渲染：soffice → PDF → PNG
+├── slide_ops.py             # 跨 PPT 复制/追加可编辑页面，保留媒体与备注
+├── slide_patch.py           # 指定形状的图文对齐修复，仅更新选定页面 XML
+├── asset_catalog.py         # 素材清单、SHA256 校验和来源文件盘点
 ├── config.json              # 配置：template + logo + pexels_key(留空,建议用环境变量)
 ├── analyze_template.py      # 模板拆解工具（分析配色/字体/结构，一般不用跑）
 ├── sample_work_report.json  # 示例：工作述职内容规格
@@ -63,6 +66,88 @@ python3 render_ppt.py output/交付.pptx --outdir output/render
 ```
 
 `--template` 模式会拒绝重复或缺失的模板页、不存在的目标形状和无效素材；带 `--template` 的质量检查还会逐页比较页数、布局、形状类型和图片数量。模板页内未列入 `text`/`images` 的内容保持不变，适合先继承成熟视觉稿，再逐步替换内容。
+
+## 现有 PPT 的交付工具
+
+已提交的 PPT 可以补充 Markdown 讲稿和一致的逐页备注，同时保留页面 XML、媒体、背景、图表及公式矢量。GIF 和公式工具用于已授权的页面修改。Python 依赖见 `requirements.txt`；视频转换另需 `ffmpeg`/`ffprobe`，同步需要 `ssh`、`rsync` 及远端 `sha256sum`。
+
+```bash
+python3 speaker_notes.py export source.pptx script.md
+# Complete the draft from actual slide evidence before embedding.
+python3 speaker_notes.py embed source.pptx script.md delivery.pptx
+python3 delivery.py audit delivery.pptx --baseline source.pptx --script script.md --gif-pages 8 15 --report acceptance.json
+```
+
+Markdown 必须按真实页序为每页提供一个非空 `## Pn｜Title (20 seconds)` 段落，也支持 `（20 秒）`。其他二级章节仅保留在 Markdown，HTML 注释不进入备注。导出复制已有备注，并将缺失讲稿标为 TODO；最终正文由助手依据已核对的事实撰写。写入前拒绝重复、漏页、空白和未完成段落。工具保留所有非备注 ZIP 部件，仅允许必要的备注声明，逐页读回核对后原子替换输出。支持任意页数、重排页面、无备注模板和明确授权的原地更新；保真检查须保留原始基准。
+
+讲稿正式、结论先行，围绕问题、个人贡献、结果和可复用方法、配置或数据展开，保留单位、证据边界和团队归属。逐页秒数为停顿和翻页留余量，并提供压缩方案；预算属于计划时间，不代表实测演讲时长。
+
+### 完整视频动画
+
+```bash
+python3 video_gif.py convert source.mp4 demo.gif --target-seconds 10
+python3 video_gif.py insert source.pptx demo.gif animated.pptx --page 8 --shape "Picture 9" --speed 10
+python3 delivery.py audit animated.pptx --gif-pages 8 --report animation.json
+```
+
+转换完整解码第一个视频流，不截取片段。自动选择以接近目标时长为准，理想倍速达到五时优先选五的倍数；短视频使用包括 1X 在内的整数倍速。显式 `--speed` 覆盖自动选择。`--fps`、`--size`、`--speed-multiple` 和 `--timeout` 控制输出，实际时长仅进入 JSON。插入使用报告中的倍速，按名称替换唯一图片，保持比例，添加原生可编辑的左上角 `nX` 标记，保存后验证 GIF 字节和多帧属性。标记字号与配色可配置。此 python-pptx 保存流程仅用于已授权的页面修改，不能用于只改备注。PDF 和编辑视图显示静帧；放映动画须另行检查。
+
+### 排版后的矢量公式
+
+准备 JSON 列表，包含页码、MathText 表达式和以英寸为单位的位置框：
+
+```json
+[{"page": 19, "expression": "$T_{\\Delta}=T_t^{-1}T_{t+1}$", "box_inches": [1, 4, 6, 1], "color": "202020", "name": "Relative pose"}]
+```
+
+```bash
+python3 formula.py source.pptx formulas.json formulas.pptx
+```
+
+字形曲线和分数线转换为 PowerPoint 原生自由形状。支持 Matplotlib MathText，不支持完整 LaTeX；无法解析的语法在保存前失败。结果是可编辑矢量，不是公式编辑器的语义对象。数学定义、坐标系、单位和时间索引须核对指定参考。已授权的公式修改需渲染检查。
+
+### 校验后的文件同步
+
+```bash
+python3 delivery.py sync /local/delivery --files delivery.pptx script.md acceptance.json --host desktop --destination /remote/delivery
+python3 -m unittest test_delivery -v
+```
+
+同步以用户要求为前提，只复制根目录下显式选定的普通文件。工具创建目标目录，以校验和方式运行 rsync，不删除远端内容，再逐文件比较远端 SHA256。认证使用主机 SSH 配置、agent 或终端支持的认证方式，密码不作为参数或持久化文件。传输失败或哈希不一致时不报告成功。拒绝根目录之外的文件、重复选择、符号链接和包含换行的文件名。主机使用 SSH 别名或 user@host，目标为 POSIX 绝对路径。当前文件采用稳定名称；旧版归档或模板分离遵循授权范围。
+
+验收比较备注和必要声明之外的全部部件，核对讲稿与备注逐页一致，并要求指定页含动画媒体；不判断布局或放映效果。页面修改后运行 `quality_check.py`、`check.py` 和 `render_ppt.py`，检查对齐、文字堆叠、公式边界和风格。同步测试模拟传输，不代表用户主机已经连通。
+
+### 复用可编辑页面
+
+```bash
+python3 slide_ops.py reference.pptx target.pptx merged.pptx --pages 3 5 --position 2
+```
+
+`slide_ops.py` 将指定页面复制到尺寸相同的目标 PPT，使用目标主题和版式。它保留形状 XML、可编辑图表、外部超链接、媒体和演讲者备注文本，为导入部件分配唯一文件名并重映射关系 ID。内部页面跳转需要页码映射，因此工具拒绝导入。主题继承可能改变复制页面的外观。输出采用原子写入，两份输入文件保持不变。新增章节后更新目录、章节导航、页码和讲稿，再运行结构和渲染检查。
+
+### 定点图文对齐修复
+
+```bash
+python3 slide_patch.py inspect source.pptx > shapes.json
+python3 slide_patch.py apply source.pptx alignment.json aligned.pptx
+```
+
+使用检查结果中的顶层形状 ID 编写非空 JSON 列表：
+
+```json
+[{"page": 3, "shape_id": 12, "box_inches": [1, 2, 5, 1], "text_frame": {"word_wrap": true, "vertical_anchor": "top", "margin_inches": [0, 0, 0, 0], "line_spacing": 1.2, "space_before_pt": 0, "space_after_pt": 0, "alignment": "left"}}]
+```
+
+每条操作指定几何位置、文本框设置或两者。内边距按左/上/右/下排列，行距为倍数。文本框修复关闭自动缩放，保留文字、文本片段及字体。仅选定页面 XML 改变，其他页面、媒体、关系、背景和备注字节一致。无效 ID、设置、重复操作或越界框在替换输出前失败。工具执行明确修复，不自动推断对齐，也不编辑组合内的文字或表格单元格。渲染后检查堆叠、换行和图片比例。
+
+### 素材与证据清单
+
+```bash
+python3 asset_catalog.py scan ./project-assets --output ./project-assets/assets.json --markdown ./project-assets/assets.md
+python3 asset_catalog.py verify ./project-assets ./project-assets/assets.json --strict
+```
+
+清单记录稳定的相对路径、文件类型、MIME 类型、字节数和 SHA256。工具跳过隐藏文件和符号链接，严格模式可以发现新增或缺失文件。原始素材与派生预览应分开保存。选择只含素材的目录：工具不检测凭据，也不脱敏文件名。每条结论关联来源并注明测量限制；候选数量、筛选通过候选、动作返回和实际抓取成功属于不同证据。联合配置变化不能证明某项优化的独立贡献，几何预览不能证明机器人实际执行安全。
 
 ## 默认生成引擎
 

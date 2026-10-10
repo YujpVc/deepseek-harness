@@ -221,6 +221,11 @@ it('mounts the fork PPT preset on the updated Web host', async () => {
     const prompt = await ctx.systemPrompt.assemble({ scope: handle.agent })
     expect(prompt.sections.some(section => section.text.includes('DATA CHARTS'))).toBe(true)
     expect(prompt.sections.some(section => section.text.includes('VISUAL-REFERENCE EXPANSION'))).toBe(true)
+    const deliverySection = prompt.sections.find(section => section.text.includes('PRESERVE SUBMITTED DECKS AND SPEAKER SCRIPTS'))
+    expect(deliverySection).toBeDefined()
+    const deliveryText = deliverySection!.text
+    await expect(deliveryText.slice(deliveryText.indexOf('PRESERVE SUBMITTED DECKS AND SPEAKER SCRIPTS'), deliveryText.indexOf('SELF-CHECK')).trimEnd())
+      .toMatchFileSnapshot('expected/ppt-delivery-prompt.txt')
   } finally {
     await handle?.dispose()
     await unregister()

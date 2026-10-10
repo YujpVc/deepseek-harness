@@ -1,0 +1,22 @@
+PRESERVE SUBMITTED DECKS AND SPEAKER SCRIPTS
+- 用户已提交或仅要求备注时，页面、背景、母版、媒体和公式保持原样，不运行 restyle 或生成器。speaker_notes.py embed 只修改 ZIP/XML 备注并校验非备注部件；以 delivery.py audit --baseline 为交付检查，不为了新建 deck 的密度门槛重排已提交页面。
+- 按最终 PPT 真实页序写 Markdown，每页用 `## P1｜标题（20 秒）`；正文同时写入备注。speaker_notes.py export 只导出已有备注和页面依据，缺稿标 TODO，不生成事实。讲稿正式、主线清楚，围绕问题、个人贡献、结果和可复用沉淀组织，保留证据边界和团队归属；逐页预算为翻页/停顿留余量，并给压缩方案，预算不等于实测演讲时长。
+- `python3 <engine-root>/speaker_notes.py embed <source.pptx> <script.md> <output.pptx>`；再用 `python3 <engine-root>/delivery.py audit <output.pptx> --baseline <source.pptx> --script <script.md> --gif-pages <动画页码> --report <验收.json>`。默认新输出，只有授权才原地更新，保留源基准。
+
+COMPLETE VIDEO GIFS AND TYPESET FORMULAS
+- video_gif.py convert 完整解码视频，用倍速接近 --target-seconds 10，不截取开头十秒。自动选整数倍速，理想倍速达到五时优先选五的倍数，短视频可用 1X/2X/3X，显式 --speed 优先。时长只进入验收 JSON，不放观众页。
+- `video_gif.py insert <source.pptx> <video.gif> <output.pptx> --page <n> --shape <图片名> --speed <n>` 保持比例，在 GIF 左上角添加可编辑 nX 标记，支持字号/配色。此路径保存页面，仅用于授权的页面修改，不能用于只改备注；校验嵌入 GIF 字节和每个预期页的多帧属性，放映动画另行检查，编辑/PDF 静帧不能证明动画是否可用。
+- formula.py 按 JSON 的 MathText expression 和 box_inches 生成原生可编辑矢量，禁止正文直接显示未渲染 LaTeX/下划线公式。支持 MathText，不是完整 LaTeX；排版不验证数学定义，先核对指定参考代码、单位、坐标系和时序。
+- 新增一级专项须同步目录、章节导航、页码和讲稿；授权页面修改后运行结构/几何检查，再渲染逐页检查对齐、堆叠、公式和风格。保留真实素材及可编辑结构，禁止整页图片替代。
+
+VERIFIED DELIVERY AND OPTIONAL SSH SYNC
+- 当前交付使用稳定名称，参考模板按用途分开，历史版本按日期/阶段归档；移动/删除遵循用户授权，不自行删除旧素材，不堆叠“最终版”后缀。
+- 仅用户要求同步时运行 `delivery.py sync <本地目录> --files <相对路径...> --host <SSH别名> --destination <远端绝对目录>`；只同步指定文件，不删除远端内容，逐文件核对远端 SHA256。认证用主机 SSH 配置、agent 或终端支持的认证方式，不在脚本、规格、日志、验收记录保存密码，不默认个人主机/路径。
+- notes-only 验收核对内容部件和讲稿；页面修改另需 quality_check/check/render。技术验收不代替视觉或动画放映检查，未执行的检查明确说明。工具字段与限制见 <engine-root>/README.md 的 Existing-deck delivery tools。
+
+REUSABLE SOURCE LIBRARY AND EVIDENCE
+- 先盘点当前交付、历史版本、讲稿、原始媒体、原子数据、证据索引、工具和参考模板。按用户指定确认可编辑结构底稿、版式参考和封面/背景参考，不能只按版本号选最新版，不能把整页图片版当作结构底稿。个人姓名、密码、业务资料和绝对路径不写入通用引擎。
+- 需要复用已验证页面时，运行 `slide_ops.py <reference.pptx> <target.pptx> <output.pptx> --pages <页码...> [--position <零基位置>]`。页面尺寸须相同，使用目标主题和版式，保留可编辑形状、图表、外部超链接、媒体和备注文本，处理重名部件；内部页面跳转会被拒绝。源文件与目标文件不原地修改，主题继承可能改变外观，输出仍需结构检查和渲染检查。
+- 只需修复图文对齐时，先用 `slide_patch.py inspect <source.pptx>` 获取顶层 shape_id，再按 README 的 JSON 设置位置、换行、行距、内边距和对齐，用 `slide_patch.py apply <source.pptx> <alignment.json> <output.pptx>` 仅更新选定页面 XML，保留其他部件字节。不要猜形状 ID，不通过缩小字体掩盖堆叠，不自动重排整份 PPT。
+- 需要整理素材时，运行 `asset_catalog.py scan <素材目录> --output <清单.json> --markdown <清单.md>`，交付前用 `asset_catalog.py verify <素材目录> <清单.json> --strict` 检查文件增删和 SHA256。工具跳过隐藏文件和符号链接，使用相对路径，但不自动检测凭据或脱敏文件名；先选择只含素材的目录。
+- 每条观众页结论关联可追溯来源并注明口径；候选数量、筛选通过数量、动作返回和实际成功属于不同证据。联合配置变化不能归因单项优化，合成夹爪几何不能证明实抓安全。原始素材与派生预览分目录，保留可重新排版的原子数据。

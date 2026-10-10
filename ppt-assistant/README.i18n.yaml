@@ -11,6 +11,27 @@
 /ppt-assistant-usage-guide/user-templates-preferred-for-formal-delivery:
   en: 856d091503d0b401
   zh: d85578310e061f4c
+/ppt-assistant-usage-guide/existing-deck-delivery-tools:
+  en: 31aaea56b059df61
+  zh: cd7c9e72bac8777d
+/ppt-assistant-usage-guide/existing-deck-delivery-tools/complete-video-animations:
+  en: 61dd782053b37e0a
+  zh: d65ba1f8e7c9e84d
+/ppt-assistant-usage-guide/existing-deck-delivery-tools/typeset-vector-formulas:
+  en: 35ff0e4b3152b190
+  zh: 09400c964164a8ea
+/ppt-assistant-usage-guide/existing-deck-delivery-tools/verified-file-synchronization:
+  en: 68bf3a0daa29414a
+  zh: 292c817a75b34b2a
+/ppt-assistant-usage-guide/existing-deck-delivery-tools/reuse-editable-slides:
+  en: 9b8add4b07813a67
+  zh: f2e827bc6329c081
+/ppt-assistant-usage-guide/existing-deck-delivery-tools/targeted-alignment-repairs:
+  en: d82fa77fc0fec1b3
+  zh: 004319a41267b102
+/ppt-assistant-usage-guide/existing-deck-delivery-tools/asset-and-evidence-inventory:
+  en: 95236bb184d983ea
+  zh: 85f6d1b32b0641b0
 /ppt-assistant-usage-guide/default-generator:
   en: 5df84c1539f08dfb
   zh: 84fe87ef36966b37
